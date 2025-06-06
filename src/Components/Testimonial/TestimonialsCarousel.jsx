@@ -162,21 +162,23 @@ const TestimonialsCarousel = () => {
   };
 
   return (
+    <section className="section_bg_img"> 
     <Container className="">
-      <div className="cs_height_80 cs_height_lg_80"></div>
+      <div className="cs_height_48 cs_height_lg_48"></div>
       <div className="text-center mb-4">
         <SectionTitle2
           Title="Testimonials"
           SubTitle=" What our customers say"
         />
+              <div className="cs_height_20 cs_height_lg_20"></div>
       </div>
       <div className="row d-flex justify-content-center">
         <div className="col-lg-10 col-sm-12">
           <Slider {...settings}>
             {testimonials.map((t, i) => (
-              <div key={i}>
-                <Card className="testimonial-card p-3 mx-3">
-                  <div className="text-center d-flex justify-content-center">
+              <div key={i} className="mb-4">
+                <Card className="testimonial-card p-3 mx-3 position-relative">
+                  <div className="text-center d-flex justify-content-center position-absolute top-0 start-50 translate-middle-x">
                     <img
                       src={t.image}
                       alt={t.name}
@@ -184,7 +186,7 @@ const TestimonialsCarousel = () => {
                       style={{width: 50, height: 50}}
                     />
                   </div>
-                  <Card.Body className="text-center">
+                  <Card.Body className="text-center  testimonial-card-body">
                     <Card.Text className="cs_fs_16 mb-2">{t.text}</Card.Text>
                     <Card.Title className="fw-bold mb-1">{t.name}</Card.Title>
                     <div className="text-warning">
@@ -204,6 +206,7 @@ const TestimonialsCarousel = () => {
         <div className="cs_height_80 cs_height_lg_80"></div>
       </div>
     </Container>
+    </section>
   );
 };
 

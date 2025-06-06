@@ -7,21 +7,26 @@ import ProcessEditing from "../Components/SectionDetails/ProcessEditing";
 import TestimonialsCarousel from "../Components/Testimonial/TestimonialsCarousel";
 import ExpertEditors from "../Components/SectionDetails/ExpertEditors ";
 import FaqSection from "../Components/SectionDetails/FaqSection";
+import { homeimage } from "../assets/assets.js";
+import ScrollingGallery from "../Components/SectionDetails/ScrollingGallery.jsx";
+
 
 const Home2 = () => {
   return (
     <div className="homepage2">
       <HeroBanner2
-        bgimg="/assets/img/hero_bg-1.webp"
+        bgimg={homeimage.banner1}
         // subtitle="Battery Check & Replace"
         title="Author Services"
         conetnt="Helping researchers achieve global recognition through professional editing, publication guidance, and practical support for impactful results."
         btnname="Read more"
-        img1="/assets/img/hero-img.png"
+        img1={homeimage.hero1}
         btnurl="/"
         videoname="Watch Our Story"></HeroBanner2>
-
-      <div className="container">
+           <div>
+            <ScrollingGallery/>
+           </div>
+      <div className="section-bg-color overflow-hidden">
         <ResearchJourney1 />
       </div>
       <AuthorServices />
@@ -31,6 +36,7 @@ const Home2 = () => {
       <TestimonialsCarousel />
       <ExpertEditors />
       <FaqSection />
+  
 
       {/* <About2
         img1="/assets/img/about_img_4.jpg"

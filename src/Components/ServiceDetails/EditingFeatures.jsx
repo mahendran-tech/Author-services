@@ -9,6 +9,7 @@ const features = [
     image: "assets/img/fr-4.png",
     bgClass: "bg-light-teal",
     reverse: true,
+    margintop:"-30%",
   },
 ];
 const EditingFeatures = () => {

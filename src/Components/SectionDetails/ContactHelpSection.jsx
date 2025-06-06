@@ -29,7 +29,7 @@ const ContactHelpSection = () => {
               <p className="mb-0">Let us help you...</p>
             </Col>
 
-            <Col xs={12} md={3}>
+            <Col xs={12} md={4}>
               <ContactCard
                 icon={<FiPhone size={24} />}
                 text="Speak to a client manager. Call us on"
@@ -38,7 +38,7 @@ const ContactHelpSection = () => {
               />
             </Col>
 
-            <Col xs={12} md={3}>
+            <Col xs={12} md={4}>
               <ContactCard
                 icon={<FiMail size={24} />}
                 text="Send in your queries to"

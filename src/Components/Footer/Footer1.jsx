@@ -1,6 +1,7 @@
 import {Link} from "react-router-dom";
 import {FiPhoneCall} from "react-icons/fi";
 import {MdOutlineAttachEmail} from "react-icons/md";
+import { comman } from "../../assets/assets";
 
 const Footer1 = () => {
   return (
@@ -14,7 +15,7 @@ const Footer1 = () => {
               <div className="cs_footer_widget">
                 <div className="cs_text_widget">
                   <img
-                    src="/assets/img/logo.svg"
+                    src={comman.logo}
                     alt="Logo"
                     className="wow zoomIn"
                     style={{

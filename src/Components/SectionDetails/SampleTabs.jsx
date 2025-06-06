@@ -3,6 +3,7 @@
 import React, {useState} from "react";
 import {Tab, Nav, Row, Col, Button} from "react-bootstrap";
 import {BsUiChecksGrid} from "react-icons/bs";
+import SectionTitle from "../Common/SectionTitle";
 
 const tabData = [
   {
@@ -120,20 +121,27 @@ const tabData = [
   },
 ];
 
-const SampleTabs = () => {
+const SampleTabs = ({isTitle=false,subtitle,title,isbutton=false}) => {
   const [activeKey, setActiveKey] = useState("math");
 
   return (
-    <div className="container py-5">
-      <h2 className="text-center fw-bold mb-4">
+    <div className="container ">
+      <div className="cs_height_80 cs_height_lg_80" />
+      {/* <h2 className="text-center fw-bold mb-4">
         Core Editing <span className="text-primary">Samples</span>
-      </h2>
+      </h2> */}
+      <div>
+        { isTitle && <SectionTitle Title={title} SubTitle={subtitle} />}
+        {!isTitle && <SectionTitle Title={"Core Editing"} SubTitle={"Samples"} />}
+        {/* <SectionTitle Title={"Core Editing"} SubTitle={"Samples"} /> */}
+        <div className="cs_height_30 cs_height_lg_30" />
+      </div>
 
       <Tab.Container activeKey={activeKey} onSelect={(k) => setActiveKey(k)}>
         <Row>
           <Nav
             variant="tabs"
-            className="nav-tab-custom justify-content-center gap-lg-5 gap-2 flex-wrap">
+            className="nav-tab-custom justify-content-center gap-lg-3 gap-2 flex-wrap">
             {tabData.map((tab) => (
               <Nav.Item key={tab.eventKey} className="flex-fill text-center ">
                 <Nav.Link
@@ -177,48 +185,17 @@ const SampleTabs = () => {
                       </div>
                     </Col>
                   </Row>
-                  {/* <Row className="gx-4">
-                    <Col md={8}>
-                      <div
-                        className="bg-white p-0  mb-2"
-                        style={{fontSize: "14px"}}>
-    
-                        <img src="assets/img/text.png" alt="" />
-                      </div>
-                    </Col>
-                    <Col md={4}>
-                      <div className="bg-white p-3 shadow-sm rounded mb-3">
-                        <strong className="text-muted d-block mb-2">
-                          Commented:
-                        </strong>
-                        <p style={{fontSize: "14px"}}>
-                          Lorem Ipsum is simply dummy text of the printing...
-                        </p>
-                      </div>
-                      <div className="bg-white p-3 shadow-sm rounded mb-3">
-                        <strong className="text-muted d-block mb-2">
-                          Commented:
-                        </strong>
-                        <p style={{fontSize: "14px"}}>
-                          Lorem Ipsum is simply dummy text of the printing...
-                        </p>
-                      </div>
-                      <div className="bg-white p-3 shadow-sm rounded">
-                        <strong className="text-danger d-block mb-2">
-                          Deleted:
-                        </strong>
-                        <p style={{fontSize: "14px"}}>
-                          Lorem Ipsum is simply dummy text of the printing...
-                        </p>
-                      </div>
-                    </Col>
-                  </Row> */}
+
                 </Tab.Pane>
               ))}
             </Tab.Content>
           </Col>
         </Row>
       </Tab.Container>
+{isbutton && (
+  <div className="mt-5 justify-content-center d-flex"><button type="button" className="cs_btn cs_style_1 btn btn-primary">Place an Order <span>→</span></button></div>
+)}
+      <div className="cs_height_80 cs_height_lg_80" />
     </div>
   );
 };

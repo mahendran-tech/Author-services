@@ -83,8 +83,8 @@ const ResearchJourney = () => {
 
         {/* Right content area */}
         <div className="col-md-9">
-          <Card className="shadow rounded-4">
-            <Card.Body className="p-4">
+          <Card className="shadow  rounded-4 position-relative overflow-hidden">
+            <Card.Body className="p-4 bg-light-icon">
               {active.subTabs && (
                 <div className="d-flex gap-3 mb-4 flex-wrap">
                   {active.subTabs.map((subTab) => (

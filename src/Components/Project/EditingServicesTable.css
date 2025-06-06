@@ -1,0 +1,154 @@
+.editing-table {
+  width: 100%;
+  border-collapse: collapse; /* ✅ important: avoids 2px borders */
+  font-size: 0.95rem;
+}
+
+/* Every cell has a 1px border */
+.editing-table th,
+.editing-table td {
+  border: 1px solid #E6E9F5;
+  padding: 1rem;
+  vertical-align: top;
+}
+
+/* Alternate row background */
+.editing-table tbody tr:nth-child(odd) td {
+  background-color: #fff;
+}
+
+.editing-table tbody tr:nth-child(even) td {
+  background-color: #f7f7f7;
+}
+
+/* Cell content: tick + text */
+.cell-inner {
+  display: flex;
+  align-items: flex-start;
+}
+
+.check-icon {
+  color: green;
+  font-size: 1.1rem;
+  margin-right: 8px;
+  padding-top: 2px;
+  flex-shrink: 0;
+}
+
+.cell-text {
+    flex: 1;
+    font-size: 15px;
+    word-break: break-word;
+    white-space: normal;
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  .editing-table th,
+  .editing-table td {
+    font-size: 0.85rem;
+    padding: 0.75rem;
+  }
+}
+
+
+.header-box {
+  padding: 1.5rem 1rem;
+  background-color: white;
+  min-width: 280px;
+}
+
+.description {
+  font-size: 0.85rem;
+  color: #555;
+  margin: 10px 0 15px;
+  min-height: 60px;
+}
+
+.small-btn {
+  font-size: 0.75rem;
+  padding: 0.35rem 0.8rem;
+}
+
+.row-light td {
+  background-color: white;
+}
+
+.row-dark td {
+  background-color: #f7f7f7;
+}
+
+.editing-table tbody td {
+  padding: 1rem;
+  vertical-align: top;
+  border: 1px solid #ddd;
+}
+
+.cell-content {
+  min-height: 60px;
+  vertical-align: top;
+}
+
+.cell-inner {
+  display: flex;
+  align-items: flex-start;
+}
+
+.check-icon {
+  color: green;
+  font-size: 1.1rem;
+  margin-right: 8px;
+  padding-top: 2px;
+  flex-shrink: 0;
+}
+
+.cell-text {
+  flex: 1;
+  word-break: break-word;
+  white-space: normal;
+}
+
+@media (max-width: 768px) {
+  .description {
+    font-size: 0.75rem;
+  }
+
+  .small-btn {
+    font-size: 0.7rem;
+    padding: 0.3rem 0.6rem;
+  }
+
+  .editing-table tbody td {
+    font-size: 0.85rem;
+    padding: 0.75rem;
+  }
+}
+
+.editing-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed; /* makes all columns equal width automatically */
+}
+/* .editing-table {
+  border-collapse: separate;
+  border-spacing: 0;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.editing-table thead th:first-child {
+  border-top-left-radius: 10px;
+}
+
+.editing-table thead th:last-child {
+  border-top-right-radius: 10px;
+}
+
+.editing-table tbody tr:last-child td:first-child {
+  border-bottom-left-radius: 10px;
+}
+
+.editing-table tbody tr:last-child td:last-child {
+  border-bottom-right-radius: 10px;
+} */
+

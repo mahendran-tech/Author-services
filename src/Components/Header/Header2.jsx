@@ -1,6 +1,8 @@
 import {useEffect, useState} from "react";
 import {Link} from "react-router-dom";
 import Nav from "./Nav";
+import { comman } from "../../assets/assets.js";
+
 export default function Header2({variant}) {
   const [mobileToggle, setMobileToggle] = useState(false);
   const [isSticky, setIsSticky] = useState();
@@ -81,7 +83,7 @@ export default function Header2({variant}) {
               <div className="cs_main_header_left">
                 <div className="cs_logo_wrap">
                   <Link className="cs_site_branding" to="/">
-                    <img src="/assets/img/logo.svg" alt="Logo" />
+                    <img src={comman.logo} alt="Logo" />
                   </Link>
                 </div>
               </div>

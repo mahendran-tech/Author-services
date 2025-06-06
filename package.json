@@ -1,5 +1,5 @@
 {
-  "name": "cripar",
+  "name": "authorservices",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -19,8 +19,12 @@
     "react": "^18.3.1",
     "react-bootstrap": "^2.10.5",
     "react-dom": "^18.3.1",
+    "react-fast-marquee": "^1.6.5",
     "react-icons": "^5.5.0",
+    "react-phone-input-2": "^2.15.1",
     "react-router-dom": "^6.27.0",
+    "react-select": "^5.10.1",
+    "react-select-country-list": "^2.2.3",
     "react-slick": "^0.30.2",
     "slick-carousel": "^1.8.1",
     "sort-by": "^1.2.0"

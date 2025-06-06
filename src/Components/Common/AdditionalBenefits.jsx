@@ -1,26 +1,27 @@
 import React from "react";
-import {Button} from "react-bootstrap";
+import {Button, Container} from "react-bootstrap";
 import SectionTitle2 from "./SectionTitle2";
+import parse from "html-react-parser";
 
 const AdditionalBenefits = ({title, subtitle, benefits}) => {
   return (
     <div className="text-center  bg-light">
-      <div className="cs_height_60 cs_height_lg_60"></div>
+      <div className="cs_height_48 cs_height_lg_48"></div>
       <div>
         <SectionTitle2 Title={title} SubTitle={subtitle} />
-        <div className="cs_height_30 cs_height_lg_10"></div>
+        <div className="cs_height_20 cs_height_lg_20"></div>
       </div>
-
+    <Container> 
       <div className="row justify-content-center g-4">
         {benefits.map((benefit, index) => (
           <div
             key={index}
             className="col-12 col-md-3 d-flex justify-content-center position-relative">
             <div className="text-center px-3">
-              <div className="mx-auto mb-2 ">
+              <div className="mx-auto mb-3 ">
                 <img src={benefit.icon} alt="" />
               </div>
-              <p className="mb-0 mt-2">{benefit.text}</p>
+              <p className="mb-2 mt-2">{parse(benefit.text) }</p>
             </div>
 
             {/* Dashed vertical line - only show on lg and up */}
@@ -45,7 +46,8 @@ const AdditionalBenefits = ({title, subtitle, benefits}) => {
           Get a Quote <span>&rarr;</span>
         </Button>
       </div>
-      <div className="cs_height_60 cs_height_lg_60"></div>
+      <div className="cs_height_40 cs_height_lg_40"></div>
+      </Container>
     </div>
   );
 };

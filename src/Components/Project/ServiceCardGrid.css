@@ -1,0 +1,55 @@
+.service-card-section {
+  background-color: #f8f9fa;
+}
+
+/* .service-card {
+    background: linear-gradient(135deg, #fef3f3 0%, #f0f7fd 100%);
+    background-image: linear-gradient(to bottom right, rgb(255 255 255 / 88%), rgb(255 255 255 / 84%)), url(/assets/img/section-bg.jpg);
+    background-image: url(/assets/img/hero_bg-1.webp), linear-gradient(to bottom right, rgba(255, 255, 255, 0.219), rgba(255, 255, 255, 0.349));
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: none;
+    padding: 0px;
+    border-radius: 15px;
+    position: relative;
+    overflow: hidden;
+} */
+
+.service-card {
+    height: 100%;
+    /* background: #ffffff63; */
+      /* background: #f3e4ff4f; */
+    border-radius: 10px;
+        /* background: linear-gradient(93deg, #ffffff5e, #dddcdc2b); */
+        background:linear-gradient(93deg, #e3e3e35e, #dddcdc2b);
+    border: 1px solid #fff;
+    padding: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+
+.service-card .card-title {
+  font-size: 1.25rem;
+  margin-bottom: 12px;
+  color: #1a1a1a;
+}
+.service-card-body{
+    padding: 20px;
+}
+
+.service-card .card-text {
+  font-size: 0.95rem;
+  color: #333;
+  margin-bottom:10px;
+}
+
+
+
+@media (max-width: 767px) {
+  .corner-image {
+    background-size: 60px;
+    width: 70px;
+    height: 70px;
+  }
+}

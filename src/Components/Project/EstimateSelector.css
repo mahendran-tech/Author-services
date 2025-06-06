@@ -1,0 +1,60 @@
+.delivery-card {
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: 0.3s;
+  background-color: #fff;
+}
+
+.delivery-card.selected {
+  border-color: #0d6efd;
+  background-color: #eaf1ff;
+}
+
+.delivery-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+
+/* .exclusive-editing {
+  font-family: 'Segoe UI', sans-serif;
+  color: #333;
+} */
+
+.section-title {
+  font-weight: 700;
+  text-align: left;
+  color:#2D2D2D !important;
+}
+
+.feature-item {
+  align-items: flex-start;
+}
+
+.icon-col {
+    /* padding-top: 4px; */
+    position: relative;
+    top: -4px;
+}
+
+/* .feature-icon {
+  color: #f5a623;
+  font-size: 1.2rem;
+  margin-top: 3px;
+} */
+
+.feature-title {
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.feature-description {
+  font-size: 0.95rem;
+  color: #555;
+  margin: 0;
+}
+.input-size-change .form-check-input[type=radio] {
+    border-radius: 50%;
+    width: 30px !important;
+    height: 30px !important;
+}

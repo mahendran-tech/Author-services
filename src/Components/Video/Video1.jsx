@@ -3,6 +3,7 @@ import loadBackgroudImages from "../Common/loadBackgroudImages";
 import VideoModal from "../VideoModal/VideoModal";
 import SectionTitle2 from "../Common/SectionTitle2";
 import {Link} from "react-router-dom";
+import { homeimage } from "../../assets/assets";
 
 const Video1 = () => {
   useEffect(() => {
@@ -12,7 +13,7 @@ const Video1 = () => {
   return (
     <section
       className="cs_video cs_style_1 cs_bg_filed position-relative"
-      data-background="/assets/img/bg-light.webp">
+      data-background={homeimage.bglight}>
       <div className="container">
         <div className="cs_video_overlay cs_white_bg position-absolute"></div>
         <div className="cs_video_content">

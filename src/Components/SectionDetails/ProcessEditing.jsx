@@ -6,11 +6,12 @@ import Player from "../Common/Player";
 const ProcessEditing = ({Sectionimg = false}) => {
   return (
     <>
-      <section>
+      <section className="section-bg-color">
         <Container>
-          <div className="cs_height_60 cs_height_lg_80"></div>
-          <div className="text-center mb-4">
+          <div className="cs_height_48 cs_height_lg_48"></div>
+          <div className="text-center ">
             <SectionTitle Title="Process of" SubTitle=" Editing" />
+               <div className="cs_height_20 cs_height_lg_20"></div>
           </div>
           <Row className="justify-content-center">
             <Col lg={12} md={12} className="text-center">
@@ -21,7 +22,7 @@ const ProcessEditing = ({Sectionimg = false}) => {
             </Col>
           </Row>
         </Container>
-        <div className="cs_height_40 cs_height_lg_50"></div>
+        <div className="cs_height_40 cs_height_lg_40"></div>
       </section>
     </>
   );

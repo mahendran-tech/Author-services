@@ -1,66 +1,73 @@
 import React from "react";
 import SectionTitle2 from "../Common/SectionTitle2";
 
-const features = [
-  "Language editing & grammatical corrections",
-  "Manuscript formatting as per target journal guidelines – 1 round",
-  "Editing certificate",
-  "Unlimited Q&As with editors",
-  "Preparation of journal cover letter",
-  "Improving paper structure and flow",
-  "Re-editing or proofreading of your manuscript for 365 days or lifetime support for same paper",
-  "Plagiarism check using Turnitin; reduction of plagiarism in your manuscript depends on the plagiarism percentage",
-  "Domain-specific content level editing",
-  "Getting your manuscript peer-reviewed by experienced journal reviewers",
-];
+// const features = [
+//   "Language editing & grammatical corrections",
+//   "Manuscript formatting as per target journal guidelines – 1 round",
+//   "Editing certificate",
+//   "Unlimited Q&As with editors",
+//   "Preparation of journal cover letter",
+//   "Improving paper structure and flow",
+//   "Re-editing or proofreading of your manuscript for 365 days or lifetime support for same paper",
+//   "Plagiarism check using Turnitin; reduction of plagiarism in your manuscript depends on the plagiarism percentage",
+//   "Domain-specific content level editing",
+//   "Getting your manuscript peer-reviewed by experienced journal reviewers",
+// ];
 
-const plans = [
-  {
-    name: "Core Editing",
-    desc: "Sentence-level editing for pre- and post-journal submission at an affordable rate.",
-    features: [true, true, true, true, true, false, false, false, false, false],
-  },
-  {
-    name: "Exclusive Editing",
-    desc: "Content level editing tailored to give you the best chance of acceptance in high-impact journals",
-    features: [true, true, true, true, true, true, true, true, true, false],
-  },
-  {
-    name: "Research Editing",
-    desc: "Peer review assistance following domain-specific content-level editing, offering expert advice on your manuscript.",
-    features: [true, true, true, true, true, true, true, true, true, true],
-  },
-];
+// const plans = [
+//   {
+//     name: "Core Editing",
+//     desc: "Sentence-level editing for pre- and post-journal submission at an affordable rate.",
+//     features: [true, true, true, true, true, false, false, false, false, false],
+//   },
+//   {
+//     name: "Exclusive Editing",
+//     desc: "Content level editing tailored to give you the best chance of acceptance in high-impact journals",
+//     features: [true, true, true, true, true, true, true, true, true, false],
+//   },
+//   {
+//     name: "Research Editing",
+//     desc: "Peer review assistance following domain-specific content-level editing, offering expert advice on your manuscript.",
+//     features: [true, true, true, true, true, true, true, true, true, true],
+//   },
+// ];
 
-const EditingPlansComparison = () => {
+const EditingPlansComparison = ({features, plans, isTitleChange = false}) => {
   return (
     <section className="epc-section ">
       <div className="cs_height_60 cs_height_lg_80"></div>
       <div className="container epc-container">
         <div>
-          <SectionTitle2
-            Title={"Editing Service Plans &"}
-            SubTitle={"Features Comparison"}
-          />
+          {isTitleChange ? (
+            <SectionTitle2
+              Title={"Editing Service Plans"}
+              SubTitle={"For All Your Research Needs"}
+            />
+          ) : (
+            <SectionTitle2
+              Title={"Editing Service Plans &"}
+              SubTitle={"Features Comparison"}
+            />
+          )}
         </div>
         <div className="cs_height_20 cs_height_lg_20"></div>
         <div className="table-responsive epc-table-wrapper mt-4">
           <table align="center" className="table epc-table w-100 border-0">
             <thead className="text-center">
               <tr
-                className="epc-header-row border-0"
+                className="epc-header-row "
                 style={{
                   verticalAlign: "baseline",
                 }}>
                 <th
-                  className="epc-th border-0 text-primary cs_fs_18"
+                  className="epc-th  text-primary cs_fs_18 "
                   style={{verticalAlign: "middle"}}>
                   Features
                 </th>
                 {plans.map((plan, idx) => (
                   <th
                     key={idx}
-                    className="epc-th border-0 "
+                    className="epc-th  "
                     style={{width: "23%"}}>
                     <div
                       className="epc-plan-name text-primary fw-semibold"
@@ -83,7 +90,7 @@ const EditingPlansComparison = () => {
                     {feature}
                   </td>
                   {plans.map((plan, pidx) => (
-                    <td
+                    <td style={{verticalAlign: "middle"}}
                       key={pidx}
                       className="text-center epc-feature-cell border-0">
                       {plan.features[index] && (
@@ -108,7 +115,9 @@ const EditingPlansComparison = () => {
                 </tr>
               ))}
               <tr className="epc-footer-row text-center border-0">
-                <td className="epc-footer-cell border-0">
+                <td
+                  className="epc-footer-cell "
+                  style={{textAlign: "left"}}>
                   <strong>Get estimates based on your word count</strong>
                   <br />
                   <small>

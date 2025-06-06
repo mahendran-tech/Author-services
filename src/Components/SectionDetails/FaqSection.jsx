@@ -75,10 +75,13 @@ const FaqSection = () => {
   };
 
   return (
-    <section className="faq-section py-5">
+    <section className="faq-section ">
+      <div className="cs_height_48 cs_height_lg_48"></div>
+ 
       <Container>
-        <div className="text-center mb-4">
+        <div className="text-center ">
           <SectionTitle2 Title="Frequently" SubTitle="Asked Questions" />
+               <div className="cs_height_20 cs_height_lg_20"></div>
         </div>
 
         <div className="row d-flex justify-content-center">
@@ -103,6 +106,7 @@ const FaqSection = () => {
           </div>
         </div>
       </Container>
+          <div className="cs_height_40 cs_height_lg_40"></div>
     </section>
   );
 };

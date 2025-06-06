@@ -1,17 +1,18 @@
 import React, {useState} from "react";
 import Card from "react-bootstrap/Card";
-import Button from "react-bootstrap/Button";
+
 import "bootstrap/dist/css/bootstrap.min.css";
 import {Link} from "react-router-dom";
 import parser from "html-react-parser";
 import SectionTitle2 from "../Common/SectionTitle2";
+import {homeimage } from "../../assets/assets.js";
 
 const ResearchJourney = () => {
   const tabs = [
     {
       id: 1,
       title: "Manuscript Preparation, Editing & Formatting",
-      image: "assets/img/icons/group-1.svg",
+      image:homeimage.group1,
       subTabs: [
         {
           label: "Academic Editing",
@@ -40,15 +41,15 @@ const ResearchJourney = () => {
               </p>
               <ul className="text-left list-unstyled list-style-one">
                 <li className="icon-text-item">
-                  <img src="assets/img/icons/check.svg" alt="" /> Sentence
+                  <img src={homeimage.check} alt="" /> Sentence
                   structure
                 </li>
                 <li className="icon-text-item">
-                  <img src="assets/img/icons/check.svg" alt="" /> Grammar,
+                  <img src={homeimage.check} alt="" /> Grammar,
                   punctuation, and spelling check
                 </li>
                 <li className="icon-text-item">
-                  <img src="assets/img/icons/check.svg" alt="" /> Formatting
+                  <img src={homeimage.check} alt="" /> Formatting
                 </li>
               </ul>
               <div className="d-flex gap-4 mt-4">
@@ -115,28 +116,28 @@ const ResearchJourney = () => {
               </p>
               <ul className="text-left list-unstyled list-style-one">
                 <li className="icon-text-item">
-                  <img src="assets/img/icons/check.svg" alt="" />{" "}
+                  <img src={homeimage.check} alt="" />{" "}
                   Subject-area-specific content editing
                 </li>
                 <li className="icon-text-item">
-                  <img src="assets/img/icons/check.svg" alt="" /> Sentence
+                  <img src={homeimage.check} alt="" /> Sentence
                   structure and technical accuracy
                 </li>
                 <li className="icon-text-item">
-                  <img src="assets/img/icons/check.svg" alt="" /> {""}
+                  <img src={homeimage.check} alt="" /> {""}
                   Improve structure and flow of content
                 </li>
 
                 <li className="icon-text-item">
-                  <img src="assets/img/icons/check.svg" alt="" /> Grammar,
+                  <img src={homeimage.check} alt="" /> Grammar,
                   punctuation, and spelling check
                 </li>
                 <li className="icon-text-item">
-                  <img src="assets/img/icons/check.svg" alt="" /> {""}
+                  <img src={homeimage.check} alt="" /> {""}
                   Formatting
                 </li>
                 <li className="icon-text-item">
-                  <img src="assets/img/icons/check.svg" alt="" /> {""}
+                  <img src={homeimage.check} alt="" /> {""}
                   Plagiarism Check
                 </li>
               </ul>
@@ -206,35 +207,35 @@ const ResearchJourney = () => {
               </p>
               <ul className="text-left list-unstyled list-style-one">
                 <li className="icon-text-item">
-                  <img src="assets/img/icons/check.svg" alt="" />{" "}
+                  <img src={homeimage.check} alt="" />{" "}
                   Subject-area-specific content editing
                 </li>
                 <li className="icon-text-item">
-                  <img src="assets/img/icons/check.svg" alt="" /> {""}
+                  <img src={homeimage.check} alt="" /> {""}
                   Language editing & grammar check
                 </li>
                 <li className="icon-text-item">
-                  <img src="assets/img/icons/check.svg" alt="" /> {""}
+                  <img src={homeimage.check} alt="" /> {""}
                   Sentence structure and technical accuracy
                 </li>
                 <li className="icon-text-item">
-                  <img src="assets/img/icons/check.svg" alt="" /> {""}
+                  <img src={homeimage.check} alt="" /> {""}
                   Improve structure and flow of content
                 </li>
                 <li className="icon-text-item">
-                  <img src="assets/img/icons/check.svg" alt="" /> {""}
+                  <img src={homeimage.check} alt="" /> {""}
                   Grammar, punctuation, and spelling check
                 </li>
                 <li className="icon-text-item">
-                  <img src="assets/img/icons/check.svg" alt="" /> {""}
+                  <img src={homeimage.check} alt="" /> {""}
                   Formatting
                 </li>
                 <li className="icon-text-item">
-                  <img src="assets/img/icons/check.svg" alt="" /> {""}
+                  <img src={homeimage.check} alt="" /> {""}
                   Plagiarism Check
                 </li>
                 <li className="icon-text-item">
-                  <img src="assets/img/icons/check.svg" alt="" /> {""}
+                  <img src={homeimage.check} alt="" /> {""}
                   Review by an experienced peer reviewer from your field
                 </li>
               </ul>
@@ -311,17 +312,17 @@ const ResearchJourney = () => {
               </p>
               <ul className="text-left list-unstyled list-style-one">
                 <li className="icon-text-item">
-                  <img src="assets/img/icons/check.svg" alt="" /> {""}
+                  <img src={homeimage.check} alt="" /> {""}
                   We offer translations in over 20 languages, ensuring your
                   research reaches a global audience.
                 </li>
                 <li className="icon-text-item">
-                  <img src="assets/img/icons/check.svg" alt="" /> {""}
+                  <img src={homeimage.check} alt="" /> {""}
                   Our skilled translators deliver accurate, context-specific
                   translations while preserving the original meaning.
                 </li>
                 <li className="icon-text-item">
-                  <img src="assets/img/icons/check.svg" alt="" /> {""}
+                  <img src={homeimage.check} alt="" /> {""}
                   Our bilingual experts provide thorough reviews to guarantee
                   error-free and reliable translations.
                 </li>
@@ -350,7 +351,7 @@ const ResearchJourney = () => {
     {
       id: 2,
       title: "Journal Selection & Submission",
-      image: "assets/img/icons/group1.svg",
+      image: homeimage.group2,
       subTabs: [
         {
           label: "Journal <br/>Selection",
@@ -396,7 +397,7 @@ const ResearchJourney = () => {
               </p>
               <ul className="text-left list-unstyled list-style-one">
                 <li className="icon-text-item">
-                  <img src="assets/img/icons/check.svg" alt="" /> Shortlisting
+                  <img src={homeimage.check} alt="" /> Shortlisting
                   and recommending three journals based on the following
                   criteria:
                 </li>
@@ -413,7 +414,7 @@ const ResearchJourney = () => {
                   enhance visibility and accessibility
                 </li>
                 <li className="icon-text-item">
-                  <img src="assets/img/icons/check.svg" alt="" /> Providing a
+                  <img src={homeimage.check} alt="" /> Providing a
                   detailed report outlining the reasons each journal is a strong
                   match for your work.
                 </li>
@@ -471,12 +472,12 @@ const ResearchJourney = () => {
               </p>
               <ul className="text-left list-unstyled list-style-one">
                 <li className="icon-text-item">
-                  <img src="assets/img/icons/check.svg" alt="" /> Cover letters
+                  <img src={homeimage.check} alt="" /> Cover letters
                   are vital as they create a strong first impression and set the
                   tone for your submission.
                 </li>
                 <li className="icon-text-item">
-                  <img src="assets/img/icons/check.svg" alt="" /> Cover letters
+                  <img src={homeimage.check} alt="" /> Cover letters
                   give a brief summary of your work and highlight its relevance
                   to the journal.
                 </li>
@@ -548,16 +549,16 @@ const ResearchJourney = () => {
               </p>
               <ul className="text-left list-unstyled list-style-one">
                 <li className="icon-text-item">
-                  <img src="assets/img/icons/check.svg" alt="" /> Increase your
+                  <img src={homeimage.check} alt="" /> Increase your
                   chance of publication
                 </li>
                 <li className="icon-text-item">
-                  <img src="assets/img/icons/check.svg" alt="" /> {""}
+                  <img src={homeimage.check} alt="" /> {""}
                   Experience the review process firsthand, making it easier to
                   navigate the journal’s review stages.
                 </li>
                 <li className="icon-text-item">
-                  <img src="assets/img/icons/check.svg" alt="check icon" />
+                  <img src={homeimage.check} alt="check icon" />
                   Incorporate reviewer feedback to resolve gaps and enhance your
                   manuscript significantly reducing comments from the journal
                   reviewer.
@@ -643,16 +644,16 @@ const ResearchJourney = () => {
               </p>
               <ul className="text-left list-unstyled list-style-one">
                 <li className="icon-text-item">
-                  <img src="assets/img/icons/check.svg" alt="" /> {""}
+                  <img src={homeimage.check} alt="" /> {""}
                   Ensure your manuscript is formatted according to the journal’s
                   guidelines
                 </li>
                 <li className="icon-text-item">
-                  <img src="assets/img/icons/check.svg" alt="" /> {""}
+                  <img src={homeimage.check} alt="" /> {""}
                   Write a compelling cover letter to accompany your submission.
                 </li>
                 <li className="icon-text-item">
-                  <img src="assets/img/icons/check.svg" alt="" /> {""}
+                  <img src={homeimage.check} alt="" /> {""}
                   Save time and reduce administrative burdens with our
                   comprehensive support
                 </li>
@@ -730,18 +731,18 @@ const ResearchJourney = () => {
               </p>
               <ul className="text-left list-unstyled list-style-one">
                 <li className="icon-text-item">
-                  <img src="assets/img/icons/check.svg" alt="" /> {""}
+                  <img src={homeimage.check} alt="" /> {""}
                   Receive expert help at every stage of the journal publishing
                   process.
                 </li>
                 <li className="icon-text-item">
-                  <img src="assets/img/icons/check.svg" alt="" /> {""}
+                  <img src={homeimage.check} alt="" /> {""}
                   Get a tailored experience by selecting from different services
                   like journal selection, editing, proofreading, formatting,
                   plagiarism check, and citation booster.
                 </li>
                 <li className="icon-text-item">
-                  <img src="assets/img/icons/check.svg" alt="" /> {""}
+                  <img src={homeimage.check} alt="" /> {""}
                   Save time and reduce administrative burdens by streamlining
                   the publication process.
                 </li>
@@ -770,7 +771,7 @@ const ResearchJourney = () => {
     {
       id: 3,
       title: "Research Promotion & Citation",
-      image: "assets/img/icons/group2.svg",
+      image: homeimage.group3,
       subTabs: [
         {
           label: "Literature Search",
@@ -823,16 +824,16 @@ const ResearchJourney = () => {
               </p>
               <ul className="text-left list-unstyled list-style-one">
                 <li className="icon-text-item">
-                  <img src="assets/img/icons/check.svg" alt="" /> Receive
+                  <img src={homeimage.check} alt="" /> Receive
                   personalized reading suggestions, curated feeds, and daily
                   research alerts
                 </li>
                 <li className="icon-text-item">
-                  <img src="assets/img/icons/check.svg" alt="" /> Identify
+                  <img src={homeimage.check} alt="" /> Identify
                   research gaps or conflicting findings with ease
                 </li>
                 <li className="icon-text-item">
-                  <img src="assets/img/icons/check.svg" alt="" /> Refine your
+                  <img src={homeimage.check} alt="" /> Refine your
                   research focus by reviewing existing work
                 </li>
               </ul>
@@ -903,23 +904,23 @@ const ResearchJourney = () => {
               </p>
               <ul className="text-left list-unstyled list-style-one">
                 <li className="icon-text-item">
-                  <img src="assets/img/icons/check.svg" alt="" /> Transform your
+                  <img src={homeimage.check} alt="" /> Transform your
                   research into a media-ready press release on relevant
                   platforms for a wider coverage.
                 </li>
                 <li className="icon-text-item">
-                  <img src="assets/img/icons/check.svg" alt="" /> Simplify
+                  <img src={homeimage.check} alt="" /> Simplify
                   complex research for a general audience, increasing
                   accessibility and reach.
                 </li>
                 <li className="icon-text-item">
-                  <img src="assets/img/icons/check.svg" alt="" /> {""}
+                  <img src={homeimage.check} alt="" /> {""}
                   Create concise, engaging summaries and graphical abstracts for
                   promotion on social media platforms.
                 </li>
 
                 <li className="icon-text-item">
-                  <img src="assets/img/icons/check.svg" alt="" /> Engage in
+                  <img src={homeimage.check} alt="" /> Engage in
                   IFERP Conferences and deposit your work in IFERP Digital
                   Library to further boost your research and increase
                   visibility.
@@ -987,15 +988,15 @@ const ResearchJourney = () => {
               </p>
               <ul className="text-left list-unstyled list-style-one">
                 <li className="icon-text-item">
-                  <img src="assets/img/icons/check.svg" alt="" /> Create videos,
+                  <img src={homeimage.check} alt="" /> Create videos,
                   graphical abstract, and cover design for better outreach.
                 </li>
                 <li className="icon-text-item">
-                  <img src="assets/img/icons/check.svg" alt="" /> {""}
+                  <img src={homeimage.check} alt="" /> {""}
                   Increase your impact with press releases and summaries.
                 </li>
                 <li className="icon-text-item">
-                  <img src="assets/img/icons/check.svg" alt="" /> {""}
+                  <img src={homeimage.check} alt="" /> {""}
                   Design posters and/or presentations to showcase your work and
                   boost its visibility.
                 </li>
@@ -1023,8 +1024,8 @@ const ResearchJourney = () => {
     },
     {
       id: 4,
-      title: "All Our Services at a Glance",
-      image: "assets/img/icons/group3.svg",
+      title: "All Our Services at <br/> a Glance",
+      image: homeimage.group4,
     },
   ];
 
@@ -1046,14 +1047,14 @@ const ResearchJourney = () => {
     );
   console.log(allSubTabs);
   return (
-    <div className="container-fluid">
-      <div className="cs_height_80 cs_height_lg_80"></div>
+    <div className="container">
+      <div className="cs_height_60 cs_height_lg_60"></div>
       <SectionTitle2
         Title="Your Research Journey"
         SubTitle=" Professional Solutions For Every Step"
       />
-
-      <div className="row mt-5">
+  <div className="cs_height_20 cs_height_lg_20"></div>
+      <div className="row ">
         {/* Left nav */}
         <div className="col-md-3 mb-3">
           <div className="nav-design">
@@ -1074,7 +1075,7 @@ const ResearchJourney = () => {
                   }}>
                   <div className="d-flex align-items-center gap-2">
                     <img className="nav-icon" src={tab.image} alt="" />
-                    <span>{tab.title}</span>
+                    <span>{parser(tab.title)}</span>
                   </div>
                   <span className="dot"></span>
                   <span className="dash"></span>
@@ -1085,11 +1086,11 @@ const ResearchJourney = () => {
         </div>
 
         {/* Right content */}
-        <div className="col-md-9">
-          <Card.Body>
+        <div className={`col-md-9 border-left  ${activeTab === 4 ? "ps-3 pe-0":"px-lg-0" }`}  style={{backgroundColor:"#fff"}}>
+          <Card.Body className=" position-relative  ">
             {activeTab === 4 ? (
               <>
-                <div className="d-flex gap-4 mb-4 flex-wrap">
+                <div className="d-flex gap-4 mb-4 flex-wrap ">
                   {allSubTabs.map((subTab) => (
                     <button
                       style={{width: "210px"}}
@@ -1120,7 +1121,7 @@ const ResearchJourney = () => {
               </>
             ) : active.subTabs ? (
               <>
-                <div className="d-flex gap-3 mb-4 flex-wrap">
+                <div className="d-flex gap-3 mb-4 flex-wrap bg-light-icon">
                   {active.subTabs.map((subTab) => {
                     const isActive = subTab.label === activeSubTab;
                     return (
@@ -1138,7 +1139,7 @@ const ResearchJourney = () => {
                     );
                   })}
                 </div>
-                <div>
+                <div className="px-3 pb-3 pt-1 ">
                   {
                     active.subTabs.find((sub) => sub.label === activeSubTab)
                       ?.content
@@ -1152,7 +1153,7 @@ const ResearchJourney = () => {
         </div>
       </div>
 
-      <div className="cs_height_40 cs_height_lg_50"></div>
+      <div className="cs_height_40 cs_height_lg_40"></div>
     </div>
   );
 };

@@ -15,7 +15,7 @@ const RoundedCard = ({
             {title}
           </h4>
           <p
-            className={`${radius === "br-left" ? "mb-3" : "mb-5"}`}
+            className={`${radius === "br-left" ? "mb-3" : "mb-4"}`}
             style={{color: textcolor}}>
             {description}
           </p>

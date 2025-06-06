@@ -1,7 +1,6 @@
 import {createBrowserRouter} from "react-router-dom";
 import Main from "../Layout/Main";
 // import Home2 from "../Pages/Home2";
-import AboutPage from "../Pages/AboutPage";
 import Home2 from "../Pages/Home2";
 import ServiceDetailsPage from "../Pages/ServiceDetailsPage";
 import ServicesPage from "../Pages/ServicesPage";
@@ -11,6 +10,12 @@ import TeamPage from "../Pages/TeamPage";
 import ContactPage from "../Pages/ContactPage";
 import EditingProofreading from "../Pages/EditingProofreading";
 import CoreEditing from "../Pages/CoreEditing";
+import EditingService from "../Pages/EditingService";
+import CustomizeEditingServices from "../Pages/CustomizeEditingServices ";
+import ExclusiveEditing from "../Pages/ExclusiveEditing";
+import ResearchEditing from "../Pages/ResearchEditing";
+import ThesisEditing from "../Pages/ThesisEditing";
+import GetQuote from "../Pages/GetQuote";
 
 export const router = createBrowserRouter([
   {
@@ -30,12 +35,29 @@ export const router = createBrowserRouter([
         element: <CoreEditing></CoreEditing>,
       },
       {
-        path: "/about",
-        element: <AboutPage></AboutPage>,
+        path: "/editing-service",
+        element: <EditingService></EditingService>,
+      },
+          {
+        path: "/customize-editing-services",
+        element: <CustomizeEditingServices></CustomizeEditingServices>,
+      },
+            {
+        path: "/exclusive-editing",
+        element: <ExclusiveEditing></ExclusiveEditing>,
+      },
+                  {
+        path: "/research-editing",
+        element: <ResearchEditing/>,
+      },
+                        {
+        path: "/thesis-editing",
+        element: <ThesisEditing/>,
       },
       {
-        path: "/service",
-        element: <ServicesPage></ServicesPage>,
+
+        path: "/get-quote",
+        element: <GetQuote/>,
       },
       {
         path: "/service/service-details",
