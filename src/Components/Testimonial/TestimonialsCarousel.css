@@ -79,13 +79,11 @@
 .slick-next {
   right: -40px;
 }
-
-.testimonial-card-body{
-  /* background: #f3f3f3; */
-      background: linear-gradient(180deg, hsla(0, 0%, 100%, .3), hsla(0, 0%, 100%, .5 ));
-      border: 1px solid #fff;
+.testimonial-card-body {
+    /* background: #f3f3f3; */
+    background: linear-gradient(277deg, hsl(0deg 0% 96.85% / 41%), hsl(274.67deg 69.24% 87.2% / 18%));
+    border: 1px solid #fff;
     margin-top: 10px;
-
     padding-top: 50px;
     border-radius: 10px;
 }

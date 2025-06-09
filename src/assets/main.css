@@ -7811,15 +7811,48 @@ h4 {
   margin-top: 7px; /* fine-tune vertical alignment */
   flex-shrink: 0;
 }
+
+/* ---------------------------------------------------------------------
+Border style
+------------------------------------------------------------------  */
+
+.icon-0 {
+  border: 1px dashed #0268fff0;
+
+}
+.icon-1 {
+  border: 1px dashed #f33d00bd;
+}
+.icon-2 {
+  border: 1px dashed #a055ff;
+}
+.icon-3{
+  border: 1px dashed #36cc72;
+}
+.icon-4 {
+  border: 1px dashed #ff6d6d;
+}
+.icon-5 {
+  border: 1px dashed #f1ba2b;
+}
+
 /* Author services */
-.icon-box {
+/* .icon-box {
   padding: 20px;
   border-radius: 12px;
   transition: transform 0.3s ease;
   background-color: #f8f9fa;
+} */
+.icon-box {
+    padding: 20px;
+    border-radius: 12px;
+    /* border: 1px dashed #0268ff8f; */
+    transition: transform 0.3s ease;
+    /* background-color: #f8f9fa; */
 }
 .icon-box:hover {
   transform: translateY(-5px);
+  border-style: dotted;
 }
 .icon img {
   width: 80px;
@@ -8727,4 +8760,6 @@ Exclusive editing
   background-color: #FAFAFA !important;
 }
 
-/*  */
+
+
+
