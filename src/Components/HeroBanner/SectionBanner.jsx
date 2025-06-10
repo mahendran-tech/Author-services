@@ -43,11 +43,13 @@ const SectionBanner = ({
                     <img src="assets/img/icon/right-arrow-yellow.svg" alt="" />{" "}
                     <span>{conetnt} </span>
                   </li>
+                  {conetnt1 && ( 
                   <li className="mb-2 d-flex align-items-start gap-2">
                     <img src="assets/img/icon/right-arrow-yellow.svg" alt="" />{" "}
                     {""}
                     <span> {conetnt1} </span>
                   </li>
+                  )}
                 </ul>
               </div>
             </>

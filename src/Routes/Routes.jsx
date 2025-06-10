@@ -16,6 +16,7 @@ import ExclusiveEditing from "../Pages/ExclusiveEditing";
 import ResearchEditing from "../Pages/ResearchEditing";
 import ThesisEditing from "../Pages/ThesisEditing";
 import GetQuote from "../Pages/GetQuote";
+import PublicationSupport from "../Pages/PublicationSupport";
 
 export const router = createBrowserRouter([
   {
@@ -58,6 +59,10 @@ export const router = createBrowserRouter([
 
         path: "/get-quote",
         element: <GetQuote/>,
+      },
+            {
+        path: "/publication-support",
+        element: <PublicationSupport/>,
       },
       {
         path: "/service/service-details",

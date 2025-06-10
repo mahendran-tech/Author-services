@@ -1024,7 +1024,7 @@ const ResearchJourney = () => {
     },
     {
       id: 4,
-      title: "All Our Services at <br/> a Glance",
+      title: "All Our Services at a <br/>  Glance",
       image: homeimage.group4,
     },
   ];
@@ -1073,7 +1073,7 @@ const ResearchJourney = () => {
                       setActiveSubTab(tab.subTabs[0].label);
                     }
                   }}>
-                  <div className="d-flex align-items-center gap-2">
+                  <div className="d-flex align-items-center gap-3">
                     <img className="nav-icon" src={tab.image} alt="" />
                     <span>{parser(tab.title)}</span>
                   </div>

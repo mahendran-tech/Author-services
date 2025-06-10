@@ -91,7 +91,7 @@ const EditingServices = () => {
                 {services.map((service, idx) => (
                   <Col key={idx} md={6} lg={4} sm={12} className="mb-4">
                     <Card
-                      className={`service-card ${service.colorClass} h-100 `}>
+                      className={`service-card bg-white ${service.colorClass} h-100 `}>
                       <Card.Body className="d-flex flex-column flex-grow-1 ">
                         <Card.Title className="mb-3">
                           <span className="icon">{service.icon}</span>{" "}

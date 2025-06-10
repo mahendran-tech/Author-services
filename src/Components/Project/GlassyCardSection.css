@@ -1,0 +1,65 @@
+.glassy-card {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px) contrast(1.1);
+  -webkit-backdrop-filter: blur(10px) contrast(1.1);
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  transition: transform 0.3s ease;
+  overflow: hidden;
+}
+
+.glassy-card:hover {
+  transform: translateY(-5px);
+}
+
+.btn-gradient {
+  background: linear-gradient(90deg, #7b2ff7, #f107a3);
+  color: white;
+  border: none;
+  padding: 0.6rem 1.5rem;
+  border-radius: 6px;
+}
+
+.opacity_image {
+  opacity: 0.2;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 60px;
+}
+
+.main-image {
+  width: 60px;
+  margin-bottom: 1rem;
+}
+
+.service-card .icon {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.service-card-6 .inner {
+    border-radius: 5px;
+    padding: 45px 35px;
+    position: relative;
+    z-index: 1;
+    border: 1px solid #e6e3f1;
+    height: 100%;
+}
+.bg-card-color-1 .inner {
+    background: rgba(253, 226, 146, 0.4588235294) !important;
+}
+.bg-card-color-2 .inner {
+    background: rgba(255, 219, 225, 0.4588235294) !important;
+}
+.bg-card-color-3 .inner {
+    background: rgba(255, 197, 250, 0.4588235294) !important;
+}
+.bg-card-color-4 .inner {
+    background: rgba(200, 255, 233, 0.4588235294) !important;
+}
+.bg-card-color-5 .inner {
+    background: rgba(228, 167, 246, 0.4588235294) !important;
+}
