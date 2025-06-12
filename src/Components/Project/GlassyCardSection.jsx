@@ -5,32 +5,32 @@ import "./GlassyCardSection.css";
 
 const cardData = [
   {
-    title: "English Learning",
-    description: "English Learning looking for random paragraphs, you've come to the right place. When a random word.",
+
+    description: "Editors who are native English speakers and possess proficiency in English grammar, syntax, and usage.",
     icon: "service-01.png",
     bg: "bg-card-color-1",
   },
   {
-    title: "Javascript Learning",
-    description: "Javascript Learning looking for random paragraphs, you've come to the right place. When a random word.",
+ 
+    description: "Experts with extensive experience in editing and proofreading academic papers across all disciplines.",
     icon: "service-04.png",
     bg: "bg-card-color-2",
   },
   {
-    title: "Angular Learning",
-    description: "Angular Learning looking for random paragraphs, you've come to the right place. When a random word.",
+  
+    description: "Chosen from a wide pool of candidates through a meticulous editing and language proficiency assessment.",
     icon: "service-03.png",
     bg: "bg-card-color-3",
   },
   {
-    title: "Php Learning",
-    description: "Php Learning looking for random paragraphs, you've come to the right place. When a random word.",
+
+    description: "Experienced scientific editors and proofreaders proficient in their field.",
     icon: "service-02.png",
     bg: "bg-card-color-4",
   },
   {
-    title: "Spoken English",
-    description: "Spoken english looking for random paragraphs, you've come to the right place. When a random word.",
+ 
+    description: "Educated in refining academic papers via specialized workshops.",
     icon: "service-05.png",
     bg: "bg-card-color-5",
   },
@@ -73,7 +73,9 @@ const GlassyCardSection = () => {
                     />
                   </div>
                   <Card.Body>
-                    <Card.Title>{card.title}</Card.Title>
+{card.title && ( <Card.Title>{card.title}</Card.Title>) }
+                   
+
                     <Card.Text>{card.description}</Card.Text>
                   </Card.Body>
                 </div>

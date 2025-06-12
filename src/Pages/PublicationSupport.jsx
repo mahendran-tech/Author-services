@@ -1,6 +1,8 @@
 import React from 'react'
 import SectionBanner from '../Components/HeroBanner/SectionBanner'
 import GlassyCardSection from '../Components/Project/GlassyCardSection'
+import YourPublicationJourny from '../Components/Project/YourPublicationJourny'
+import ServicesTimeline from '../Components/Process/ServicesTimeline'
 
 const PublicationSupport = () => {
   return (
@@ -17,7 +19,9 @@ const PublicationSupport = () => {
         btnurl="/"
         edit={true}
         editingsection={true}></SectionBanner>
-<GlassyCardSection/>
+{/* <GlassyCardSection/> */}
+<YourPublicationJourny/>
+<ServicesTimeline/>
 
         
         </div>
