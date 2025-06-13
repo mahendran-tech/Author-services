@@ -104,12 +104,12 @@ export default function Nav({setMobileToggle}) {
               </Link>
             </li> */}
             <li>
-              <Link to="/" onClick={() => setMobileToggle(false)}>
+              <Link to="/full-assist-publication" onClick={() => setMobileToggle(false)}>
                Full Assist Publication Pack
               </Link>
             </li>
             <li>
-              <Link to="/" onClick={() => setMobileToggle(false)}>
+              <Link to="/flexi-saver-publication" onClick={() => setMobileToggle(false)}>
               Flexi Saver Publication Pack
               </Link>
             </li>

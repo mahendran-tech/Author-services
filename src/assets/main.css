@@ -6873,6 +6873,7 @@ label {
     transition: all 0.4s ease;
   }
   .cs_nav .cs_nav_list > li.menu-item-has-children > a {
+        border-bottom: 1px solid #c9c9c930;
     position: relative;
   }
   .cs_nav .cs_nav_list > li.menu-item-has-children > a::after {
@@ -7008,7 +7009,7 @@ label {
     position: absolute;
     width: 100vw;
     left: -15px;
-    background-color: #181818;
+    background-color: #0014a3;
     padding: 10px 0;
     display: none;
     top: 100%;
@@ -7026,9 +7027,14 @@ label {
   .cs_nav .cs_nav_list a {
     display: block;
     padding: 8px 20px;
+            border-bottom: 1px solid #ffffff1f;
+  }
+  .menu-item-has-children .cs-munu_dropdown_toggle.active +ul li a {
+    border-bottom: none !important;
   }
   .cs_nav .menu-item-has-children {
     position: relative;
+
   }
   .cs-munu_toggle {
     display: inline-block;
@@ -8825,6 +8831,197 @@ card image
     height: 70px;
   }
 }
+
+/* ----------------------------------------------------------------------------------------------------
+Service Card 
+------------------------------------------------------------------------------------------------------ */
+.custom-service-card {
+    background: linear-gradient(180deg, rgb(195 249 250 / 26%), rgb(242 199 255 / 12%));
+    border: none;
+    border-radius: 12px;
+    border: 1px solid rgba(0, 99, 203, 0.1);
+    box-shadow: 0px 0px 10px rgba(200, 200, 255, 0.15);
+    padding: 16px 18px;
+    transition: transform 0.3s ease;
+}
+
+.custom-service-card:hover {
+  transform: translateY(-5px);
+}
+
+/* .custom-icon-box {
+  width: 48px;
+  height: 48px;
+  background: linear-gradient(135deg, #ffe2f2, #dff1ff);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  font-size: 22px;
+  flex-shrink: 0;
+} */
+
+.custom-title {
+  font-size: 18px;
+  font-weight: 600;
+  color:#2D2D2D;
+}
+
+.custom-description {
+  font-size: 16px;
+ color: #616D80;
+ font-weight: 400;
+}
+
+.custom-view-btn {
+    background: rgba(255, 38, 97, 0.1);
+    color: #FF2661 !important;
+    font-weight: 500;
+    width: 120px !important;
+    font-size: 0.9rem;
+    border: none;
+    border-radius: 30px !important;
+    padding: 10px 17px 10px 17px !important;
+    height: fit-content;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.custom-view-btn:hover {
+  background: #fdd4e2;
+}
+
+/* ------------------------------------------------------------------------------------------------------
+                                       Support Card
+--------------------------------------------------------------------------------------------------------- */
+.support-custom-card {
+  border: none;
+  border-radius: 14px;
+  box-shadow: 0 0 20px 1px #0000000A;
+  padding: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.support-custom-card:hover {
+  transform: translateY(-6px);
+    border: 1px solid rgb(5, 90, 247);
+}
+
+.support-card-img {
+  max-height: 256px;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+.support-card-body {
+  padding:18px 12px 12px 12px;
+  background: #fff;
+}
+
+.support-card-title {
+  font-size: 20px;
+  color: rgba(12, 10, 49, 1);
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.support-card-text {
+  font-size: 16px;
+  color: #4E4E58;
+  margin-bottom: 10px;
+  padding-bottom:50px;
+}
+.support-custom-card:hover .support-card-btn{
+  background-color: #0056d2 !important;
+  color: #fff !important;
+  border: none;
+}
+
+.support-card-btn {
+    background: rgba(255, 38, 97, 0.1);
+    position: absolute;
+    color: #FF2661 !important;
+    bottom: 20px;
+    font-weight: 500;
+    width: 120px !important;
+    font-size: 0.9rem;
+    border: none;
+    border-radius: 6px !important;
+    padding: 10px 17px 10px 17px !important;
+    height: fit-content;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.support-card-btn:hover {
+  background: #fdd4e2;
+}
+
+/* why get */
+.whatyouget-section {
+  background-color: #fafafa;
+}
+
+.whatyouget-heading {
+  font-weight: bold;
+  font-size: 2rem;
+}
+
+.whatyouget-heading .highlight {
+  color: #0d6efd;
+}
+
+.whatyouget-point {
+
+
+  gap: 10px;
+  margin-bottom: 1rem;
+}
+
+.whatyouget-icon {
+  color: #f7a900;
+  font-size: 1.2rem;
+  margin-top: 0.2rem;
+}
+
+.whatyouget-check {
+  color: #00c37e;
+  font-size: 1.5rem;
+}
+
+.whatyouget-quote-btn {
+  background-color: #fd1e65;
+  border: none;
+  font-weight: 500;
+}
+.whatyouget-table {
+  background-color: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  table-layout: fixed; /* Force equal column widths */
+  width: 100%;
+}
+
+.whatyouget-table th,
+.whatyouget-table td {
+  vertical-align: middle;
+  padding: 1rem;
+  word-wrap: break-word;
+  word-break: break-word;
+  color: #2D2D2D;
+  font-size: 15px;
+  line-height: 1.5;
+}
+.whatyouget-table thead tr th {
+  background-color: #e8f0ff;
+  color:#005ff6
+}
+
+
 
 
 

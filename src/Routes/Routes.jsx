@@ -17,6 +17,8 @@ import ResearchEditing from "../Pages/ResearchEditing";
 import ThesisEditing from "../Pages/ThesisEditing";
 import GetQuote from "../Pages/GetQuote";
 import PublicationSupport from "../Pages/PublicationSupport";
+import FullAssistPublicationPlan from "../Pages/FullAssistPublicationPlan";
+import FlexiSaverPublication from "../Pages/FlexiSaverPublication";
 
 export const router = createBrowserRouter([
   {
@@ -65,12 +67,12 @@ export const router = createBrowserRouter([
         element: <PublicationSupport/>,
       },
       {
-        path: "/service/service-details",
-        element: <ServiceDetailsPage></ServiceDetailsPage>,
+        path: "/full-assist-publication",
+        element: <FullAssistPublicationPlan/>,
       },
       {
-        path: "/project",
-        element: <ProjectPage></ProjectPage>,
+        path: "/flexi-saver-publication",
+        element: <FlexiSaverPublication/>,
       },
       {
         path: "/project/project-details",
