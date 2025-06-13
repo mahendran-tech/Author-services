@@ -131,7 +131,7 @@ const ResearchEditing = () => {
 
     <div className='bg-light'>
         <div className='cs_height_50 cs_height_lg_50'></div>
-             <OtherServicesSection isTitle={true} title={"Advance Value-added"} subtitle={"Features for Researchers"} serviceData={serviceData2} />
+             <OtherServicesSection isTitle={true} title={"Other Services"} subtitle={"We Provide"} serviceData={serviceData2} />
                <FeaturesSection features={feature} isTitle={false} />
                   <OtherServicesSection isTitle={false} title={"Advance Value-added"} subtitle={"Features for Researchers"} serviceData={serviceData1} />
   <FeaturesSection features={feature1} isTitle={false} />

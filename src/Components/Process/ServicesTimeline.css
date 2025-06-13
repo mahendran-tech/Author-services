@@ -1,7 +1,7 @@
 .timeline-container {
   position: relative;
   max-width: 1200px;
-  margin: 60px auto;
+  /* margin: 60px auto; */
   padding: 0 20px;
 }
 
@@ -9,11 +9,18 @@
   position: absolute;
   top: 0;
   left: 50%;
-  width: 4px;
-  height: 100%;
-  background-color: #f04e3e;
+  width: 2px;
+  height: 88%;
+  background-color: #FF2661;
   transform: translateX(-50%);
   z-index: 1;
+}
+.timeline-container .btn-link{
+  color:#FF2661;
+  text-decoration: none;
+  font-weight: 400;
+  font-size: 15px;
+
 }
 
 .timeline-row {
@@ -28,31 +35,37 @@
 .timeline-box {
   width: 45%;
   background: #fff;
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+  /* padding: 20px; */
+  /* border-radius: 12px; */
+  /* box-shadow: 0 5px 15px rgba(0,0,0,0.05); */
+}
+.timeline-box p{
+  color:#616D80 !important;
+  font-size: 16px;
+  line-height: 1.6;
 }
 
 .timeline-box.title-img h4 {
   margin-bottom: 10px;
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 600;
+  margin-bottom: 10px;
+  color: #2D2D2D;
 }
 
 .timeline-box.title-img img {
-  width: 100%;
   border-radius: 8px;
+  height: 200px;
 }
 
 .timeline-box.icon-desc {
-  text-align: center;
+  text-align: end;
+}
+.timeline-box.icon-desc-start {
+  text-align: start;
 }
 
-.timeline-box.icon-desc .icon {
-  font-size: 28px;
-  color: #f04e3e;
-  margin-bottom: 10px;
-}
+
 
 .timeline-dot-wrapper {
   width: 10%;
@@ -61,13 +74,28 @@
   align-items: center;
 }
 
+/* .timeline-dot {
+    width: 14px;
+    height: 14px;
+    top: 0;
+    position: absolute;
+    background-color: #FF2661;
+    border: 4px solid #FF2661;
+    border-radius: 50%;
+    z-index: 3;
+} */
+
 .timeline-dot {
-  width: 16px;
-  height: 16px;
-  background-color: #fff;
-  border: 4px solid #f04e3e;
-  border-radius: 50%;
-  z-index: 3;
+    width: 14px;
+    height: 14px;
+    top: 0;
+    left: 50%;
+    position: absolute;
+    transform: translateX(-50%);
+    background-color: #FF2661;
+    border: 4px solid #FF2661;
+    border-radius: 50%;
+    z-index: 3;
 }
 
 /* Responsive Design */

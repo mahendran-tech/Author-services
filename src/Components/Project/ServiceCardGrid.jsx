@@ -2,6 +2,7 @@ import React from "react";
 import { Container, Row, Col, Card, Button } from "react-bootstrap";
 import "./ServiceCardGrid.css";
 import SectionTitle2 from "../Common/SectionTitle2";
+import SectionTitle from "../Common/SectionTitle";
 
 const services = [
       {
@@ -54,7 +55,7 @@ const ServiceCardGrid = () => {
         <div className="cs_height_48 cs_height_lg_48"></div>
       <Container>
         <div>
-            <SectionTitle2 Title={"Advance Value-added "} SubTitle={"Features for Researchers"} />
+            <SectionTitle Title={"Other Services"} SubTitle={"We Provide"} />
             <div className="cs_height_20 cs_height_lg_20"></div>
         </div>
         <Row className="g-4 justify-content-center">

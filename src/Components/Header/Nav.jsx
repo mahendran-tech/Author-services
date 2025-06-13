@@ -95,9 +95,14 @@ export default function Nav({setMobileToggle}) {
       </li>
 
       <li className="menu-item-has-children">
-        <Link to="#">Publication Support</Link>
+        <Link to="/publication-support">Publication Support</Link>
         <DropDown>
           <ul>
+                {/* <li>
+              <Link to="/publication-support" onClick={() => setMobileToggle(false)}>
+               Full Assist Publication Pack
+              </Link>
+            </li> */}
             <li>
               <Link to="/" onClick={() => setMobileToggle(false)}>
                Full Assist Publication Pack

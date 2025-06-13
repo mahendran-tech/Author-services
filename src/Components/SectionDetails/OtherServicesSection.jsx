@@ -7,8 +7,8 @@ const OtherServicesSection = ({serviceData,isTitle=true,title,subtitle}) => {
   return (
     <div className="container p-0 mb-4">
    
-      {isTitle && (<>   <div className="cs_height_40 cs_height_lg_40" /> {title? (<SectionTitle2 Title={title} SubTitle={subtitle} /> ) : (<SectionTitle Title="Other Services" SubTitle="We Provide" />)} 
-        <div className="cs_height_30 cs_height_lg_30" />
+      {isTitle && (<>   <div className="cs_height_40 cs_height_lg_40" /> {title? (<SectionTitle Title={title} SubTitle={subtitle} /> ) : (<SectionTitle Title="Other Services" SubTitle="We Provide" />)} 
+        <div className="cs_height_20 cs_height_lg_20" />
       </>) }
       {/* <SectionTitle Title="Other Services" SubTitle="We Provide" /> */}
     

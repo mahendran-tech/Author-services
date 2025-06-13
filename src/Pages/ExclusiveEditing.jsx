@@ -128,7 +128,7 @@ const ExclusiveEditing = () => {
         <WhyChoose/>
      {/* <DeliveryOptions/> */}
      <EstimateSelector/>
-      <OtherServicesSection isTitle={true} title={"Advance Value-added"} subtitle={"Features for Researchers"} serviceData={serviceData2} />
+      <OtherServicesSection isTitle={true} title={"Other Services"} subtitle={"We Provide"} serviceData={serviceData2} />
       <FeaturesSection features={feature} isTitle={false} />
           <OtherServicesSection isTitle={false} title={"Advance Value-added"} subtitle={"Features for Researchers"} serviceData={serviceData3} />
                 <SampleTabs isTitle={true} title={"Exclusive Editing"} isbutton={true} subtitle={"Samples"} />

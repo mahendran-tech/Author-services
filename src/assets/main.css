@@ -8489,10 +8489,30 @@ Editing Service Plans & Features Comparison
   background-color: #007bff;
   color: #fff;
 }
+.nav-tab-custom .nav-link {
+  position: relative;
+}
 
 .nav-tab-custom .nav-link.active {
   background-color: #007bff !important;
   color: white !important;
+}
+.nav-tab-custom .nav-link.active::after {
+    content: "";
+    position: absolute;
+    width: 2px;
+    height: 29px;
+    background-color: transparent;
+    border-left: 1px dashed #0077fa;
+    bottom: -21px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+@media (max-width: 767.98px) {
+  .nav-tab-custom .nav-link.active::after {
+    bottom: -20px;  /* smaller offset for mobile */
+    height: 20px;   /* shorter dashed line */
+  }
 }
 
 .tab-content-custom {
@@ -8758,6 +8778,52 @@ Exclusive editing
 }
 .session_bg{
   background-color: #FAFAFA !important;
+}
+
+
+/* -----------------------------------------------------------------
+card image
+-----------------------------------------------------------------*/
+.service-card-publication {
+    background-image: linear-gradient(to bottom right, rgb(255 255 255 / 84%), rgb(255 255 255 / 76%)), url(/assets/img/bg-light.webp);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: none;
+    padding: 10px;
+    border-radius: 15px;
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+    border: 1px solid #fff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+
+.service-card-publication .card-title {
+  font-size:28px;
+  margin-bottom: 12px;
+  color: #0C0A31;
+}
+.service-card-body{
+    padding: 25px;
+}
+.service-card-body-1{
+    padding: 52px 140px 42px 42px;
+}
+
+.service-card-publication .card-text {
+  font-size: 1rem;
+  color: #0C0A31;
+  margin-bottom:10px;
+}
+
+@media (max-width: 767px) {
+  .corner-image {
+    background-size: 60px;
+    width: 70px;
+    height: 70px;
+  }
 }
 
 

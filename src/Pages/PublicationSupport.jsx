@@ -3,6 +3,7 @@ import SectionBanner from '../Components/HeroBanner/SectionBanner'
 import GlassyCardSection from '../Components/Project/GlassyCardSection'
 import YourPublicationJourny from '../Components/Project/YourPublicationJourny'
 import ServicesTimeline from '../Components/Process/ServicesTimeline'
+import PublicationPackages from '../Components/Process/PublicationPackages'
 
 const PublicationSupport = () => {
   return (
@@ -21,6 +22,7 @@ const PublicationSupport = () => {
         editingsection={true}></SectionBanner>
 {/* <GlassyCardSection/> */}
 <YourPublicationJourny/>
+<PublicationPackages/>
 <ServicesTimeline/>
 
         

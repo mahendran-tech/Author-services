@@ -141,7 +141,7 @@ const SampleTabs = ({isTitle=false,subtitle,title,isbutton=false}) => {
         <Row>
           <Nav
             variant="tabs"
-            className="nav-tab-custom justify-content-center gap-lg-3 gap-2 flex-wrap">
+            className="nav-tab-custom border-0 justify-content-center gap-lg-3 gap-2 flex-wrap">
             {tabData.map((tab) => (
               <Nav.Item key={tab.eventKey} className="flex-fill text-center ">
                 <Nav.Link

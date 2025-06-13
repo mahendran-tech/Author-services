@@ -1,6 +1,6 @@
 import React from "react";
 import FeatureCard from "../Common/FeatureCard";
-import SectionTitle2 from "../Common/SectionTitle2";
+import SectionTitle from "../Common/SectionTitle";
 
 const FeaturesSection = ({features, isTitle = true}) => {
   return (
@@ -8,14 +8,14 @@ const FeaturesSection = ({features, isTitle = true}) => {
       <section className="position-relative ">
         {isTitle && (
           <>
-            <div className="cs_height_100 cs_height_lg_110" />
+            <div className="cs_height_48 cs_height_lg_48" />
             <div>
-              <SectionTitle2
-                Title={"Advance Value–added"}
-                SubTitle={"Features for Researchers"}
+              <SectionTitle
+                Title={"Other Services"}
+                SubTitle={"We Provide"}
               />
             </div>
-            <div className="cs_height_40 cs_height_lg_30" />
+            <div className="cs_height_20 cs_height_lg_20" />
           </>
         )}
 
