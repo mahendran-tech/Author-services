@@ -1,7 +1,6 @@
 import React from "react";
 import { Container, Table, Row, Col, Button } from "react-bootstrap";
 
-
 const WhatYouGet = () => {
   const services = [
     {
@@ -32,22 +31,29 @@ const WhatYouGet = () => {
         </Row>
         <Row className="mb-3">
           <Col>
-            <div className="whatyouget-point">
-           
-              <strong>Tailored services</strong> 
-              <p>
-                Select only the services your manuscript needs, making this a
-                smart, flexible, and cost-friendly option.
-              </p>
-            </div>
-            <div className="whatyouget-point">
-             
-              <strong>Simple selection process</strong>
-              <p>
-                Choose the services you need from the list below for a quick
-                quote.
-              </p>
-            </div>
+            <ul className="text-left list-unstyled list-style-one">
+              <li className="mb-2 d-flex align-items-start gap-2">
+                <img src="assets/img/icon/right-arrow-yellow.svg" alt="" />{" "}
+                <div>
+                  <h6 className="mb-2 mt-1">Tailored services</h6>
+                  <p>
+                    Select only the services your manuscript needs, making this
+                    a smart, flexible, and cost-friendly option.
+                  </p>
+                </div>
+              </li>
+
+              <li className="mb-2 d-flex align-items-start gap-2">
+                <img src="assets/img/icon/right-arrow-yellow.svg" alt="" />{" "}
+                <div>
+                  <h6 className="mb-2 mt-1">Simple selection process</h6>
+                  <p>
+                    Choose the services you need from the list below for a quick
+                    quote.
+                  </p>
+                </div>
+              </li>
+            </ul>
           </Col>
         </Row>
 
@@ -76,14 +82,13 @@ const WhatYouGet = () => {
               ))}
               <tr>
                 <td colSpan={1}></td>
-                    <td>
+                <td>
                   <Button variant="danger" className="whatyouget-quote-btn">
                     Get a Quote →
                   </Button>
                 </td>
-                 <td colSpan={1}></td>
-                    <td colSpan={1}> 00.00$ </td>
-            
+                <td colSpan={1}></td>
+                <td colSpan={1}> 00.00$ </td>
               </tr>
             </tbody>
           </Table>
