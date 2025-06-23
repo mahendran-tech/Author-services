@@ -7907,9 +7907,9 @@ Border style
   border-radius: 8px;
   margin-bottom: 10px;
   font-weight: 500;
-  background-color: #fbe4db !important;
+  background-color: #ebf0ff !important;
   opacity: 0.8;
-  color: #ff4c00;
+  color: #0d6efd;
   padding: 10px 16px !important;
   display: flex;
   align-items: center;
@@ -7918,19 +7918,19 @@ Border style
   width: 16px;
   height: 16px;
   margin-right: 5px;
-  color: #ff4c00;
+  color:  #0d6efd;
 }
 .package-details.nav-tabs .nav-item.show .nav-link,
 .package-details.nav-tabs .nav-link.active {
-  background-color: #ff4c00 !important;
-  border-color: #ff4c00 !important;
+background-color: #0d6efd !important;
+    border-color: #0d6efd !important;
 }
 
 .package-details .nav-link.active svg {
   color: #fff;
 }
 .package-details .nav-link:not(.active) svg {
-  color: #ff4c00;
+  color:  #0d6efd;
 }
 .package-content p {
   color: #616d80 !important;
@@ -7940,11 +7940,11 @@ Border style
   font-size: 16px;
 }
 .btn-light {
-  background-color: rgba(255, 38, 97, 0.12) !important;
-  padding: 11px 10px !important;
-  border-radius: 8px !important;
-  color: rgba(255, 38, 97, 1) !important;
-  width: 100% !important;
+    background-color: rgb(51 116 235 / 12%) !important;
+    padding: 11px 10px !important;
+    border-radius: 8px !important;
+    color: rgb(0 99 243) !important;
+    width: 100% !important;
 }
 .package .package-h6 {
   font-size: 20px;

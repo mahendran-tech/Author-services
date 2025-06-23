@@ -8,7 +8,7 @@ const SupportCard = ({ image, title, description }) => {
       <Card.Body className="support-card-body">
         <Card.Title className="support-card-title">{title}</Card.Title>
         <Card.Text className="support-card-text">{description}</Card.Text>
-        <Button variant="light" className="support-card-btn">View Details</Button>
+        <Button className="support-card-btn">View Details</Button>
       </Card.Body>
     </Card>
   );
