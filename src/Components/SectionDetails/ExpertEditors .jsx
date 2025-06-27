@@ -1,4 +1,4 @@
-import {Container, Row, Col} from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
 import SectionTitle2 from "../Common/SectionTitle2";
 import { homeimage } from "../../assets/assets";
 
@@ -32,7 +32,7 @@ const ExpertEditors = () => {
       <Container>
         <div className="container text-center ">
           <SectionTitle2 Title="Our Expert" SubTitle="Editors and Reviewers" />
-             <div className="cs_height_20 cs_height_lg_20"></div>
+          <div className="cs_height_20 cs_height_lg_20"></div>
         </div>
         <Row className="g-4 justify-content-center">
           {expertData.map((item, idx) => (
@@ -42,8 +42,9 @@ const ExpertEditors = () => {
                 style={{
                   border: "1px solid rgba(255,38,97,0.1)",
                   borderRadius: "8px",
-                }}>
-                  {/* <div className="position-absolute top-0 end-0"><img src="assets/img/corner-img.png" alt="" style={{width:"120px"}} /></div> */}
+                }}
+              >
+                {/* <div className="position-absolute top-0 end-0"><img src="assets/img/corner-img.png" alt="" style={{width:"120px"}} /></div> */}
                 <div className="expert-icon mb-3">
                   {" "}
                   <img src={item.icon} alt="" />{" "}
@@ -52,9 +53,28 @@ const ExpertEditors = () => {
               </div>
             </Col>
           ))}
+          <Col xs={12} sm={6} lg={4}>
+            <div
+              className="expert-card p-0  text-center h-100 "
+              style={{
+                border: "1px solid rgba(255,38,97,0.1)",
+                borderRadius: "8px",
+              }}
+            >
+              <img
+                src="assets/img/left-hand1.jpg"
+                alt=""
+                className="rounded-3"
+              />
+            </div>
+          </Col>
         </Row>
       </Container>
-      <div className="text-center mt-5"><button type="button" className="cs_btn cs_style_1 btn btn-primary">Get a Quote →</button></div>
+      <div className="text-center mt-5">
+        <button type="button" className="cs_btn cs_style_1 btn btn-primary">
+          Get a Quote →
+        </button>
+      </div>
       <div className="cs_height_40 cs_height_lg_40"></div>
     </section>
   );

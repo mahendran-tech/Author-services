@@ -94,7 +94,7 @@ export default function Nav({ setMobileToggle }) {
             </li>
             <li>
               <Link
-                to="/customize-editing-services"
+                to="/get-quote"
                 onClick={() => {
                   setMobileToggle(false);
                   window.scrollTo({ top: 0, behavior: "smooth" }); // smooth scroll to top
@@ -108,18 +108,27 @@ export default function Nav({ setMobileToggle }) {
       </li>
 
       <li className="menu-item-has-children">
-        <Link to="/publication-support">Publication Support</Link>
+        <Link to="#">Publication Support</Link>
         <DropDown>
           <ul>
-            {/* <li>
-              <Link to="/publication-support" onClick={() => setMobileToggle(false)}>
-               Full Assist Publication Pack
+            <li>
+              <Link
+                to="/publication-support"
+                onClick={() => {
+                  setMobileToggle(false);
+                  window.scrollTo({ top: 0, behavior: "smooth" });
+                }}
+              >
+                Publication Support
               </Link>
-            </li> */}
+            </li>
             <li>
               <Link
                 to="/full-assist-publication"
-                onClick={() => setMobileToggle(false)}
+                onClick={() => {
+                  setMobileToggle(false);
+                  window.scrollTo({ top: 0, behavior: "smooth" });
+                }}
               >
                 Full Assist Publication Pack
               </Link>
@@ -127,44 +136,89 @@ export default function Nav({ setMobileToggle }) {
             <li>
               <Link
                 to="/flexi-saver-publication"
-                onClick={() => setMobileToggle(false)}
+                onClick={() => {
+                  setMobileToggle(false);
+                  window.scrollTo({ top: 0, behavior: "smooth" });
+                }}
               >
                 Flexi Saver Publication Pack
               </Link>
             </li>
             <li>
-              <Link to="/" onClick={() => setMobileToggle(false)}>
+              <Link
+                to="/"
+                onClick={() => {
+                  setMobileToggle(false);
+                  window.scrollTo({ top: 0, behavior: "smooth" });
+                }}
+              >
                 Plagiarism Check
               </Link>
             </li>
             <li>
-              <Link to="/" onClick={() => setMobileToggle(false)}>
+              <Link
+                to="/"
+                onClick={() => {
+                  setMobileToggle(false);
+                  window.scrollTo({ top: 0, behavior: "smooth" });
+                }}
+              >
                 Journal Selection
               </Link>
             </li>
             <li>
-              <Link to="/" onClick={() => setMobileToggle(false)}>
+              <Link
+                to="/"
+                onClick={() => {
+                  setMobileToggle(false);
+                  window.scrollTo({ top: 0, behavior: "smooth" });
+                }}
+              >
                 Journal Submission
               </Link>
             </li>
 
             <li>
-              <Link to="/" onClick={() => setMobileToggle(false)}>
+              <Link
+                to="/"
+                onClick={() => {
+                  setMobileToggle(false);
+                  window.scrollTo({ top: 0, behavior: "smooth" });
+                }}
+              >
                 Pre-submission Peer Review
               </Link>
             </li>
             <li>
-              <Link to="/" onClick={() => setMobileToggle(false)}>
+              <Link
+                to="/"
+                onClick={() => {
+                  setMobileToggle(false);
+                  window.scrollTo({ top: 0, behavior: "smooth" });
+                }}
+              >
                 Citation Booster
               </Link>
             </li>
             <li>
-              <Link to="/" onClick={() => setMobileToggle(false)}>
+              <Link
+                to="/"
+                onClick={() => {
+                  setMobileToggle(false);
+                  window.scrollTo({ top: 0, behavior: "smooth" });
+                }}
+              >
                 Plans Comparison
               </Link>
             </li>
             <li>
-              <Link to="/" onClick={() => setMobileToggle(false)}>
+              <Link
+                to="/customize-editing-services"
+                onClick={() => {
+                  setMobileToggle(false);
+                  window.scrollTo({ top: 0, behavior: "smooth" });
+                }}
+              >
                 Get Quote
               </Link>
             </li>
@@ -210,15 +264,12 @@ export default function Nav({ setMobileToggle }) {
         <DropDown>
           <ul>
             <li>
-              <Link to="/" onClick={() => setMobileToggle(false)}>
+              <Link to="/#testimonial" onClick={() => setMobileToggle(false)}>
                 Testimonials
               </Link>
             </li>
             <li>
-              <Link
-                to="/blog/blog-details"
-                onClick={() => setMobileToggle(false)}
-              >
+              <Link to="/#faq" onClick={() => setMobileToggle(false)}>
                 FAQs
               </Link>
             </li>
