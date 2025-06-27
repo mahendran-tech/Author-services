@@ -1,7 +1,7 @@
-import {Container, Row, Col, Card, Button} from "react-bootstrap";
+import { Container, Row, Col, Card, Button } from "react-bootstrap";
 import SectionTitle from "../Common/SectionTitle";
-import {CiEdit} from "react-icons/ci";
-import {FaRegEdit} from "react-icons/fa";
+import { CiEdit } from "react-icons/ci";
+import { FaRegEdit } from "react-icons/fa";
 import parse from "html-react-parser";
 
 const services = [
@@ -31,7 +31,8 @@ const services = [
         height="24"
         viewBox="0 0 28 28"
         fill="none"
-        xmlns="http://www.w3.org/2000/svg">
+        xmlns="http://www.w3.org/2000/svg"
+      >
         <g clipPath="url(#clip0_725_2817)">
           <path
             d="M19.3902 8.86411C19.2032 8.86411 19.0155 8.86258 18.8279 8.85875L18.8119 8.85842C18.239 8.84666 17.5897 8.83338 16.971 8.63847C16.125 8.37203 15.3744 7.8647 14.8005 7.17131C14.1961 6.44118 13.8141 5.56279 13.725 4.69791C13.6389 3.86327 13.6489 3.03388 13.6586 2.23177C13.6617 1.98125 13.6648 1.7222 13.6648 1.47003H15.2507C15.2507 1.73177 15.2475 1.99574 15.2444 2.25097C15.2349 3.04306 15.2258 3.79124 15.3026 4.53521C15.3591 5.08362 15.6214 5.67583 16.0223 6.16003C16.3954 6.61088 16.9016 6.95388 17.4475 7.12576C17.8495 7.25241 18.3553 7.26281 18.8445 7.27281L18.8607 7.27314C19.3758 7.28381 19.9065 7.27549 20.4195 7.26751C20.7636 7.26215 21.1193 7.25663 21.4723 7.25663V8.84256C21.1317 8.84256 20.7822 8.84803 20.4442 8.85323C20.0987 8.85864 19.7456 8.86411 19.3902 8.86411ZM14.6754 25.5326C14.4334 25.5326 14.1973 25.4374 14.0228 25.2648C13.9188 25.1617 13.8406 25.0355 13.7946 24.8965C13.7485 24.7576 13.7358 24.6097 13.7575 24.4649L14.345 20.5984C14.3742 20.4037 14.4648 20.2233 14.6038 20.0838L23.1937 11.4256C23.3692 11.2488 23.6028 11.1515 23.8516 11.1515C24.1004 11.1515 24.334 11.2488 24.5094 11.4255L27.7279 14.6697C28.0858 15.0301 28.0859 15.6171 27.728 15.978L19.1369 24.6375C18.9995 24.7762 18.8216 24.8677 18.6289 24.8988L14.8237 25.5206C14.7743 25.5286 14.7248 25.5326 14.6754 25.5326ZM15.8808 21.0485L15.4613 23.8094L18.1622 23.3681L26.143 15.3238L23.8517 13.0142L15.8808 21.0485Z"
@@ -91,9 +92,10 @@ const EditingServices = () => {
                 {services.map((service, idx) => (
                   <Col key={idx} md={6} lg={4} sm={12} className="mb-4">
                     <Card
-                      className={`service-card bg-white ${service.colorClass} h-100 `}>
+                      className={`service-card bg-white ${service.colorClass} h-100 `}
+                    >
                       <Card.Body className="d-flex flex-column flex-grow-1 ">
-                        <Card.Title className="mb-3">
+                        <Card.Title className="mb-3 d-flex">
                           <span className="icon">{service.icon}</span>{" "}
                           {service.title}
                         </Card.Title>

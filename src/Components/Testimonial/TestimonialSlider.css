@@ -1,0 +1,157 @@
+.testimonial-slider {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0 40px;
+  position: relative;
+  overflow: hidden;
+}
+
+.slide {
+  display: flex;
+  justify-content: center;
+    padding: 20px 10px 20px 10px;
+}
+
+/* .image-box {
+    background: #fff;
+    padding: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
+    max-width: 100%;
+    min-height: 200px;
+    text-align: center;
+    margin: auto;
+    width: 95%;
+} */
+
+.image-box img {
+  width: 100%;
+  border-radius: 10px;
+  display: block;
+}
+
+/* Arrows */
+.testimonial-slider-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    z-index: 10;
+    height: 40px;
+    width: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 1);
+    border-radius: 50%;
+    padding: 10px;
+    cursor: pointer;
+    /* box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15); */
+}
+
+.testimonial-slider-arrow.prev {
+  left: -40px;
+}
+
+.testimonial-slider-arrow.next {
+  right: -40px;
+}
+.slider-left-sec {
+    background-color: rgba(0, 0, 0, 0.04);
+    width: 204px;
+    display: flex;
+    height: 200px;
+    align-self: center;
+    align-items: center;
+    justify-content: center;
+    /* padding: 10px; */
+    border-radius: 6px 0px 0px 6px;
+}
+
+
+/* Wrapper */
+.testimonial-slider {
+  position: relative;
+  background-color: #fff;
+}
+
+/* Each Slide */
+.slide {
+  display: flex;
+  justify-content: center;
+  padding: 20px 10px;
+}
+
+/* Card Style */
+.image-box {
+  background: #fff;
+  padding: 0px;
+  box-shadow: 0 0px 20px 1px rgba(0, 0, 0, 0.04);
+  border-radius: 10px;
+  max-width: 100%;
+  min-height: 200px;
+  text-align: left;
+  margin: auto;
+  width: 100%;
+  display: flex;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  gap: 20px;
+}
+
+/* Left Section (Book Cover) */
+/* .slider-left-sec {
+  background-color: rgba(0, 0, 0, 0.04);
+  width: 160px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  border-radius: 6px;
+} */
+
+.slider-left-sec img {
+  width: 100px;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+/* Arrows */
+
+
+.testimonial-slider-arrow.prev {
+  left: -10px;
+}
+
+.testimonial-slider-arrow.next {
+  right: -10px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+.testimonial-slider-arrow.prev {
+    left: -20px;
+  }
+
+.testimonial-slider-arrow.next {
+    right: -20px;
+  }
+
+  .image-box {
+    flex-direction: column;
+    text-align: center;
+    padding: 15px;
+  }
+
+  /* .slider-left-sec {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .slider-left-sec img {
+    width: 80px;
+    height: auto;
+  } */
+}
+

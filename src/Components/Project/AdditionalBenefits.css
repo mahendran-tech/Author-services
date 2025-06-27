@@ -62,3 +62,48 @@
   text-align: left;
   font-weight: 500;
 }
+
+
+.benefits-section {
+  background-color: #2d89e2; /* Blue background */
+}
+
+.benefits-section .benefit-card {
+  background-color: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 15px;
+  padding: 20px;
+  gap: 20px;
+  transition: all 0.3s ease-in-out;
+}
+
+.benefits-section .benefit-card:hover {
+  border-color: #fff;
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+
+
+.fixed-col {
+  width: 300px;
+  min-width: 300px;
+}
+
+.benefits-section  .benefit-card {
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 15px;
+  padding: 20px;
+  background-color: transparent;
+  gap: 20px;
+  min-width: 260px;
+  flex: 1 1 0;
+}
+
+.benefits-section  .benefit-cards-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+
+
+

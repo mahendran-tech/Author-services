@@ -1,4 +1,4 @@
-import {createBrowserRouter} from "react-router-dom";
+import { createBrowserRouter } from "react-router-dom";
 import Main from "../Layout/Main";
 // import Home2 from "../Pages/Home2";
 import Home2 from "../Pages/Home2";
@@ -19,6 +19,7 @@ import GetQuote from "../Pages/GetQuote";
 import PublicationSupport from "../Pages/PublicationSupport";
 import FullAssistPublicationPlan from "../Pages/FullAssistPublicationPlan";
 import FlexiSaverPublication from "../Pages/FlexiSaverPublication";
+import ProofReading from "../Pages/ProofReading";
 
 export const router = createBrowserRouter([
   {
@@ -41,42 +42,41 @@ export const router = createBrowserRouter([
         path: "/editing-service",
         element: <EditingService></EditingService>,
       },
-          {
+      {
         path: "/customize-editing-services",
         element: <CustomizeEditingServices></CustomizeEditingServices>,
       },
-            {
+      {
         path: "/exclusive-editing",
         element: <ExclusiveEditing></ExclusiveEditing>,
       },
-                  {
+      {
         path: "/research-editing",
-        element: <ResearchEditing/>,
-      },
-                        {
-        path: "/thesis-editing",
-        element: <ThesisEditing/>,
+        element: <ResearchEditing />,
       },
       {
-
-        path: "/get-quote",
-        element: <GetQuote/>,
+        path: "/thesis-editing",
+        element: <ThesisEditing />,
       },
-            {
+      {
+        path: "/get-quote",
+        element: <GetQuote />,
+      },
+      {
         path: "/publication-support",
-        element: <PublicationSupport/>,
+        element: <PublicationSupport />,
       },
       {
         path: "/full-assist-publication",
-        element: <FullAssistPublicationPlan/>,
+        element: <FullAssistPublicationPlan />,
       },
       {
         path: "/flexi-saver-publication",
-        element: <FlexiSaverPublication/>,
+        element: <FlexiSaverPublication />,
       },
       {
-        path: "/project/project-details",
-        element: <ProjectDetailsPage></ProjectDetailsPage>,
+        path: "/proofreading",
+        element: <ProofReading />,
       },
       {
         path: "/team",

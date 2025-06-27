@@ -12,7 +12,12 @@ const SupportGrid = ({ services, Title, SubTitle }) => {
         <div className="cs_height_20 cs_height_lg_20" />
         <Row className="g-4">
           {services.map((item, index) => (
-            <Col key={index} xs={12} md={6} lg={4}>
+            <Col
+              key={index}
+              xs={12}
+              md={item.fullwith ? 12 : 6}
+              lg={item.fullwith ? 12 : 4}
+            >
               <SupportCard {...item} />
             </Col>
           ))}
