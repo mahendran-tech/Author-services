@@ -20,6 +20,10 @@ import PublicationSupport from "../Pages/PublicationSupport";
 import FullAssistPublicationPlan from "../Pages/FullAssistPublicationPlan";
 import FlexiSaverPublication from "../Pages/FlexiSaverPublication";
 import ProofReading from "../Pages/ProofReading";
+import PlagiarismCheck from "../Pages/PlagiarismCheck";
+import JournalSelection from "../Pages/JournalSelection";
+import JournalSubmission from "../Pages/JournalSubmission";
+import PreSubmission from "../Pages/PreSubmission";
 
 export const router = createBrowserRouter([
   {
@@ -79,8 +83,20 @@ export const router = createBrowserRouter([
         element: <ProofReading />,
       },
       {
-        path: "/team",
-        element: <TeamPage></TeamPage>,
+        path: "/plagiarism-check",
+        element: <PlagiarismCheck />,
+      },
+      {
+        path: "/journal-selection",
+        element: <JournalSelection />,
+      },
+      {
+        path: "/journal-submission",
+        element: <JournalSubmission />,
+      },
+      {
+        path: "/pre-submission-peer-review",
+        element: <PreSubmission />,
       },
 
       {

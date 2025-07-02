@@ -1,8 +1,8 @@
-import {useEffect, useState} from "react";
+import { useEffect, useState } from "react";
 import loadBackgroudImages from "../Common/loadBackgroudImages";
 import VideoModal from "../VideoModal/VideoModal";
 import SectionTitle2 from "../Common/SectionTitle2";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 import { homeimage } from "../../assets/assets";
 
 const Video1 = () => {
@@ -13,7 +13,8 @@ const Video1 = () => {
   return (
     <section
       className="cs_video cs_style_1 cs_bg_filed position-relative"
-      data-background={homeimage.bglight}>
+      data-background={homeimage.bglight}
+    >
       <div className="container">
         <div className="cs_video_overlay cs_white_bg position-absolute"></div>
         <div className="cs_video_content">
@@ -44,7 +45,10 @@ const Video1 = () => {
               our expert editors and proofreaders!
             </p>
             <div className="d-flex justify-content-center gap-4 mt-4">
-              <Link to="" className="cs_btn cs_style_1 wow fadeInLeft">
+              <Link
+                to="/customize-editing-services"
+                className="cs_btn cs_style_1 wow fadeInLeft"
+              >
                 <span>Get a Quote</span>
                 <i className="bi bi-arrow-right"></i>
               </Link>

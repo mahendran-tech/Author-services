@@ -12,6 +12,29 @@ import ScrollingGallery from "../Components/SectionDetails/ScrollingGallery.jsx"
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 
+const expertData = [
+  {
+    icon: homeimage.edit1, // Replace with actual icon or <img src="..." />
+    text: "Editors who are native English speakers and possess proficiency in English grammar, syntax, and usage.",
+  },
+  {
+    icon: homeimage.edit2,
+    text: "Experts with extensive experience in editing and proofreading academic papers across all disciplines.",
+  },
+  {
+    icon: homeimage.edit3,
+    text: "Chosen from a wide pool of candidates through a meticulous editing and language proficiency assessment.",
+  },
+  {
+    icon: homeimage.edit4,
+    text: "Experienced scientific editors and proofreaders proficient in their field.",
+  },
+  {
+    icon: homeimage.edit5,
+    text: "Educated in refining academic papers via specialized workshops.",
+  },
+];
+
 const Home2 = () => {
   const location = useLocation();
 
@@ -45,14 +68,17 @@ const Home2 = () => {
       </div>
       <AuthorServices />
       <Video1></Video1>
-      <PackageDetails />
+      <div id="PackageDetails">
+        <PackageDetails />
+      </div>
+
       <ProcessEditing />
       {/* <TestimonialsCarousel /> */}
       <div id="testimonial">
         {/* other components */}
         <TestimonialsCarousel /> {/* Wrapped above with id="testimonial" */}
       </div>
-      <ExpertEditors />
+      <ExpertEditors expertData={expertData} isImage={true} />
       {/* <FaqSection /> */}
       <div id="faq">
         <FaqSection />

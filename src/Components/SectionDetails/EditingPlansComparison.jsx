@@ -1,38 +1,49 @@
-import React from "react";
+import { useState } from "react";
 import SectionTitle2 from "../Common/SectionTitle2";
+import { useNavigate } from "react-router-dom";
 
-// const features = [
-//   "Language editing & grammatical corrections",
-//   "Manuscript formatting as per target journal guidelines – 1 round",
-//   "Editing certificate",
-//   "Unlimited Q&As with editors",
-//   "Preparation of journal cover letter",
-//   "Improving paper structure and flow",
-//   "Re-editing or proofreading of your manuscript for 365 days or lifetime support for same paper",
-//   "Plagiarism check using Turnitin; reduction of plagiarism in your manuscript depends on the plagiarism percentage",
-//   "Domain-specific content level editing",
-//   "Getting your manuscript peer-reviewed by experienced journal reviewers",
-// ];
+const EditingPlansComparison = ({ features, plans, isTitleChange = false }) => {
+  const [wordCount, setWordCount] = useState("10");
+  const [prices, setPrices] = useState(["0.63", "1.26", "1.56"]);
+  const [isCalculating, setIsCalculating] = useState(false);
+  let typingTimeout = null;
 
-// const plans = [
-//   {
-//     name: "Core Editing",
-//     desc: "Sentence-level editing for pre- and post-journal submission at an affordable rate.",
-//     features: [true, true, true, true, true, false, false, false, false, false],
-//   },
-//   {
-//     name: "Exclusive Editing",
-//     desc: "Content level editing tailored to give you the best chance of acceptance in high-impact journals",
-//     features: [true, true, true, true, true, true, true, true, true, false],
-//   },
-//   {
-//     name: "Research Editing",
-//     desc: "Peer review assistance following domain-specific content-level editing, offering expert advice on your manuscript.",
-//     features: [true, true, true, true, true, true, true, true, true, true],
-//   },
-// ];
+  const navigate = useNavigate();
 
-const EditingPlansComparison = ({features, plans, isTitleChange = false}) => {
+  const handleProceed = (amount, planName) => {
+    navigate("/customize-editing-services", {
+      state: {
+        selectedAmount: amount,
+        selectedPlan: planName,
+      },
+    });
+  };
+
+  const handleWordChange = (e) => {
+    const value = e.target.value;
+
+    if (/^\d*$/.test(value)) {
+      setWordCount(value);
+      setIsCalculating(true);
+
+      // Clear previous timeout if still typing
+      if (typingTimeout) {
+        clearTimeout(typingTimeout);
+      }
+
+      typingTimeout = setTimeout(() => {
+        const count = parseInt(value || 0);
+        const calculatedPrices = [
+          (count * 0.06).toFixed(2),
+          (count * 0.12).toFixed(2),
+          (count * 0.15).toFixed(2),
+        ];
+        setPrices(calculatedPrices);
+        setIsCalculating(false);
+      }, 500); // Delay to simulate "calculating"
+    }
+  };
+
   return (
     <section className="epc-section ">
       <div className="cs_height_60 cs_height_lg_80"></div>
@@ -58,25 +69,26 @@ const EditingPlansComparison = ({features, plans, isTitleChange = false}) => {
                 className="epc-header-row "
                 style={{
                   verticalAlign: "baseline",
-                }}>
+                }}
+              >
                 <th
                   className="epc-th  text-primary cs_fs_18 "
-                  style={{verticalAlign: "middle"}}>
+                  style={{ verticalAlign: "middle" }}
+                >
                   Features
                 </th>
                 {plans.map((plan, idx) => (
-                  <th
-                    key={idx}
-                    className="epc-th  "
-                    style={{width: "23%"}}>
+                  <th key={idx} className="epc-th  " style={{ width: "23%" }}>
                     <div
                       className="epc-plan-name text-primary fw-semibold"
-                      style={{textAlign: "left"}}>
+                      style={{ textAlign: "left" }}
+                    >
                       {plan.name}
                     </div>
                     <div
                       className="epc-plan-desc fw-light  small"
-                      style={{textAlign: "left"}}>
+                      style={{ textAlign: "left" }}
+                    >
                       {plan.desc}
                     </div>
                   </th>
@@ -90,9 +102,11 @@ const EditingPlansComparison = ({features, plans, isTitleChange = false}) => {
                     {feature}
                   </td>
                   {plans.map((plan, pidx) => (
-                    <td style={{verticalAlign: "middle"}}
+                    <td
+                      style={{ verticalAlign: "middle" }}
                       key={pidx}
-                      className="text-center epc-feature-cell border-0">
+                      className="text-center epc-feature-cell border-0"
+                    >
                       {plan.features[index] && (
                         <span className="epc-check-icon">
                           <svg
@@ -100,7 +114,8 @@ const EditingPlansComparison = ({features, plans, isTitleChange = false}) => {
                             height="20"
                             viewBox="0 0 24 24"
                             fill="none"
-                            xmlns="http://www.w3.org/2000/svg">
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
                             <path
                               fillRule="evenodd"
                               clipRule="evenodd"
@@ -115,9 +130,7 @@ const EditingPlansComparison = ({features, plans, isTitleChange = false}) => {
                 </tr>
               ))}
               <tr className="epc-footer-row text-center border-0">
-                <td
-                  className="epc-footer-cell "
-                  style={{textAlign: "left"}}>
+                <td className="epc-footer-cell " style={{ textAlign: "left" }}>
                   <strong>Get estimates based on your word count</strong>
                   <br />
                   <small>
@@ -126,23 +139,44 @@ const EditingPlansComparison = ({features, plans, isTitleChange = false}) => {
                   </small>
                   <div className="input-group mt-2 epc-input-group">
                     <input
-                      type="number"
-                      className="form-control epc-input"
+                      type="text"
+                      className="form-control epc-input py-1 px-2"
                       placeholder="e.g. 2345"
+                      value={wordCount}
+                      onChange={handleWordChange}
+                      style={{ fontSize: "30px", fontWeight: "900" }}
                     />
-                    <button className="cs_btn cs_style_2 epc-proceed">
-                      Proceed
+                    <button
+                      onClick={handleWordChange}
+                      className="cs_btn cs_style_2 epc-proceed"
+                    >
+                      Reset
                     </button>
                   </div>
                 </td>
-                {plans.map((_, idx) => (
+                {plans.map((plan, idx) => (
                   <td
                     align="center"
                     key={idx}
-                    className="epc-footer-cell border-0"
-                    style={{verticalAlign: "bottom"}}>
-                    <h4 className="mb-3 epc-price cs_fs_36">$0.00</h4>
-                    <button className="cs_btn cs_style_2 text-center epc-button w-75">
+                    className="epc-footer-cell border-0 "
+                    style={{ verticalAlign: "bottom" }}
+                  >
+                    <h4 className="mb-3 epc-price cs_fs_30 text-primary">
+                      {isCalculating ? (
+                        <small className="text-scondary font-weight-bold cs_fs_14">
+                          Calculating...
+                        </small>
+                      ) : (
+                        `$${prices[idx]}`
+                      )}
+                    </h4>
+                    {/* <button className="cs_btn cs_style_2 text-center epc-button w-75">
+                      Get Started →
+                    </button> */}
+                    <button
+                      onClick={() => handleProceed(prices[idx], plan.name)}
+                      className="cs_btn cs_style_2 text-center epc-button w-75"
+                    >
                       Get Started →
                     </button>
                   </td>

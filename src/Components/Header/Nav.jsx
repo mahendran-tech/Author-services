@@ -94,10 +94,10 @@ export default function Nav({ setMobileToggle }) {
             </li>
             <li>
               <Link
-                to="/get-quote"
+                to="/customize-editing-services"
                 onClick={() => {
                   setMobileToggle(false);
-                  window.scrollTo({ top: 0, behavior: "smooth" }); // smooth scroll to top
+                  window.scrollTo({ top: 0, behavior: "smooth" });
                 }}
               >
                 Get Quote
@@ -146,7 +146,7 @@ export default function Nav({ setMobileToggle }) {
             </li>
             <li>
               <Link
-                to="/"
+                to="/plagiarism-check"
                 onClick={() => {
                   setMobileToggle(false);
                   window.scrollTo({ top: 0, behavior: "smooth" });
@@ -157,7 +157,7 @@ export default function Nav({ setMobileToggle }) {
             </li>
             <li>
               <Link
-                to="/"
+                to="/journal-selection"
                 onClick={() => {
                   setMobileToggle(false);
                   window.scrollTo({ top: 0, behavior: "smooth" });
@@ -168,7 +168,7 @@ export default function Nav({ setMobileToggle }) {
             </li>
             <li>
               <Link
-                to="/"
+                to="/journal-submission"
                 onClick={() => {
                   setMobileToggle(false);
                   window.scrollTo({ top: 0, behavior: "smooth" });
@@ -180,7 +180,7 @@ export default function Nav({ setMobileToggle }) {
 
             <li>
               <Link
-                to="/"
+                to="/pre-submission-peer-review"
                 onClick={() => {
                   setMobileToggle(false);
                   window.scrollTo({ top: 0, behavior: "smooth" });
@@ -213,10 +213,10 @@ export default function Nav({ setMobileToggle }) {
             </li>
             <li>
               <Link
-                to="/customize-editing-services"
+                to="/get-quote"
                 onClick={() => {
                   setMobileToggle(false);
-                  window.scrollTo({ top: 0, behavior: "smooth" });
+                  window.scrollTo({ top: 0, behavior: "smooth" }); // smooth scroll to top
                 }}
               >
                 Get Quote

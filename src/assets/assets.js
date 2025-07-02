@@ -18,6 +18,15 @@ import edit2 from './img/icon/edit-2.svg';
 import edit3 from './img/icon/edit-3.svg';
 import edit4 from './img/icon/edit-4.svg';
 import edit5 from './img/icon/edit-5.svg';
+import edit6 from './img/icon/edit-6.svg';
+import edit7 from './img/icon/edit-7.svg'
+import edit8 from './img/icon/edit-8.svg'
+import edit9 from './img/icon/edit-9.svg'
+import edit10 from './img/icon/edit-10.svg'
+import edit11 from './img/icon/edit-11.svg'
+import edit12 from './img/icon/edit-12.svg'
+import edit13 from './img/icon/edit-13.svg'
+import left_image from './img/left-hand.jpg'
 
 
 
@@ -33,6 +42,7 @@ group1,
 group2,
 group3,
 group4,
-check,team,assurence,saftey,time,publishing,editing,bglight,edit1,edit2,edit3,edit4,edit5
+left_image,
+check,team,assurence,saftey,time,publishing,editing,bglight,edit1,edit2,edit3,edit4,edit5,edit6,edit8,edit7,edit10,edit9,edit11,edit12,edit13
  }
 

@@ -3,6 +3,7 @@ import SectionTitle from "../Common/SectionTitle";
 import { CiEdit } from "react-icons/ci";
 import { FaRegEdit } from "react-icons/fa";
 import parse from "html-react-parser";
+import { useNavigate } from "react-router-dom";
 
 const services = [
   {
@@ -67,6 +68,12 @@ const services = [
 ];
 
 const EditingServices = () => {
+  const navigate = useNavigate();
+  const handleClick = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    navigate("/editing-service");
+  };
+
   return (
     <section className="">
       <div className="cs_height_60 cs_height_lg_80"></div>
@@ -108,7 +115,10 @@ const EditingServices = () => {
                             ))}
                           {/* {parse(service.description)} */}
                         </Card.Text>
-                        <Button className="mt-auto align-self-start cs_btn cs_style_1">
+                        <Button
+                          onClick={handleClick}
+                          className="mt-auto align-self-start cs_btn cs_style_1"
+                        >
                           Get a Quote →
                         </Button>
                       </Card.Body>

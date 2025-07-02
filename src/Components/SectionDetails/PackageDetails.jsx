@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Container, Row, Col, Nav, Card, Button } from "react-bootstrap";
 import { RiEditLine } from "react-icons/ri";
-import { FaArrowRightLong } from "react-icons/fa6";
 import { FaRegUser, FaSearch } from "react-icons/fa";
 import SectionTitle from "../Common/SectionTitle";
 import EditingServicesTable from "../Project/EditingServicesTable";
@@ -37,9 +36,10 @@ const packageData = {
         description:
           "Sentence-level editing for pre- and post-journal submission at an affordable rate",
         button: "Select Core Editing →",
+        btnurl: "/core-editing",
       },
       {
-        title: "Support Features",
+        title: "Exclusive Editing",
         icon: (
           <>
             <svg
@@ -63,6 +63,7 @@ const packageData = {
         description:
           "Content level editing tailored to give you the best chance of acceptance in high-impact journals.",
         button: "Select Exclusive Editing →",
+        btnurl: "/exclusive-editing",
       },
       {
         title: "Research Editing",
@@ -87,6 +88,7 @@ const packageData = {
         description:
           "Peer review assistance following subject-area-specific content level editing, offering expert advice on your manuscript",
         button: "Select Research Editing →",
+        btnurl: "/research-editing",
       },
     ],
     rows: [
@@ -237,6 +239,7 @@ const packageData = {
           </>
         ),
         button: "Select Core Editing →",
+        btnurl: "/full-assist-publication",
       },
       {
         title: "Flexi Saver",
@@ -271,6 +274,7 @@ const packageData = {
           </>
         ),
         button: "Select Exclusive Editing →",
+        btnurl: "/flexi-saver-publication",
       },
     ],
     rows: [
@@ -366,6 +370,7 @@ const packageData = {
           </>
         ),
         button: "Select Core Editing →",
+        btnurl: "/customize-editing-services",
       },
       {
         title: "Publication",
@@ -409,6 +414,7 @@ const packageData = {
           </>
         ),
         button: "Select Exclusive Editing →",
+        btnurl: "/get-quote",
       },
     ],
     rows: [

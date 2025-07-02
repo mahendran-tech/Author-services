@@ -1,53 +1,41 @@
 import Slider from "react-slick";
-import {Container, Card} from "react-bootstrap";
-import {FaStar} from "react-icons/fa";
+import { Container, Card } from "react-bootstrap";
+import { FaStar } from "react-icons/fa";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./TestimonialsCarousel.css"; // Create this CSS file for custom styling
 import SectionTitle2 from "../Common/SectionTitle2";
-import {useEffect, useRef} from "react";
+import { useEffect, useRef } from "react";
 
 const testimonials = [
   {
-    name: "Himanshu Binani",
-    text: "It was a great experience. Your work was completely done with professionalism and the paper was really well researched and helpful.",
-    image: "https://randomuser.me/api/portraits/men/1.jpg",
+    name: "Raksha Puthran",
+    text: "Experience was really good and all the requirements were satisfied. Special thanks to Nithya (representative) for patiently listening to all my queries",
+    image: "assets/img/r-v.svg",
     rating: 4,
   },
   {
-    name: "Isha Bhanot",
-    text: "They were very helpful and quick in their replies to any of my queries. They completed my task within the deadline.",
-    image: "https://randomuser.me/api/portraits/women/1.jpg",
+    name: "Hariharan Venkatachalam",
+    text: "I recently opted their service and had a good professional experience. very much organised in handling clients and ontime delivery. Would definitely recommend them.",
+    image: "assets/img/h-v.svg",
     rating: 4,
   },
   {
-    name: "John Doe",
-    text: "Fantastic service. I’m happy with the review and feedback. Helped me a lot!",
-    image: "https://randomuser.me/api/portraits/men/2.jpg",
+    name: "Arun Chaudhari",
+    text: "I had an exceptional experience with the IFERP Author Services! From start to finish, their team was incredibly professional, responsive, and dedicated to delivering high-quality work. ",
+    image: "assets/img/a-v.svg",
     rating: 5,
   },
   {
-    name: "Priya Sharma",
-    text: "Quick response and valuable suggestions for journal submission.",
-    image: "https://randomuser.me/api/portraits/women/2.jpg",
-    rating: 4,
-  },
-  {
-    name: "Aman Verma",
-    text: "I really appreciate the effort and quality of the editing services provided.",
-    image: "https://randomuser.me/api/portraits/men/3.jpg",
-    rating: 5,
-  },
-  {
-    name: "Neha Patel",
-    text: "Professional and timely feedback. Will use again.",
-    image: "https://randomuser.me/api/portraits/women/3.jpg",
+    name: "Rohith Sri",
+    text: "I'm really happy with there work.. there coordination and dedication towards work is awesome. Competing work very early. Early replies for customers and asking for feedbacks ",
+    image: "assets/img/blue-v.svg",
     rating: 4,
   },
 ];
 
 const NextArrow = (props) => {
-  const {className, onClick} = props;
+  const { className, onClick } = props;
   return (
     <div className={className} onClick={onClick}>
       <svg
@@ -55,7 +43,8 @@ const NextArrow = (props) => {
         height="43"
         viewBox="0 0 43 43"
         fill="none"
-        xmlns="http://www.w3.org/2000/svg">
+        xmlns="http://www.w3.org/2000/svg"
+      >
         <rect
           x="0.833008"
           y="1.31836"
@@ -94,7 +83,7 @@ const NextArrow = (props) => {
 };
 
 const PrevArrow = (props) => {
-  const {className, onClick} = props;
+  const { className, onClick } = props;
   return (
     <div className={className} onClick={onClick}>
       <svg
@@ -102,7 +91,8 @@ const PrevArrow = (props) => {
         height="43"
         viewBox="0 0 43 43"
         fill="none"
-        xmlns="http://www.w3.org/2000/svg">
+        xmlns="http://www.w3.org/2000/svg"
+      >
         <rect
           x="1.16699"
           y="1.31836"
@@ -162,50 +152,50 @@ const TestimonialsCarousel = () => {
   };
 
   return (
-    <section className="section_bg_img"> 
-    <Container className="">
-      <div className="cs_height_48 cs_height_lg_48"></div>
-      <div className="text-center mb-4">
-        <SectionTitle2
-          Title="Testimonials"
-          SubTitle=" What our customers say"
-        />
-              <div className="cs_height_20 cs_height_lg_20"></div>
-      </div>
-      <div className="row d-flex justify-content-center">
-        <div className="col-lg-10 col-sm-12">
-          <Slider {...settings}>
-            {testimonials.map((t, i) => (
-              <div key={i} className="mb-4">
-                <Card className="testimonial-card p-3 mx-3 position-relative">
-                  <div className="text-center d-flex justify-content-center position-absolute top-0 start-50 translate-middle-x">
-                    <img
-                      src={t.image}
-                      alt={t.name}
-                      className="rounded-circle mb-2"
-                      style={{width: 50, height: 50}}
-                    />
-                  </div>
-                  <Card.Body className="text-center  testimonial-card-body">
-                    <Card.Text className="cs_fs_16 mb-2">{t.text}</Card.Text>
-                    <Card.Title className="fw-bold mb-1">{t.name}</Card.Title>
-                    <div className="text-warning">
-                      {Array.from({length: 5}).map((_, index) => (
-                        <FaStar
-                          key={index}
-                          color={index < t.rating ? "#f1c40f" : "#e4e5e9"}
-                        />
-                      ))}
-                    </div>
-                  </Card.Body>
-                </Card>
-              </div>
-            ))}
-          </Slider>
+    <section className="section_bg_img">
+      <Container className="">
+        <div className="cs_height_48 cs_height_lg_48"></div>
+        <div className="text-center mb-4">
+          <SectionTitle2
+            Title="Testimonials"
+            SubTitle=" What our customers say"
+          />
+          <div className="cs_height_20 cs_height_lg_20"></div>
         </div>
-        <div className="cs_height_80 cs_height_lg_80"></div>
-      </div>
-    </Container>
+        <div className="row d-flex justify-content-center">
+          <div className="col-lg-10 col-sm-12">
+            <Slider {...settings}>
+              {testimonials.map((t, i) => (
+                <div key={i} className="mb-4">
+                  <Card className="testimonial-card p-3 mx-3 position-relative">
+                    <div className="text-center d-flex justify-content-center position-absolute top-0 start-50 translate-middle-x">
+                      <img
+                        src={t.image}
+                        alt={t.name}
+                        className="rounded-circle mb-2"
+                        style={{ width: 50, height: 50 }}
+                      />
+                    </div>
+                    <Card.Body className="text-center  testimonial-card-body">
+                      <Card.Text className="cs_fs_16 mb-2">{t.text}</Card.Text>
+                      <Card.Title className="fw-bold mb-1">{t.name}</Card.Title>
+                      <div className="text-warning">
+                        {Array.from({ length: 5 }).map((_, index) => (
+                          <FaStar
+                            key={index}
+                            color={index < t.rating ? "#f1c40f" : "#e4e5e9"}
+                          />
+                        ))}
+                      </div>
+                    </Card.Body>
+                  </Card>
+                </div>
+              ))}
+            </Slider>
+          </div>
+          <div className="cs_height_80 cs_height_lg_80"></div>
+        </div>
+      </Container>
     </section>
   );
 };
