@@ -1,18 +1,21 @@
-import React from 'react'
-import SectionBanner from '../Components/HeroBanner/SectionBanner'
-import AdditionalBenefits from '../Components/Common/AdditionalBenefits'
-import EstimateSelector from '../Components/Project/EstimateSelector';
-import OtherServicesSection from '../Components/SectionDetails/OtherServicesSection';
-import FeaturesSection from '../Components/SectionDetails/FeaturesSection';
-import SampleTabs from '../Components/SectionDetails/SampleTabs';
-import ContactHelpSection from '../Components/SectionDetails/ContactHelpSection';
+import React from "react";
+import SectionBanner from "../Components/HeroBanner/SectionBanner";
+import AdditionalBenefits from "../Components/Common/AdditionalBenefits";
+import EstimateSelector from "../Components/Project/EstimateSelector";
+import OtherServicesSection from "../Components/SectionDetails/OtherServicesSection";
+import FeaturesSection from "../Components/SectionDetails/FeaturesSection";
+import SampleTabs from "../Components/SectionDetails/SampleTabs";
+import ContactHelpSection from "../Components/SectionDetails/ContactHelpSection";
 
 const benefitsData = [
-      {icon: "assets/img/icon/sa-4.svg", text: "Re-editing or proofreading <br/> revision for 365 days"},
-  {icon: "assets/img/icon/sa-6.svg", text: "Editing certificate "},
+  {
+    icon: "assets/img/icon/sa-4.svg",
+    text: "Re-editing or proofreading <br/> revision for 365 days",
+  },
+  { icon: "assets/img/icon/sa-6.svg", text: "Editing certificate " },
 
-  {icon: "assets/img/icon/sa-8.svg", text: "Unlimited Q & A with Editors "},
-    {icon: "assets/img/icon/sa-7.svg", text: "Journal cover letter"},
+  { icon: "assets/img/icon/sa-8.svg", text: "Unlimited Q & A with Editors " },
+  { icon: "assets/img/icon/sa-7.svg", text: "Journal cover letter" },
 ];
 
 const serviceData2 = [
@@ -20,11 +23,12 @@ const serviceData2 = [
     title: "Core Editing",
     description:
       "Our Core Editing service focuses on sentence-level editing for both pre- and post-journal submissions at an affordable rate.",
-        bgColor: "bg-light-purple",
+    bgColor: "bg-light-purple",
     textcolor: "#0C0A31",
     headcolor: "#0C0A31",
     radius: "br-left",
     left: false,
+    btnurl: "/core-editing",
   },
   {
     title: "Thesis Editing",
@@ -35,6 +39,7 @@ const serviceData2 = [
     headcolor: "#002021",
     radius: "br-right",
     left: true,
+    btnurl: "/thesis-editing",
   },
 ];
 const serviceData1 = [
@@ -42,11 +47,12 @@ const serviceData1 = [
     title: "Journal Publication Support",
     description:
       "Navigating the research publication process can be challenging, but with our Journal Publication Support Services, you’ll receive expert guidance every step of the way.",
-        bgColor: "bg-light-purple",
+    bgColor: "bg-light-purple",
     textcolor: "#0C0A31",
     headcolor: "#0C0A31",
     radius: "br-left",
     left: false,
+    btnurl: "/exclusive-editing",
   },
   {
     title: "Translation Services",
@@ -61,34 +67,33 @@ const serviceData1 = [
 ];
 
 const feature = [
-    {
+  {
     title: "Exclusive Editing",
     description:
       "Our Exclusive Editing service is designed to maximize your manuscript’s impact and readiness for submission to high-impact journals.",
-        image: "assets/img/fr-1.png",
-      bgClass: "bg-light-bluegreen",
+    image: "assets/img/fr-1.png",
+    bgClass: "bg-light-bluegreen",
     reverse: false,
-       iseditingService: true,
-    margintop:"0%",
-
+    iseditingService: true,
+    margintop: "0%",
     left: true,
+    btnurl: "/exclusive-editing",
   },
 
   {
-    title: "Research Impact",
+    title: "Research Outreach",
     description:
       "We help promote and increase visibility of your published research within the academic community and across relevant media platforms.",
     image: "assets/img/fr-10.png",
     bgClass: "bg-light-blue",
     reverse: true,
     rightcard: true,
-    margintop:"-55%",
+    margintop: "-55%",
     right: true,
+    btnurl: "/exclusive-editing",
   },
 ];
 const feature1 = [
-
-
   {
     title: "Citation Booster",
     description:
@@ -97,16 +102,15 @@ const feature1 = [
     bgClass: "bg-light-purple",
     reverse: true,
     rightcard: true,
-    margintop:"-35%",
+    margintop: "-35%",
     right: true,
   },
 ];
 
-
 const ResearchEditing = () => {
   return (
     <div>
-              <SectionBanner
+      <SectionBanner
         bgimg="assets/img/bg-light.webp"
         // subtitle="Battery Check & Replace"
         title="Research"
@@ -115,33 +119,49 @@ const ResearchEditing = () => {
         conetnt1="A qualified peer reviewer from your field will provide detailed feedback on content, structure, and potential gaps, followed by comprehensive editing from a subject-area expert to ensure clarity, logical flow, and journal readiness."
         btnname="Get a free Quote"
         img1="assets/img/research-editing.png"
-        btnurl="/"
+        btnurl="/customize-editing-services"
         edit={true}
-        editingsection={true}></SectionBanner>
-        
-                  <AdditionalBenefits
-      title="Research Editing"
-      subtitle="Additional Benefits"
-      benefits={benefitsData}
-    />
-    <div>
-        <div className='cs_height_80 cs_height_lg_80'></div>
-  <EstimateSelector/>
-    </div>
+        editingsection={true}
+      ></SectionBanner>
 
-    <div className='bg-light'>
-        <div className='cs_height_50 cs_height_lg_50'></div>
-             <OtherServicesSection isTitle={true} title={"Other Services"} subtitle={"We Provide"} serviceData={serviceData2} />
-               <FeaturesSection features={feature} isTitle={false} />
-                  <OtherServicesSection isTitle={false} title={"Advance Value-added"} subtitle={"Features for Researchers"} serviceData={serviceData1} />
-  <FeaturesSection features={feature1} isTitle={false} />
-                <SampleTabs isTitle={true} title={"Research Editing"} isbutton={true} subtitle={"Samples"} />
-      <ContactHelpSection />
-    <div className='cs_height_50 cs_height_lg_50'></div>
-    </div>
-   
-        </div>
-  )
-}
+      <AdditionalBenefits
+        title="Research Editing"
+        subtitle="Additional Benefits"
+        benefits={benefitsData}
+        btnurl={"/customize-editing-services"}
+      />
+      <div>
+        <div className="cs_height_80 cs_height_lg_80"></div>
+        <EstimateSelector />
+      </div>
 
-export default ResearchEditing
+      <div className="bg-light">
+        <div className="cs_height_50 cs_height_lg_50"></div>
+        <OtherServicesSection
+          isTitle={true}
+          title={"Other Services"}
+          subtitle={"We Provide"}
+          serviceData={serviceData2}
+        />
+        <FeaturesSection features={feature} isTitle={false} />
+        <OtherServicesSection
+          isTitle={false}
+          title={"Advance Value-added"}
+          subtitle={"Features for Researchers"}
+          serviceData={serviceData1}
+        />
+        <FeaturesSection features={feature1} isTitle={false} />
+        <SampleTabs
+          isTitle={true}
+          title={"Research Editing"}
+          isbutton={true}
+          subtitle={"Samples"}
+        />
+        <ContactHelpSection />
+        <div className="cs_height_50 cs_height_lg_50"></div>
+      </div>
+    </div>
+  );
+};
+
+export default ResearchEditing;

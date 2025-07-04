@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const FeatureCard = ({
   image,
@@ -13,6 +14,7 @@ const FeatureCard = ({
   margintop,
   left,
   iseditingService = false,
+  btnurl,
 }) => {
   return (
     <div className={`container  py-4`}>
@@ -20,20 +22,23 @@ const FeatureCard = ({
         className={`row d-flex align-items-center researcher g-4  ${
           reverse ? "flex-md-row-reverse" : ""
         } ${bgClass} rounded-4   ${
-          title === "Research Editing" || title === "Research Impact" || rightcard
+          title === "Research Editing" ||
+          title === "Research Impact" ||
+          rightcard
             ? "research-editing"
             : ""
-        } ${left ? "left-top" : ""}`}>
+        } ${left ? "left-top" : ""}`}
+      >
         <div className="col-md-5 text-center d-none d-md-block p-0 m-0">
           <img
             src={image}
             alt={title}
             className="img-fluid rounded"
-        style={{
-  ...(left ? { left: "-170px" } : {}),
-  ...(iseditingService ? { width: "400px" } : {}),
-  marginTop: margintop,
-}} 
+            style={{
+              ...(left ? { left: "-170px" } : {}),
+              ...(iseditingService ? { width: "400px" } : {}),
+              marginTop: margintop,
+            }}
           />
         </div>
 
@@ -45,7 +50,8 @@ const FeatureCard = ({
               right
                 ? "marginright-nagative"
                 : "marginleft-nagative"
-            }   position-relative`}>
+            }   position-relative`}
+          >
             <h4 className="fw-bold cs_fs_24 mb-3">{title}</h4>
             <p className="cs_accent_color">{description}</p>
             {description2 && <p className="cs_accent_color">{description2}</p>}
@@ -53,8 +59,17 @@ const FeatureCard = ({
             <div
               className={`position-absolute  ${
                 reverse ? "bubble-btn-section-right" : "bubble-btn-section"
-              }`}>
-              <button className="btn btn-pink mt-2">View Details →</button>
+              }`}
+            >
+              <Link
+                to={btnurl}
+                onClick={() => {
+                  window.scrollTo({ top: 0, behavior: "smooth" });
+                }}
+                className="btn btn-pink mt-2"
+              >
+                View Details →
+              </Link>
             </div>
           </div>
           {left && <div className="cs_height_100 cs_height_lg_110" />}

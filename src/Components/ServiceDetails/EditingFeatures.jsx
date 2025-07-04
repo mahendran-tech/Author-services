@@ -3,13 +3,15 @@ import RoundedCard from "../Common/RoundedCard";
 import FeatureCard from "../Common/FeatureCard";
 const features = [
   {
-    title: "Research Impact",
+    title: "Research Outreach",
     description:
       "With our support, your published work can reach the right academic audiences and trusted publication platforms — helping to broaden its visibility, distribution and impact within the research community.",
     image: "assets/img/fr-4.png",
     bgClass: "bg-light-teal",
     reverse: true,
-    margintop:"-30%",
+    right: true,
+    margintop: "-30%",
+    btnurl: "/research-impact",
   },
 ];
 const EditingFeatures = () => {
@@ -24,6 +26,7 @@ const EditingFeatures = () => {
             textcolor="#011530"
             headcolor="#011530"
             radius="br-left"
+            btnurl="/plagiarism-check"
           />
         </div>
         <div className="col-md-6 col-sm-12">
@@ -35,6 +38,7 @@ const EditingFeatures = () => {
             bgColor="bg-light-purple"
             textcolor="#0C0A31"
             headcolor="#0C0A31"
+            btnurl="/journal-submission"
           />
         </div>
       </div>

@@ -1,9 +1,10 @@
 import React from "react";
-import {Container, Row, Col, Card, Button} from "react-bootstrap";
-import {CiEdit} from "react-icons/ci";
-import {MdOutlineWorkspacePremium} from "react-icons/md";
-import {HiOutlineDocumentText} from "react-icons/hi";
+import { Container, Row, Col, Card, Button } from "react-bootstrap";
+import { CiEdit } from "react-icons/ci";
+import { MdOutlineWorkspacePremium } from "react-icons/md";
+import { HiOutlineDocumentText } from "react-icons/hi";
 import SectionTitle2 from "../Common/SectionTitle2";
+import { Link } from "react-router-dom";
 
 const services = [
   {
@@ -28,7 +29,7 @@ const services = [
 
 const SampleEditing = () => {
   return (
-    <div className="" style={{backgroundColor: "#f8f9fc"}}>
+    <div className="" style={{ backgroundColor: "#f8f9fc" }}>
       <div className="cs_height_30 cs_height_lg_60"></div>
       <Container>
         {/* <h4 className="text-center fw-semibold text-uppercase">
@@ -56,14 +57,15 @@ const SampleEditing = () => {
                   borderRight: "1px solid #0063CB1A",
                   borderBottom: "1px solid #0063CB1A",
                   borderLeft: "1px solid #0063CB1A",
-                }}>
+                }}
+              >
                 <Card.Body className="text-center">
                   {/* <div className="mb-2">{service.icon}</div> */}
                   <Card.Title className="d-flex justify-content-start gap-2 cs_accent_color">
                     {service.icon}
                     {service.title}
                   </Card.Title>
-                  <Card.Text style={{fontSize: "14px", textAlign: "left"}}>
+                  <Card.Text style={{ fontSize: "14px", textAlign: "left" }}>
                     {service.description}
                   </Card.Text>
                 </Card.Body>
@@ -75,7 +77,7 @@ const SampleEditing = () => {
         {/* Sample Paragraph Section */}
         <Row className="gx-4">
           <Col md={8}>
-            <div className="bg-white p-0  mb-2" style={{fontSize: "14px"}}>
+            <div className="bg-white p-0  mb-2" style={{ fontSize: "14px" }}>
               {/* <p>
                 Several initiatives have been launched in many countries with
                 the aim of modernizing
@@ -102,21 +104,27 @@ const SampleEditing = () => {
           </Col>
           <Col md={4}>
             <div className="bg-white p-3 shadow-sm rounded mb-3">
-              <strong className="text-muted d-block mb-2">Commented:</strong>
-              <p style={{fontSize: "14px"}}>
-                Lorem Ipsum is simply dummy text of the printing...
+              <strong className="text-muted d-block mb-2">
+                1st Commented:
+              </strong>
+              <p style={{ fontSize: "14px" }}>
+                Using the correct technical word aids technical clarity to the
+                text, further enhancing the clarity
               </p>
             </div>
             <div className="bg-white p-3 shadow-sm rounded mb-3">
-              <strong className="text-muted d-block mb-2">Commented:</strong>
-              <p style={{fontSize: "14px"}}>
-                Lorem Ipsum is simply dummy text of the printing...
+              <strong className="text-muted d-block mb-2">
+                2nd Commented:
+              </strong>
+              <p style={{ fontSize: "14px" }}>
+                An introductory phase should be separated from the main clause
+                using a comma
               </p>
             </div>
             <div className="bg-white p-3 shadow-sm rounded">
               <strong className="text-danger d-block mb-2">Deleted:</strong>
-              <p style={{fontSize: "14px"}}>
-                Lorem Ipsum is simply dummy text of the printing...
+              <p style={{ fontSize: "14px" }}>
+                Have to should be deleted and replaced with must
               </p>
             </div>
           </Col>
@@ -124,7 +132,9 @@ const SampleEditing = () => {
 
         {/* Bottom Button */}
         <div className="text-center ">
-          <Button className="cs_btn cs_style_1">Select Core Editing →</Button>
+          <Link to="/customize-editing-services" className="cs_btn cs_style_1">
+            Get Quote →
+          </Link>
         </div>
       </Container>
       <div className="cs_height_80 cs_height_lg_60"></div>

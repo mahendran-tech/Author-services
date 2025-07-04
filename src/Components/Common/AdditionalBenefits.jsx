@@ -2,12 +2,14 @@ import React from "react";
 import { Button, Container } from "react-bootstrap";
 import SectionTitle2 from "./SectionTitle2";
 import parse from "html-react-parser";
+import { Link } from "react-router-dom";
 
 const AdditionalBenefits = ({
   title,
   subtitle,
   benefits,
   isBsColumn = true,
+  btnurl,
 }) => {
   return (
     <div className="text-center  bg-light">
@@ -49,9 +51,13 @@ const AdditionalBenefits = ({
           </div>
 
           <div className="mt-5">
-            <Button className="cs_btn cs_style_1">
+            <Link
+              to={btnurl}
+              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+              className="cs_btn cs_style_1"
+            >
               Get a Quote <span>&rarr;</span>
-            </Button>
+            </Link>
           </div>
           <div className="cs_height_40 cs_height_lg_40"></div>
         </Container>
@@ -76,9 +82,9 @@ const AdditionalBenefits = ({
           </div>
 
           <div className="mt-5">
-            <Button className="cs_btn cs_style_1">
+            <Link to={btnurl} className="cs_btn cs_style_1">
               Get a Quote <span>&rarr;</span>
-            </Button>
+            </Link>
           </div>
           <div className="cs_height_40 cs_height_lg_40"></div>
         </Container>

@@ -11,6 +11,7 @@ const EditingPlansComparison = ({ features, plans, isTitleChange = false }) => {
   const navigate = useNavigate();
 
   const handleProceed = (amount, planName) => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
     navigate("/customize-editing-services", {
       state: {
         selectedAmount: amount,

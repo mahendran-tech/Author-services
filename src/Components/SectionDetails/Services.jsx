@@ -9,6 +9,7 @@ const Services = () => {
         description="Our editors revise your thesis or dissertation to improve its clarity, readability, and academic value. They correct grammar, punctuation, and spelling errors while improving sentence structure and flow. Additionally, we ensure that your work maintains a formal academic tone, making it more coherent and ready for submission, increasing the chances of approval."
         image="assets/img/thesis-editing.jpg"
         reverse
+        urlRedirect="/thesis-editing"
       />
 
       <ServiceCard
@@ -17,6 +18,7 @@ const Services = () => {
         image="assets/img/proofreading.jpg"
         bgColor="rgba(223, 234, 248, 1)"
         textColor="rgba(1, 21, 48, 1)"
+        urlRedirect="/proofreading"
       />
     </div>
   );

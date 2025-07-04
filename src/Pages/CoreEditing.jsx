@@ -19,6 +19,7 @@ const features = [
     image: "assets/img/fr-1.png",
     bgClass: "bg-light-purple",
     reverse: false,
+    btnurl: "/exclusive-editing",
   },
   {
     title: "Research Editing",
@@ -29,6 +30,7 @@ const features = [
     image: "assets/img/fr-2.png",
     bgClass: "bg-light-teal",
     reverse: true,
+    btnurl: "/research-editing",
   },
   {
     title: "Thesis Editing",
@@ -38,6 +40,7 @@ const features = [
     bgClass: "bg-light-blue",
     reverse: false,
     left: true,
+    btnurl: "/thesis-editing",
   },
 ];
 
@@ -53,9 +56,10 @@ const CoreEditing = () => {
         conetnt1="Editors focus on improving clarity, correcting grammar, and eliminating errors to make your manuscript polished, easy to read, and ready for publication."
         btnname="Get a Quote"
         img1="assets/img/coreediting.png"
-        btnurl="/"
+        btnurl="/customize-editing-services"
         edit={true}
-        editingsection={true}></SectionBanner>
+        editingsection={true}
+      ></SectionBanner>
       <CoreEditingPage />
       {/* <WordCountEstimator /> */}
       <EstimateCalculator />
@@ -63,7 +67,7 @@ const CoreEditing = () => {
       {/* <EditingFeatures /> */}
 
       <EditingFeatures />
-      <SampleTabs />
+      <SampleTabs isbutton={true} />
       <ContactHelpSection />
     </div>
   );

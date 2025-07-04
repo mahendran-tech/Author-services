@@ -33,6 +33,7 @@ const serviceData2 = [
     headcolor: "#0C0A31",
     radius: "br-left",
     left: false,
+    btnurl: "/core-editing",
   },
   {
     title: "Research Editing",
@@ -43,12 +44,13 @@ const serviceData2 = [
     headcolor: "#002021",
     radius: "br-right",
     left: true,
+    btnurl: "/research-editing",
   },
 ];
 
 const serviceData3 = [
   {
-    title: "Research Impact",
+    title: "Research Outreach",
     description:
       "We help promote and increase the visibility of your published research within the academic community and across relevant media platforms.",
     bgColor: "bg-light-teal",
@@ -57,6 +59,7 @@ const serviceData3 = [
 
     radius: "br-left",
     left: false,
+    btnurl: "/research-editing",
   },
   {
     title: "Citation Booster",
@@ -67,6 +70,7 @@ const serviceData3 = [
     headcolor: "#0C0A31",
     radius: "br-right",
     left: true,
+    btnurl: "/research-editing",
   },
 ];
 
@@ -81,6 +85,7 @@ const feature = [
     rightcard: true,
     margintop: "-28%",
     right: true,
+    btnurl: "/thesis-editing",
   },
   {
     title: "Journal Publication Support",
@@ -91,6 +96,7 @@ const feature = [
     reverse: false,
     margintop: "-35%",
     left: true,
+    btnurl: "/publication-support",
   },
   {
     title: "Translation Services",
@@ -102,6 +108,7 @@ const feature = [
     rightcard: true,
     margintop: "-40%",
     right: true,
+    btnurl: "/publication-support",
   },
 ];
 
@@ -117,7 +124,7 @@ const ExclusiveEditing = () => {
         conetnt1="An expert from your subject area will carefully edit your work to improve its content, structure, clarity, grammar, punctuation, and style. This service is ideal for researchers seeking detailed, high-quality editing tailored to their specific field and research goals."
         btnname="Get a Quote"
         img1="assets/img/exclusive-editing.png"
-        btnurl="/"
+        btnurl="/customize-editing-services"
         edit={true}
         editingsection={true}
       ></SectionBanner>
@@ -126,6 +133,7 @@ const ExclusiveEditing = () => {
         title="Exclusive Editing"
         subtitle="Additional Benefits"
         benefits={benefitsData}
+        btnurl="/customize-editing-services"
       />
       <WhyChoose />
       {/* <DeliveryOptions /> */}
