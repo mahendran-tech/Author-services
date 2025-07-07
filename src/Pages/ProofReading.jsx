@@ -33,30 +33,35 @@ const services = [
     title: "Core Editing",
     description:
       "Our Core Editing service focuses on sentence-level editing for both pre-and post-journal submissions at an affordable rate.",
+    btnurl: "/core-editing",
   },
   {
     image: "assets/img/img3.png",
     title: "Research Outreach",
     description:
       "We help promote and increase the visibility of your published research within the academic community and across relevant media platforms",
+    btnurl: "/",
   },
   {
     image: "assets/img/img6.png",
     title: "Exclusive Editing",
     description:
       "Our Exclusive Editing service is designed to maximize your manuscript’s impact and readiness for submission to high-impact journals.",
+    btnurl: "/exclusive-editing",
   },
   {
     image: "assets/img/img8.png",
     title: "Research Editing",
     description:
       "Our Research Editing service provides expert pre-submission peer review, offering in-depth feedback on content, structure, and gaps to strengthen your manuscript before journal submission.",
+    btnurl: "/research-editing",
   },
   {
     image: "assets/img/img1.png",
     title: "Journal Publication Support",
     description:
       "Navigating the research publication process can be challenging, but with our Journal Publication support services, you’ll receive expert guidance every step of the way.",
+    btnurl: "/journal-submission",
   },
 
   {
@@ -85,6 +90,7 @@ const ProofReading = () => {
         subtitle="your research"
         conetnt="Clear, error-free writing makes a lasting impression—whether you’re submitting  a manuscript, thesis, or technical document.Choose IFERP’s proofreading service and rely on expert support to present your best work—every time."
         btnname="Get a Quote"
+        btnurl="/customize-editing-services"
         img1="assets/img/proofreading.png"
         isProofReading={true}
         ProofReadingTit={"Suitable for"}
@@ -92,7 +98,6 @@ const ProofReading = () => {
         ProofReadingSubTit2={
           "Non-academic documents (cover letters, speeches, etc.)"
         }
-        btnurl="/"
         edit={true}
         editingsection={true}
       ></SectionBanner>
@@ -108,15 +113,18 @@ const ProofReading = () => {
           "With our thorough proofreading, your document will read smoothly and leave a strong, professional impression. You can feel confident that your manuscript is accurate, error-free, professional, and fully prepared for submission, publication, or sharing with your audience."
         }
         ImagePath={"assets/img/papper.png"}
+        btnurl="/customize-editing-services"
       />
       <AdditionalBenefits2 />
+
       <AdditionalBenefits
         title="Who should opt for"
         subtitle="our Proofreading service?"
         benefits={benefitsData}
+        btnurl={"/customize-editing-services"}
       />
-      <TestimonialSlider />
-      {/* <PublishedPapersSlider /> */}
+      {/* <TestimonialSlider /> */}
+      <PublishedPapersSlider />
       <SupportGrid
         services={services}
         Title={"Other Services"}

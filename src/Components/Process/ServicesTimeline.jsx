@@ -12,6 +12,7 @@ const services = [
     description:
       "We help you choose the right journal based on your research topic, target audience, and indexing requirements—making the publication process smoother and more effective.",
     image: "assets/img/icon/jounal-1.svg",
+    btnurl: "/journal-selection",
   },
   {
     title: "Pre-submission Peer Review",
@@ -19,6 +20,7 @@ const services = [
     description:
       "A qualified expert in your field reviews your manuscript, provides valuable feedback, and helps you address any issues before submission.",
     image: "assets/img/icon/journal-2.svg",
+    btnurl: "/pre-submission-peer-review",
   },
   {
     title: "Plagiarism check",
@@ -26,6 +28,7 @@ const services = [
     description:
       "We provide a detailed plagiarism report that identifies potential concerns and highlights areas needing revision—ensuring your manuscript is original and ready for review.",
     image: "assets/img/icon/journal-3.svg",
+    btnurl: "/plagiarism-check",
   },
   {
     title: "Formatting and Submission",
@@ -33,6 +36,7 @@ const services = [
     description:
       "Our team meticulously formats your manuscript—including text, tables, figures, and references—to meet journal guidelines and citation standards, ensuring consistency in style and citations.",
     image: "assets/img/icon/journal-4.svg",
+    btnurl: "/",
   },
   {
     title: "Post-editing Services",
@@ -40,6 +44,7 @@ const services = [
     description:
       "After acceptance, journals may request changes. Our post-editing service ensures fast, effective revisions to prepare your paper for publication. If your manuscript is rejected, we offer free support for resubmission to another journal once, with subsequent rounds at a 10% discount.",
     image: "assets/img/icon/journal-5.svg",
+    btnurl: "/",
   },
   {
     title: "Citation Booster",
@@ -47,6 +52,7 @@ const services = [
     description:
       "With Citation Booster, we help increase your paper’s visibility and citation count through targeted academic outreach and discoverability strategies—improving your research’s academic influence.",
     image: "assets/img/icon/journal-6.svg",
+    btnurl: "/",
   },
   {
     title: "Research Outreach",
@@ -54,6 +60,7 @@ const services = [
     description:
       "We promote your published work across academic networks and relevant media platforms, helping your research reach the right audience and gain broader recognition within and beyond your field.",
     image: "assets/img/icon/journal-7.svg",
+    btnurl: "/",
   },
 ];
 
@@ -76,7 +83,13 @@ const ServicesTimeline = () => {
                     <img src={item.icon} alt="" />{" "}
                   </div>
                   <p className="text-end">{item.description}</p>
-                  <Link to="#" className=" btn-link">
+                  <Link
+                    to={item.btnurl}
+                    onClick={() => {
+                      window.scrollTo({ top: 0, behavior: "smooth" });
+                    }}
+                    className=" btn-link"
+                  >
                     View Details{" "}
                   </Link>
                 </div>
@@ -109,7 +122,13 @@ const ServicesTimeline = () => {
                     <img src={item.icon} alt="" />{" "}
                   </div>
                   <p>{item.description}</p>
-                  <Link to="#" className=" btn-link">
+                  <Link
+                    to={item.btnurl}
+                    onClick={() => {
+                      window.scrollTo({ top: 0, behavior: "smooth" });
+                    }}
+                    className=" btn-link"
+                  >
                     View Details{" "}
                   </Link>
                 </div>

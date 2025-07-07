@@ -3,8 +3,9 @@ import { Button, Col, Container, Row } from "react-bootstrap";
 import SectionTitle2 from "../Common/SectionTitle2";
 import SectionTitle from "../Common/SectionTitle";
 import DeliveryPricingTable from "../Project/DeliveryPricingTable";
+import { Link } from "react-router-dom";
 
-const EditingSample = ({ Title, SubTitle, isRowSection = false }) => {
+const EditingSample = ({ Title, SubTitle, isRowSection = false, btnurl }) => {
   return (
     <div className="section-bg-color">
       <div className="cs_height_48 cs_height_lg_48"></div>
@@ -103,7 +104,13 @@ const EditingSample = ({ Title, SubTitle, isRowSection = false }) => {
 
         {/* Bottom Button */}
         <div className="text-center mt-4 ">
-          <Button className="cs_btn cs_style_1">Select Core Editing →</Button>
+          <Link
+            to={btnurl}
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            className="cs_btn cs_style_1"
+          >
+            Get a Quote →
+          </Link>
         </div>
       </Container>
       <div className="cs_height_40 cs_height_lg_40"></div>

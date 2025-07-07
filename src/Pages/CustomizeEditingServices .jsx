@@ -17,6 +17,7 @@ const serviceData2 = [
     headcolor: "#011530",
     radius: "br-left",
     left: false,
+    btnurl: "/core-editing",
   },
   {
     title: "Exclusive Editing",
@@ -27,6 +28,7 @@ const serviceData2 = [
     headcolor: "#0C0A31",
     radius: "br-right",
     left: true,
+    btnurl: "/exclusive-editing",
   },
 ];
 
@@ -42,6 +44,7 @@ const feature = [
     iseditingService: true,
     margintop: "0%",
     right: true,
+    btnurl: "/research-editing",
   },
   {
     title: "Thesis Editing",
@@ -52,6 +55,7 @@ const feature = [
     reverse: false,
     margintop: "-60%",
     left: true,
+    btnurl: "/thesis-editing",
   },
   {
     title: "Proofreading",
@@ -63,6 +67,7 @@ const feature = [
     rightcard: true,
     margintop: "-40%",
     right: true,
+    btnurl: "/proofreading",
   },
 ];
 

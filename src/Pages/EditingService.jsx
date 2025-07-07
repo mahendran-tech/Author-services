@@ -48,6 +48,7 @@ const serviceData = [
     headcolor: "#0C0A31",
     radius: "br-left",
     left: false,
+    btnurl: "/thesis-editing",
   },
   {
     title: "Proofreading",
@@ -58,6 +59,7 @@ const serviceData = [
     headcolor: "#011530",
     radius: "br-right",
     left: true,
+    btnurl: "/proofreading",
   },
 ];
 const serviceData2 = [
@@ -65,11 +67,12 @@ const serviceData2 = [
     title: "Plagiarism check",
     description:
       "We provide you with a plagiarism report, helping you identify potential plagiarism issues in your manuscript. Our detailed report highlights problematic sections and offers expert commentary to support your manuscript's evaluation.",
-        bgColor: "bg-light-blue",
+    bgColor: "bg-light-blue",
     textcolor: "#011530",
     headcolor: "#011530",
     radius: "br-left",
     left: false,
+    btnurl: "/plagiarism-check",
   },
   {
     title: "Journal Submission",
@@ -93,6 +96,7 @@ const feature = [
     leftclass: "leftmargin",
     iseditingService: true,
     reverse: false,
+    btnurl: "/publication-support",
   },
   {
     title: "Full Assist Publication Plan",
@@ -102,57 +106,60 @@ const feature = [
     bgClass: "bg-light-blue",
     reverse: true,
     rightcard: true,
-       margintop:"-40%",
+    margintop: "-40%",
     right: true,
+    btnurl: "/full-assist-publication",
   },
   {
     title: "Flexi Saver Publication Plan",
     description:
       "The Flexi Saver plan offers flexible support, giving you the freedom to select the services you need, be it journal selection, peer review, or journal submission. This cost-effective option ensures that you get expert assistance exactly where it’s required.",
     image: "assets/img/fr-9.png",
-     bgClass: "bg-light-purple",
+    bgClass: "bg-light-purple",
     reverse: false,
-    margintop:"-28%",
+    margintop: "-28%",
     left: true,
+    btnurl: "/flexi-saver-publication",
   },
   {
     title: "Pre-submission peer review",
     description:
       "We will have your finalized manuscript peer-reviewed by an experienced reviewer from your field, offering constructive feedback and giving you the opportunity to address any gaps before final submission.",
     image: "assets/img/fr-10.png",
-        bgClass: "bg-light-teal",
-        margintop:"-40%",
+    bgClass: "bg-light-teal",
+    margintop: "-40%",
     reverse: true,
-        right: true,
+    right: true,
+    btnurl: "/pre-submission-peer-review",
   },
-    {
+  {
     title: "Translation Services",
     description:
       "We ensure effective communication by overcoming language barriers through document translation, interpretation, and other language support services.",
     image: "assets/img/fr-11.png",
     bgClass: "bg-light-blue",
     reverse: false,
-    margintop:"-30%",
+    margintop: "-30%",
     left: true,
   },
-    {
-    title: "Research Impact",
+  {
+    title: "Research Outreach",
     description:
       "We help promote and increase visibility of your published research within the academic community and across relevant media platforms.",
     image: "assets/img/fr-12.png",
     bgClass: "bg-light-purple",
-        margintop:"-40%",
+    margintop: "-40%",
     reverse: true,
-        right: true,
+    right: true,
   },
-      {
+  {
     title: "Citation Booster",
     description:
       "Through Citation Booster, we help improve your research’s visibility and citation rate, maximizing its academic impact.",
     image: "assets/img/fr-13.png",
-        bgClass: "bg-light-teal",
+    bgClass: "bg-light-teal",
     reverse: false,
-    margintop:"-30%",
+    margintop: "-30%",
     left: true,
   },
 ];
@@ -169,9 +176,10 @@ const EditingService = () => {
         conetnt1="We ensure your work is clear, polished, and aligned with academic standards boosting its impact and improving your chances of acceptance in leading journals."
         btnname="Get a Quote"
         img1="assets/img/editing-service.png"
-        btnurl="/"
+        btnurl="/customize-editing-services"
         edit={true}
-        editingsection={true}></SectionBanner>
+        editingsection={true}
+      ></SectionBanner>
 
       <EditingPlansComparison
         features={features}
@@ -181,8 +189,7 @@ const EditingService = () => {
 
       <OtherServicesSection serviceData={serviceData} />
       <FeaturesSection features={feature} isTitle={false} />
-         <OtherServicesSection isTitle={false} serviceData={serviceData2} />
-      
+      <OtherServicesSection isTitle={false} serviceData={serviceData2} />
     </>
   );
 };

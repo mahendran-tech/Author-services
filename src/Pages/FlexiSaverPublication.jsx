@@ -10,12 +10,14 @@ const services = [
     title: "Full Assist Publication Pack",
     description:
       "Our Full Assist Publication Pack offers comprehensive support for every stage of your manuscript’s journey. From first round of edits to final submission, we take care of every step in the publication process—so you’re free to focus entirely on your research.",
+    btnurl: "/full-assist-publication",
   },
   {
     image: "assets/img/img1.png",
     title: "Journal Publication Support",
     description:
       "Navigating the research publication process can be challenging, but with our Journal Publication support services, you’ll receive expert guidance every step of the way.",
+    btnurl: "/journal-submission",
   },
   {
     image: "assets/img/img3.png",
@@ -34,6 +36,7 @@ const services = [
     title: "Core Editing",
     description:
       "Our Core Editing service focuses on sentence-level editing for both pre-and post-journal submissions at an affordable rate.",
+    btnurl: "/core-editing",
   },
 
   {
@@ -41,24 +44,28 @@ const services = [
     title: "Exclusive Editing",
     description:
       "Our Exclusive Editing service is designed to maximize your manuscript’s impact and readiness for submission to high-impact journals.",
+    btnurl: "/exclusive-editing",
   },
   {
     image: "assets/img/img7.png",
     title: "Citation Booster",
     description:
       "Give your research greater visibility with Citation Booster. This service is designed to reach a wider audience, increase readership, and improve your chances of being cited—ensuring your research makes a stronger impact in your field.",
+    btnurl: "/citation-booster",
   },
   {
     image: "assets/img/img8.png",
     title: "Research Editing",
     description:
       "Our Research Editing service provides expert pre-submission peer review, offering in-depth feedback on content, structure, and gaps to strengthen your manuscript before journal submission.",
+    btnurl: "/research-editing",
   },
   {
     image: "assets/img/img9.png",
     title: "Thesis Editing",
     description:
       "Our editors revise your thesis or dissertation to improve its clarity, readability, and academic value. They correct grammar, punctuation, and spelling errors while improving sentence structure and flow. ",
+    btnurl: "/thesis-editing",
   },
 ];
 
@@ -73,7 +80,7 @@ const FlexiSaverPublication = () => {
         conetnt="The Flexi Saver plan offers flexible support, letting you choose the services you need—journal selection, peer review, or journal submission. This cost-effective option ensures you get expert help exactly where and when you need it."
         btnname="Get a Quote"
         img1="assets/img/flexi-saver.png"
-        btnurl="/"
+        btnurl="/get-quote"
         edit={true}
         editingsection={true}
       ></SectionBanner>

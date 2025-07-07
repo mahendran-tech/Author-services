@@ -16,7 +16,7 @@ const PublicationSupport = () => {
         conetnt="From preparing your manuscript to navigating peer review, publishing can feel overwhelming. Our experienced team supports you at every step, ensuring timely and successful submission. Let us handle the entire process—from journal selection and manuscript editing to submission, reviewer communication, and post-review revisions—so you can move forward with confidence, knowing every step is professionally managed."
         btnname="Get a Quote"
         img1="assets/img/publication.png"
-        btnurl="/"
+        btnurl="/get-quote"
         edit={true}
         editingsection={true}
       ></SectionBanner>
@@ -28,6 +28,7 @@ const PublicationSupport = () => {
           "Navigating the research publication process can be challenging. But with IFERP’s Publication Support Services, you will have expert guidance at every stage. From selecting the right journal to managing peer review and final submission, we provide end-to-end support designed to help your work succeed."
         }
         ImagePath={"assets/img/pub-1.png"}
+        btnurl={"/get-quote"}
       />
       <PublicationPackages />
       <ServicesTimeline />

@@ -27,8 +27,9 @@ const AdditionalBenefits2 = () => {
                 <div>
                   <h5 className="text-white mb-1">Formatting Compliance</h5>
                   <p className="text-white-50 mb-0">
-                    Lorem Ipsum is simply dummy text of the printing and
-                    typesetting industry.
+                    Formatting compliance is to ensure consistency, readability,
+                    professionalism, and alignment with legal, branding, or
+                    technical requirements.
                   </p>
                 </div>
               </div>
@@ -41,8 +42,9 @@ const AdditionalBenefits2 = () => {
                 <div>
                   <h5 className="text-white mb-1">Plagiarism Prevention</h5>
                   <p className="text-white-50 mb-0">
-                    Lorem Ipsum is simply dummy text of the printing and
-                    typesetting industry.
+                    Plagiarism prevention involves strategies and practices to
+                    ensure the originality and integrity of written, academic,
+                    or creative work.
                   </p>
                 </div>
               </div>

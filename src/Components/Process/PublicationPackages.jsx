@@ -3,17 +3,20 @@ import { Button, Card, Col, Container, Row } from "react-bootstrap";
 import SectionTitle2 from "../Common/SectionTitle2";
 import { HiArrowNarrowRight } from "react-icons/hi";
 import SectionTitle from "../Common/SectionTitle";
+import { Link } from "react-router-dom";
 
 const services1 = [
   {
     title: "Full Assist Support Plan",
     description:
       "Our Full Assist Support Plan provides expert guidance throughout your manuscript’s journey. From initial edits to final submission, we handle every step of the publication process—so you can proceed with confidence, knowing your work is in capable hands.",
+    btnurl: "/full-assist-publication",
   },
   {
     title: "Flexi Saver Support Plan",
     description:
       "The Flexi Saver Support Plan offers flexible assistance, letting you select the services you need—such as journal selection, peer review, final submission, and more. This cost-effective plan ensures you receive expert help precisely where and when it matters most.",
+    btnurl: "/flexi-saver-publication",
   },
 ];
 
@@ -48,12 +51,18 @@ const PublicationPackages = () => {
                         {service.title}
                       </Card.Title>
                       <Card.Text>{service.description}</Card.Text>
-                      <Button className="cs_btn cs_style_1 mt-3">
+                      <Link
+                        to={service.btnurl}
+                        onClick={() => {
+                          window.scrollTo({ top: 0, behavior: "smooth" });
+                        }}
+                        className="cs_btn cs_style_1 mt-3"
+                      >
                         View Details{" "}
                         <span className="arrow">
                           <HiArrowNarrowRight />
                         </span>
-                      </Button>
+                      </Link>
                     </div>
                   </Card.Body>
                 </Card>

@@ -9,12 +9,14 @@ const services = [
     title: "Journal Publication Support",
     description:
       "Navigating the research publication process can be challenging, but with our Journal Publication support services, you’ll receive expert guidance every step of the way.",
+    btnurl: "/full-assist-publication",
   },
   {
     image: "assets/img/img2.png",
     title: "Flexi Saver Support Plan",
     description:
       "The Flexi Saver Support Plan lets you choose only the services you need—whether it’s journal selection, peer review, or final submission. This budget-friendly option ensures you get expert assistance where it’s needed most.",
+    btnurl: "/flexi-saver-publication",
   },
   {
     image: "assets/img/img3.png",
@@ -33,12 +35,14 @@ const services = [
     title: "Core Editing",
     description:
       "Our Core Editing service focuses on sentence-level editing for both pre-and post-journal submissions at an affordable rate.",
+    btnurl: "/core-editing",
   },
   {
     image: "assets/img/img6.png",
     title: "Exclusive Editing",
     description:
       "Our Exclusive Editing service is designed to maximize your manuscript’s impact and readiness for submission to high-impact journals.",
+    btnurl: "/exclusive-editing",
   },
   {
     image: "assets/img/img7.png",
@@ -51,12 +55,14 @@ const services = [
     title: "Research Editing",
     description:
       "Our Research Editing service provides expert pre-submission peer review, offering in-depth feedback on content, structure, and gaps to strengthen your manuscript before journal submission.",
+    btnurl: "/research-editing",
   },
   {
     image: "assets/img/img9.png",
     title: "Thesis Editing",
     description:
       "Our editors revise your thesis or dissertation to improve its clarity, readability, and academic value. They correct grammar, punctuation, and spelling errors while improving sentence structure and flow. ",
+    btnurl: "/thesis-editing",
   },
 ];
 
@@ -74,11 +80,11 @@ const FullAssistPublicationPlan = () => {
         }
         btnname="Get a Quote"
         img1="assets/img/full-assist.png"
-        btnurl="/"
+        btnurl="/get-quote"
         edit={true}
         editingsection={true}
       ></SectionBanner>
-      <ServicesGrid />
+      <ServicesGrid btnurl={"/get-quote"} />
       <SupportGrid
         services={services}
         Title={"Other Services"}

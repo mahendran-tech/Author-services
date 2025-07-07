@@ -2,6 +2,7 @@ import React from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import SectionTitle2 from "../Common/SectionTitle2";
 import SectionTitle from "../Common/SectionTitle";
+import { Link } from "react-router-dom";
 
 const YourPublicationJourny = ({
   Title,
@@ -10,6 +11,7 @@ const YourPublicationJourny = ({
   Content1,
   isUlContent = true,
   ImagePath,
+  btnurl,
 }) => {
   return (
     <div>
@@ -97,12 +99,16 @@ const YourPublicationJourny = ({
                 )}
 
                 <div className="text-Start mt-3">
-                  <button
+                  <Link
+                    to={btnurl}
+                    onClick={() =>
+                      window.scrollTo({ top: 0, behavior: "smooth" })
+                    }
                     type="button"
-                    className="cs_btn cs_style_1 btn btn-primary"
+                    className="cs_btn cs_style_1 "
                   >
                     Get a Quote →
-                  </button>
+                  </Link>
                 </div>
               </div>
             </Col>

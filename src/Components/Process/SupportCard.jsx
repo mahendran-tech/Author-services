@@ -1,7 +1,13 @@
 import React from "react";
 import { Card, Button } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 
-const SupportCard = ({ image, title, description, fullwith }) => {
+const SupportCard = ({ image, title, description, fullwith, btnurl }) => {
+  const navigate = useNavigate();
+  const handleClickRedirect = (btnurl) => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    navigate(btnurl);
+  };
   return (
     <Card
       className={`${
@@ -19,7 +25,12 @@ const SupportCard = ({ image, title, description, fullwith }) => {
       <Card.Body className="support-card-body">
         <Card.Title className="support-card-title">{title}</Card.Title>
         <Card.Text className="support-card-text">{description}</Card.Text>
-        <Button className="support-card-btn">View Details</Button>
+        <Button
+          onClick={() => handleClickRedirect(btnurl)}
+          className="support-card-btn"
+        >
+          View Details
+        </Button>
       </Card.Body>
     </Card>
   );

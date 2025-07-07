@@ -1,4 +1,5 @@
 import React, { useMemo, useState } from "react";
+import { toast } from "react-toastify";
 // import { Container, Row, Col, Form, Button, Card } from "react-bootstrap";
 import {
   Container,
@@ -17,6 +18,8 @@ import countryList from "react-select-country-list";
 
 const StickyOrderSummary = ({ servicesList }) => {
   // const options = countryList().getData();
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
   const options = useMemo(() => countryList().getData(), []);
   const [selectedServices, setSelectedServices] = useState([]);
   // const [form, setForm] = useState({
@@ -83,10 +86,124 @@ const StickyOrderSummary = ({ servicesList }) => {
     .reduce((sum, s) => sum + s.price, 0)
     .toFixed(2);
 
-  const handleSubmit = (e) => {
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   // if (!isFormValid) return;
+  //   alert(`Order submitted!\nTotal: ${total} USD`);
+  // };
+
+  const validateForm = () => {
+    const errors = [];
+
+    // Basic personal info
+    if (!formData.firstName.trim()) errors.push("First Name is required.");
+    if (!formData.lastName.trim()) errors.push("Last Name is required.");
+    if (!formData.email.trim()) errors.push("Email is required.");
+    if (!formData.country.trim()) errors.push("Phone Number is required.");
+
+    // Country dropdown
+    if (!formData.country || formData.country === "")
+      errors.push("Country is required.");
+
+    // How did you know about us
+    if (!formData.knowAbout)
+      errors.push("Please select how you got to know about us.");
+
+    // Document options (require at least one)
+    const docOptionsSelected = Object.values(documentOptions).some(
+      (val) => val === true
+    );
+    if (!docOptionsSelected)
+      errors.push("Select at least one document edit option.");
+
+    // Document type
+    if (!formData.documentType) errors.push("Please select the document type.");
+
+    // Subject area
+    if (!formData.subjectArea) errors.push("Please select the subject area.");
+
+    // Comments
+    if (!formData.comments.trim())
+      errors.push("Additional comments are required.");
+
+    // File uploads
+    if (!formData.uploadFile)
+      errors.push("Please upload the document to be edited.");
+
+    // Terms and conditions
+    if (!formData.agreeTerms)
+      errors.push("You must agree to the terms and conditions.");
+
+    return errors;
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // if (!isFormValid) return;
-    alert(`Order submitted!\nTotal: ${total} USD`);
+
+    const validationErrors = validateForm();
+    if (validationErrors.length > 0) {
+      // Show first error as toast, or loop through all
+      validationErrors.forEach((err) => {
+        toast.warning(err);
+      });
+      return;
+    }
+
+    if (selectedServices.length === 0) {
+      toast.warning("Please select at least one service.");
+      return;
+    }
+
+    if (!formData.agreeTerms) {
+      toast.warning("You must agree to the terms and conditions.");
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    try {
+      // ✅ Log All Details to Console
+      console.log("===== ORDER SUBMISSION DATA =====");
+      console.log("👉 Selected Services:");
+      selectedServices.forEach((s, i) => {
+        console.log(`${i + 1}. ${s.name} - ${s.price} USD`);
+      });
+
+      console.log(`👉 Total Amount: ${total} USD`);
+
+      console.log("👉 Form Data:");
+      console.log({
+        firstName: formData.firstName,
+        lastName: formData.lastName,
+        email: formData.email,
+        phone: formData.country,
+        country: formData.country,
+        knowAbout: formData.knowAbout,
+        documentType: formData.documentType,
+        subjectArea: formData.subjectArea,
+        comments: formData.comments,
+        agreeTerms: formData.agreeTerms,
+        uploadFile: formData.uploadFile?.name || null,
+        referenceFile: formData.referenceFile?.name || null,
+      });
+
+      console.log("👉 Document Options:");
+      console.log(documentOptions);
+
+      // Simulate API call
+      await new Promise((resolve) => setTimeout(resolve, 2000));
+
+      toast.success("Order submitted successfully!", {
+        position: "top-center",
+      });
+
+      // You can reset form here if needed
+    } catch (error) {
+      toast.error("Failed to submit the order.");
+      console.error(error);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -279,7 +396,8 @@ const StickyOrderSummary = ({ servicesList }) => {
                     onChange={handleInputChange}
                   >
                     <option value="">Select Type of Document?</option>
-                    <option value="Research Paper">Research Paper</option>
+                    <option value="Word">Word</option>
+                    <option value="PDF">PDF</option>
                   </Form.Select>
                 </Col>
                 <Col>
@@ -291,7 +409,22 @@ const StickyOrderSummary = ({ servicesList }) => {
                     onChange={handleInputChange}
                   >
                     <option value="">Select Subject Area</option>
-                    <option value="Engineering">Engineering</option>
+                    <option value="Life Sciences">Life Sciences</option>
+                    <option value="Medicine and Health Sciences">
+                      Medicine and Health Sciences
+                    </option>
+                    <option value="Physical Sciences and Engineering">
+                      Physical Sciences and Engineering
+                    </option>
+                    <option value="Arts and Humanities">
+                      Arts and Humanities
+                    </option>
+                    <option value="Linguistics and Education">
+                      Linguistics and Education
+                    </option>
+                    <option value="Business and Economics">
+                      Business and Economics
+                    </option>
                   </Form.Select>
                 </Col>
               </Row>
@@ -436,7 +569,7 @@ const StickyOrderSummary = ({ servicesList }) => {
                   </div>
                 </>
               )}
-              <Button
+              {/* <Button
                 type="submit"
                 className="btn btn-light-white  w-100 mt-3"
                 style={{ backgroundColor: "#fff", color: "rgb(7, 90, 179)" }}
@@ -444,7 +577,31 @@ const StickyOrderSummary = ({ servicesList }) => {
                 onClick={handleSubmit}
               >
                 Submit Order
-              </Button>
+              </Button> */}
+
+              {isSubmitting ? (
+                <Button
+                  className="btn btn-light-white w-100 mt-3 d-flex justify-content-center align-items-center"
+                  style={{ backgroundColor: "#fff", color: "rgb(7, 90, 179)" }}
+                  disabled
+                >
+                  <span
+                    className="spinner-border spinner-border-sm me-2"
+                    role="status"
+                    aria-hidden="true"
+                  ></span>
+                  Submitting...
+                </Button>
+              ) : (
+                <Button
+                  type="submit"
+                  className="btn btn-light-white w-100 mt-3"
+                  style={{ backgroundColor: "#fff", color: "rgb(7, 90, 179)" }}
+                  onClick={handleSubmit}
+                >
+                  Submit Order
+                </Button>
+              )}
             </Card>
           </div>
         </Col>

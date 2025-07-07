@@ -188,8 +188,8 @@ const SampleTabs = ({ isTitle = false, subtitle, title, isbutton = false }) => {
                       <div className="comment-box">
                         <h6>Commented:</h6>
                         <p>
-                          Using the correct technical word aids technical
-                          clarity to the text, further enhancing the clarity
+                          An introductory phase should be separated from the
+                          main clause using a comma
                         </p>
                       </div>
                       <div className="comment-box mt-2">

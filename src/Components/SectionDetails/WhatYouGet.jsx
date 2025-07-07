@@ -1,5 +1,6 @@
 import React from "react";
 import { Container, Table, Row, Col, Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 const WhatYouGet = () => {
   const services = [
@@ -64,7 +65,7 @@ const WhatYouGet = () => {
                 <th></th>
                 <th>Services offered</th>
                 <th>Description</th>
-                <th>Charges</th>
+                {/* <th>Charges</th> */}
               </tr>
             </thead>
             <tbody>
@@ -77,18 +78,24 @@ const WhatYouGet = () => {
                   </td>
                   <td>{item.title}</td>
                   <td className="text-start">{item.description}</td>
-                  <td>{item.price}</td>
+                  {/* <td>{item.price}</td> */}
                 </tr>
               ))}
               <tr>
                 <td colSpan={1}></td>
                 <td>
-                  <Button variant="danger" className="whatyouget-quote-btn">
+                  <Link
+                    to="/get-quote"
+                    onClick={() =>
+                      window.scrollTo({ top: 0, behavior: "smooth" })
+                    }
+                    className="cs_btn cs_style_1 mt-3"
+                  >
                     Get a Quote →
-                  </Button>
+                  </Link>
                 </td>
                 <td colSpan={1}></td>
-                <td colSpan={1}> 00.00$ </td>
+                {/* <td colSpan={1}> 00.00$ </td> */}
               </tr>
             </tbody>
           </Table>
