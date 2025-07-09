@@ -6,13 +6,16 @@ const DoubleColumn = ({
   SubTitle,
   Content,
   Content1,
+  marginTop = true, // default is true
   isUlContent = true,
   ImagePath,
   reverse = false, // default is image left, content right
   listItems = [],
+  isBgLight = false, // optional prop to set background color
 }) => {
   return (
-    <section>
+    <section className={` ${isBgLight ? "expert-section " : ""}`}>
+      {/* Spacer for visual separation */}
       <div className="cs_height_40 cs_height_lg_40"></div>
       <Container>
         <Row className="mt-5 d-flex justify-content-center align-items-center flex-column flex-lg-row">
@@ -27,9 +30,24 @@ const DoubleColumn = ({
               <Col className="d-flex justify-content-start" xs={12} lg={6}>
                 <div className="d-flex flex-column ms-3 align-items-start">
                   <div>
-                    <h3 className="text-center fw-bold mb-2">
-                      {Title} <span className="text-primary">{SubTitle}</span>
-                    </h3>
+                    {" "}
+                    {isBgLight ? (
+                      <>
+                        {" "}
+                        <h3 className="text-left fw-bold mb-0 lh-base">
+                          {Title} <br />
+                          <span className="text-primary">{SubTitle}</span>
+                        </h3>{" "}
+                      </>
+                    ) : (
+                      <>
+                        {" "}
+                        <h3 className="text-center fw-bold mb-2">
+                          {Title}{" "}
+                          <span className="text-primary">{SubTitle}</span>
+                        </h3>
+                      </>
+                    )}
                     <div className="cs_height_20 cs_height_lg_20"></div>
                   </div>
 
@@ -37,7 +55,11 @@ const DoubleColumn = ({
                   {Content1 && <p>{parse(Content1)}</p>}
 
                   {isUlContent && listItems.length > 0 && (
-                    <ul className="text-left list-unstyled list-style-one mt-4">
+                    <ul
+                      className={`${
+                        marginTop ? "mt-4" : "mt-0"
+                      } text-left list-unstyled list-style-one`}
+                    >
                       {listItems.map((item, index) => (
                         <li
                           key={index}

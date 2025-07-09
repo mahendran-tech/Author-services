@@ -3,9 +3,15 @@ import SectionTitle2 from "../Common/SectionTitle2";
 import { homeimage } from "../../assets/assets";
 import { Link } from "react-router-dom";
 
-const ExpertEditors = ({ expertData, isImage, Title, SubTitle }) => {
+const ExpertEditors = ({
+  expertData,
+  isImage,
+  Title,
+  SubTitle,
+  isBooster = false,
+}) => {
   return (
-    <section className="expert-section ">
+    <section className={` ${isBooster ? "booster" : "expert-section"}`}>
       <div className="cs_height_48 cs_height_lg_48"></div>
       <Container>
         <div className="container text-center ">

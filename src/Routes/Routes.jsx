@@ -24,6 +24,10 @@ import PlagiarismCheck from "../Pages/PlagiarismCheck";
 import JournalSelection from "../Pages/JournalSelection";
 import JournalSubmission from "../Pages/JournalSubmission";
 import PreSubmission from "../Pages/PreSubmission";
+import ErrorPage from "../Pages/ErrorPage";
+import CitationBooster from "../Pages/CitationBooster";
+import PlansComparison from "../Pages/PlansComparison";
+import ResearchOutreach from "../Pages/ResearchOutreach";
 
 export const router = createBrowserRouter([
   {
@@ -100,9 +104,26 @@ export const router = createBrowserRouter([
       },
 
       {
+        path: "/citation-booster",
+        element: <CitationBooster />,
+      },
+      {
+        path: "/plans-comparison",
+        element: <PlansComparison />,
+      },
+      {
+        path: "/research-outreach",
+        element: <ResearchOutreach />,
+      },
+
+      {
         path: "/contact",
         element: <ContactPage></ContactPage>,
       },
     ],
+  },
+  {
+    path: "*",
+    element: <ErrorPage />, // Error page for unmatched routes
   },
 ]);

@@ -27,6 +27,8 @@ import edit11 from './img/icon/edit-11.svg'
 import edit12 from './img/icon/edit-12.svg'
 import edit13 from './img/icon/edit-13.svg'
 import left_image from './img/left-hand.jpg'
+import error_img from './img/404.jpg'
+import edit14 from './img/icon/edit-14.svg'
 
 
 
@@ -43,6 +45,6 @@ group2,
 group3,
 group4,
 left_image,
-check,team,assurence,saftey,time,publishing,editing,bglight,edit1,edit2,edit3,edit4,edit5,edit6,edit8,edit7,edit10,edit9,edit11,edit12,edit13
+check,team,assurence,saftey,time,publishing,editing,bglight,edit1,edit2,edit3,edit4,edit5,edit6,edit8,edit7,edit10,edit9,edit14,edit11,edit12,edit13,error_img
  }
 

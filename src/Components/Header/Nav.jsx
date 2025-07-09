@@ -191,7 +191,7 @@ export default function Nav({ setMobileToggle }) {
             </li>
             <li>
               <Link
-                to="/"
+                to="/citation-booster"
                 onClick={() => {
                   setMobileToggle(false);
                   window.scrollTo({ top: 0, behavior: "smooth" });
@@ -202,7 +202,7 @@ export default function Nav({ setMobileToggle }) {
             </li>
             <li>
               <Link
-                to="/"
+                to="/plans-comparison"
                 onClick={() => {
                   setMobileToggle(false);
                   window.scrollTo({ top: 0, behavior: "smooth" });
@@ -227,7 +227,7 @@ export default function Nav({ setMobileToggle }) {
       </li>
 
       <li>
-        <Link to="#" onClick={() => setMobileToggle(false)}>
+        <Link to="/research-outreach" onClick={() => setMobileToggle(false)}>
           Research Outreach
         </Link>
       </li>
