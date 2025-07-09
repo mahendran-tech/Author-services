@@ -29,6 +29,14 @@ import edit13 from './img/icon/edit-13.svg'
 import left_image from './img/left-hand.jpg'
 import error_img from './img/404.jpg'
 import edit14 from './img/icon/edit-14.svg'
+import how1 from './img/icon/how-1.svg'
+import how2 from './img/icon/how-2.svg'
+import how3 from './img/icon/how-3.svg'
+import how4 from './img/icon/how-4.svg'
+import how5 from './img/icon/how-5.svg'
+import how6 from './img/icon/how-6.svg'
+import how7 from './img/icon/how-7.svg'
+
 
 
 
@@ -44,7 +52,7 @@ group1,
 group2,
 group3,
 group4,
-left_image,
+left_image,how1,how2,how3,how4,how5,how6,how7,
 check,team,assurence,saftey,time,publishing,editing,bglight,edit1,edit2,edit3,edit4,edit5,edit6,edit8,edit7,edit10,edit9,edit14,edit11,edit12,edit13,error_img
  }
 

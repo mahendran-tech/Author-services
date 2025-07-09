@@ -232,7 +232,7 @@ export default function Nav({ setMobileToggle }) {
         </Link>
       </li>
       <li>
-        <Link to="#" onClick={() => setMobileToggle(false)}>
+        <Link to="/translation-services" onClick={() => setMobileToggle(false)}>
           Translation Services
         </Link>
       </li>

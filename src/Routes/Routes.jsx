@@ -28,6 +28,7 @@ import ErrorPage from "../Pages/ErrorPage";
 import CitationBooster from "../Pages/CitationBooster";
 import PlansComparison from "../Pages/PlansComparison";
 import ResearchOutreach from "../Pages/ResearchOutreach";
+import TranslationServices from "../Pages/TranslationServices";
 
 export const router = createBrowserRouter([
   {
@@ -114,6 +115,10 @@ export const router = createBrowserRouter([
       {
         path: "/research-outreach",
         element: <ResearchOutreach />,
+      },
+      {
+        path: "/translation-services",
+        element: <TranslationServices />,
       },
 
       {

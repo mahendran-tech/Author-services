@@ -2,6 +2,7 @@ import { Container, Row, Col } from "react-bootstrap";
 import SectionTitle2 from "../Common/SectionTitle2";
 import { homeimage } from "../../assets/assets";
 import { Link } from "react-router-dom";
+import parse from "html-react-parser";
 
 const ExpertEditors = ({
   expertData,
@@ -10,6 +11,8 @@ const ExpertEditors = ({
   SubTitle,
   isBooster = false,
 }) => {
+  const isLastSingle = expertData.length % 3 === 1;
+
   return (
     <section className={` ${isBooster ? "booster" : "expert-section"}`}>
       <div className="cs_height_48 cs_height_lg_48"></div>
@@ -24,11 +27,25 @@ const ExpertEditors = ({
           {Title && <SectionTitle2 Title={Title} SubTitle={SubTitle} />}
           <div className="cs_height_20 cs_height_lg_20"></div>
         </div>
-        <Row className="g-4 justify-content-center">
+        <Row
+          className={`${
+            isLastSingle && expertData.length - 1
+              ? "g-4 justify-content-center"
+              : "g-4 justify-content-center"
+          }`}
+        >
           {expertData.map((item, idx) => (
-            <Col key={idx} xs={12} sm={6} lg={4}>
+            <Col
+              key={idx}
+              sm={6}
+              lg={isLastSingle && idx === expertData.length - 1 ? 12 : 4}
+            >
               <div
-                className="expert-card p-4 text-center h-100 "
+                className={`${
+                  isLastSingle && idx === expertData.length - 1
+                    ? "expert-card p-4 text-left h-100"
+                    : "expert-card p-4 text-center h-100"
+                }`}
                 style={{
                   border: "1px solid rgba(255,38,97,0.1)",
                   borderRadius: "8px",

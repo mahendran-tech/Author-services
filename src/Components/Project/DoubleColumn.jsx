@@ -11,7 +11,8 @@ const DoubleColumn = ({
   ImagePath,
   reverse = false, // default is image left, content right
   listItems = [],
-  isBgLight = false, // optional prop to set background color
+  isBgLight = false,
+  textLeft = false, // optional prop to set text alignment
 }) => {
   return (
     <section className={` ${isBgLight ? "expert-section " : ""}`}>
@@ -42,7 +43,11 @@ const DoubleColumn = ({
                     ) : (
                       <>
                         {" "}
-                        <h3 className="text-center fw-bold mb-2">
+                        <h3
+                          className={`text-${
+                            textLeft ? "left" : "center"
+                          } fw-bold mb-2`}
+                        >
                           {Title}{" "}
                           <span className="text-primary">{SubTitle}</span>
                         </h3>
