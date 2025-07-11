@@ -10,12 +10,14 @@ const services = [
     title: "Journal Publication Support",
     description:
       "Navigating the research publication process can be challenging, but with our Journal Publication support services, you’ll receive expert guidance every step of the way.",
+    btnurl: "/publication-support",
   },
   {
     image: "assets/img/img0.png",
     title: "Journal Selection",
     description:
       "We help you choose the right journal based on your research topic, target audience, and indexing requirements—making the publication process smoother and more effective.",
+    btnurl: "/journal-selection",
   },
 
   {
@@ -23,6 +25,7 @@ const services = [
     title: "Pre-submission Peer Review",
     description:
       "We will have your finalized manuscript peer-reviewed by an experienced reviewer from your field, offering constructive feedback and giving you the opportunity to address any gaps before final submission.",
+    btnurl: "/pre-submission-peer-review",
   },
 
   {
@@ -30,6 +33,7 @@ const services = [
     title: "Plagiarism Check",
     description:
       "We provide a detailed plagiarism report that identifies potential concerns and highlights areas needing revision—ensuring your manuscript is original and ready for review.",
+    btnurl: "/plagiarism-check",
   },
 
   {
@@ -37,6 +41,7 @@ const services = [
     title: "Journal Submission",
     description:
       "Our experts guide you through the entire journal submission process, from account creation to final submission.",
+    btnurl: "/journal-submission",
   },
 
   {
@@ -44,18 +49,21 @@ const services = [
     title: "Research Outreach",
     description:
       "We help promote and increase the visibility of your published research within the academic community and across relevant media platforms",
+    btnurl: "/research-outreach",
   },
   {
     image: "assets/img/img4.png",
     title: "Translation Services",
     description:
       "We ensure effective communication by overcoming language barriers through document translation, interpretation, and other language support services.",
+    btnurl: "/translation-services",
   },
   {
     image: "assets/img/img11.png",
     title: "Citation Booster",
     description:
       "Give your research greater visibility with Citation Booster. This service is designed to reach a wider audience, increase readership, and improve your chances of being cited—ensuring your research makes a stronger impact in your field.",
+    btnurl: "/citation-booster",
   },
 ];
 
@@ -71,7 +79,7 @@ const PlansComparison = () => {
         conetnt1="We handle the entire publication process—from editing to submission—so you can stay focused on what matters most: your research."
         btnname="Get a Quote"
         img1="assets/img/plan-compare.png"
-        btnurl="/"
+        btnurl="/get-quote"
         edit={true}
         editingsection={true}
       ></SectionBanner>

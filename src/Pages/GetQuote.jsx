@@ -18,6 +18,7 @@ const serviceData2 = [
 
     radius: "br-left",
     left: false,
+    btnurl: "/publication-support",
   },
   {
     title: "Journal Selection",
@@ -28,6 +29,7 @@ const serviceData2 = [
     headcolor: "#011530",
     radius: "br-right",
     left: true,
+    btnurl: "/journal-selection",
   },
 ];
 
@@ -43,6 +45,7 @@ const feature = [
     iseditingService: true,
     margintop: "0%",
     left: true,
+    btnurl: "/full-assist-publication",
   },
   {
     title: "Flexi Saver Publication Pack",
@@ -55,6 +58,7 @@ const feature = [
     rightcard: true,
     margintop: "-55%",
     right: true,
+    btnurl: "/flexi-saver-publication",
   },
 
   {
@@ -66,6 +70,7 @@ const feature = [
     reverse: false,
     margintop: "-27%",
     left: true,
+    btnurl: "/pre-submission-peer-review",
   },
   {
     title: "Plagiarism check",
@@ -77,6 +82,7 @@ const feature = [
     rightcard: true,
     margintop: "-55%",
     right: true,
+    btnurl: "/plagiarism-check",
   },
 
   {
@@ -88,6 +94,7 @@ const feature = [
     reverse: false,
     margintop: "-27%",
     left: true,
+    btnurl: "/journal-submission",
   },
   {
     title: "Research Outreach",
@@ -99,6 +106,7 @@ const feature = [
     rightcard: true,
     margintop: "-50%",
     right: true,
+    btnurl: "/research-outreach",
   },
 
   {
@@ -111,6 +119,7 @@ const feature = [
     reverse: false,
     margintop: "-27%",
     left: true,
+    btnurl: "/translation-services",
   },
   {
     title: "Citation Booster",
@@ -122,6 +131,7 @@ const feature = [
     rightcard: true,
     margintop: "-52%",
     right: true,
+    btnurl: "/citation-booster",
   },
 ];
 
@@ -172,12 +182,12 @@ const GetQuote = () => {
         bgimg="assets/img/bg-light.webp"
       />
 
-      <StickyOrderSummary servicesList={servicesList} />
+      <StickyOrderSummary servicesList={servicesList} isGetQuote={true} />
       <TestimonialsCarousel />
 
       <div>
         <div className="cs_height_40 cs_height_lg_40"></div>
-        <SectionTitle Title={"Services"} SubTitle={"Available"} />
+        <SectionTitle Title={"Other Services "} SubTitle={"We Provide"} />
         <OtherServicesSection isTitle={false} serviceData={serviceData2} />
       </div>
       <FeaturesSection features={feature} isTitle={false} />

@@ -24,12 +24,14 @@ const services = [
     title: "Research Outreach",
     description:
       "We help promote and increase the visibility of your published research within the academic community and across relevant media platforms",
+    btnurl: "/research-outreach",
   },
   {
     image: "assets/img/img4.png",
     title: "Translation Services",
     description:
       "We ensure effective communication by overcoming language barriers through document translation, interpretation, and other language support services.",
+    btnurl: "/translation-services",
   },
   {
     image: "assets/img/img5.png",

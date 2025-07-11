@@ -59,7 +59,7 @@ const serviceData3 = [
 
     radius: "br-left",
     left: false,
-    btnurl: "/research-editing",
+    btnurl: "/research-outreach",
   },
   {
     title: "Citation Booster",
@@ -70,7 +70,7 @@ const serviceData3 = [
     headcolor: "#0C0A31",
     radius: "br-right",
     left: true,
-    btnurl: "/research-editing",
+    btnurl: "/citation-booster",
   },
 ];
 
@@ -108,7 +108,7 @@ const feature = [
     rightcard: true,
     margintop: "-40%",
     right: true,
-    btnurl: "/publication-support",
+    btnurl: "/translation-services",
   },
 ];
 

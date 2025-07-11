@@ -1,6 +1,7 @@
 import React from "react";
 import SectionTitle from "../Common/SectionTitle";
 import SectionTitle2 from "../Common/SectionTitle2";
+import { Link } from "react-router-dom";
 
 const CheckIcon = () => (
   <svg
@@ -53,6 +54,7 @@ const plans = [
       true,
       true,
     ],
+    btnurl: "/full-assist-publication",
   },
   {
     name: "Flexi Saver Publication Pack",
@@ -72,6 +74,7 @@ const plans = [
       true,
       true,
     ],
+    btnurl: "/flexi-saver-publication",
   },
 ];
 
@@ -127,11 +130,17 @@ const ServiceInclusionTable = () => {
             <tfoot>
               <tr>
                 <td className="border"></td>
-                {plans.map((_, index) => (
+                {plans.map((opt, index) => (
                   <td key={index} className="border">
-                    <button className="cs_btn cs_style_2 text-center epc-button w-75">
+                    <Link
+                      to={opt.btnurl}
+                      onClick={() =>
+                        window.scrollTo({ top: 0, behavior: "smooth" })
+                      }
+                      className="cs_btn cs_style_2 text-center epc-button w-75"
+                    >
                       Select →
-                    </button>
+                    </Link>
                   </td>
                 ))}
               </tr>

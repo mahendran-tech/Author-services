@@ -115,12 +115,24 @@ const EstimateCalculator = () => {
 
     window.scrollTo({ top: 0, behavior: "smooth" });
 
+    // navigate("/customize-editing-services", {
+    //   state: {
+    //     wordCount: count,
+    //     deliveryDate: selected.date || "Tomorrow",
+    //     finalPrice: selected.finalPrice,
+    //     totalPrice: `${total} USD`,
+    //   },
+    // });
+
     navigate("/customize-editing-services", {
       state: {
         wordCount: count,
-        deliveryDate: selected.date || "Tomorrow",
-        finalPrice: selected.finalPrice,
-        totalPrice: `${total} USD`,
+        selectedOption: {
+          name: "Core Editing",
+          delivery: selected.date || "Tomorrow",
+          price: `${total} `,
+          unit: `${total} USD`, // ⬅️ this is important
+        },
       },
     });
   };

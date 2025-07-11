@@ -11,7 +11,7 @@ const features = [
     reverse: true,
     right: true,
     margintop: "-30%",
-    btnurl: "/research-impact",
+    btnurl: "/research-outreach",
   },
 ];
 const EditingFeatures = () => {

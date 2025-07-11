@@ -23,12 +23,14 @@ const services = [
     title: "Research Outreach",
     description:
       "We help promote and increase the visibility of your published research within the academic community and across relevant media platforms",
+    btnurl: "/research-outreach",
   },
   {
     image: "assets/img/img4.png",
     title: "Translation Services",
     description:
       "We ensure effective communication by overcoming language barriers through document translation, interpretation, and other language support services.",
+    btnurl: "/translation-services",
   },
   {
     image: "assets/img/img5.png",
@@ -49,6 +51,7 @@ const services = [
     title: "Citation Booster",
     description:
       "Give your research greater visibility with Citation Booster. This service is designed to reach a wider audience, increase readership, and improve your chances of being cited—ensuring your research makes a stronger impact in your field.",
+    btnurl: "/citation-booster",
   },
   {
     image: "assets/img/img8.png",

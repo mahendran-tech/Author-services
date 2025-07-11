@@ -13,54 +13,63 @@ const services = [
     title: "Journal Publication Support",
     description:
       "Navigating the research publication process can be challenging, but with our Journal Publication support services, you’ll receive expert guidance every step of the way.",
+    btnurl: "/publication-support",
   },
   {
     image: "assets/img/img2.png",
     title: "Flexi Saver Support Plan",
     description:
       "The Flexi Saver Support Plan lets you choose only the services you need—whether it’s journal selection, peer review, or final submission. This budget-friendly option ensures you get expert assistance where it’s needed most.",
+    btnurl: "/flexi-saver-publication",
   },
   {
     image: "assets/img/img3.png",
     title: "Research Outreach",
     description:
       "We help promote and increase the visibility of your published research within the academic community and across relevant media platforms",
+    btnurl: "/research-outreach",
   },
   {
     image: "assets/img/img4.png",
     title: "Translation Services",
     description:
       "We ensure effective communication by overcoming language barriers through document translation, interpretation, and other language support services.",
+    btnurl: "/translation-services",
   },
   {
     image: "assets/img/img5.png",
     title: "Core Editing",
     description:
       "Our Core Editing service focuses on sentence-level editing for both pre-and post-journal submissions at an affordable rate.",
+    btnurl: "/core-editing",
   },
   {
     image: "assets/img/img6.png",
     title: "Exclusive Editing",
     description:
       "Our Exclusive Editing service is designed to maximize your manuscript’s impact and readiness for submission to high-impact journals.",
+    btnurl: "/exclusive-editing",
   },
   {
     image: "assets/img/img7.png",
     title: "Citation Booster",
     description:
       "Give your research greater visibility with Citation Booster. This service is designed to reach a wider audience, increase readership, and improve your chances of being cited—ensuring your research makes a stronger impact in your field.",
+    btnurl: "/citation-booster",
   },
   {
     image: "assets/img/img8.png",
     title: "Research Editing",
     description:
       "Our Research Editing service provides expert pre-submission peer review, offering in-depth feedback on content, structure, and gaps to strengthen your manuscript before journal submission.",
+    btnurl: "/research-editing",
   },
   {
     image: "assets/img/img9.png",
     title: "Thesis Editing",
     description:
       "Our editors revise your thesis or dissertation to improve its clarity, readability, and academic value. They correct grammar, punctuation, and spelling errors while improving sentence structure and flow. ",
+    btnurl: "/thesis-editing",
   },
 ];
 
@@ -103,7 +112,7 @@ const JournalSelection = () => {
         conetnt="We assist you in finding the right journal based on your research area, intended audience, and indexing needs, helping ensure a smooth and successful submission process."
         btnname="Get a Quote"
         img1="assets/img/journal-section.png"
-        btnurl="/"
+        btnurl="/get-quote"
         edit={true}
         editingsection={true}
       ></SectionBanner>
@@ -114,6 +123,7 @@ const JournalSelection = () => {
         Content="Choosing the right journal is key to your manuscript’s success. Our Journal Selection service helps you locate the most relevant journals, improving acceptance chances and increasing visibility."
         ImagePath="assets/img/js-1.png"
         reverse={false}
+        btnurl={"/get-quote"}
         listItems={[
           "Our expert will suggest three journals best suited to your research.",
           "You’ll receive a clear report with journal selection insights.",
@@ -124,6 +134,7 @@ const JournalSelection = () => {
       <ExpertEditors
         expertData={expertData}
         isImage={false}
+        btnurl={"/get-quote"}
         Title={"How Does Our "}
         SubTitle={"Journal Selection Service Work?"}
       />
@@ -136,6 +147,7 @@ const JournalSelection = () => {
           </>
         }
         ImagePath="assets/img/check-2.png"
+        btnurl={"/get-quote"}
         reverse={true}
         listItems={[
           "Three tailored journal recommendations: You will receive three journal recommendations customized to match your research and publication goals.",
@@ -202,7 +214,8 @@ const JournalSelection = () => {
         ]}
       />
 
-      <TwoColumn />
+      <TwoColumn btnurl={"/get-quote"} />
+
       <SupportGrid
         services={services}
         Title={"Other Services"}

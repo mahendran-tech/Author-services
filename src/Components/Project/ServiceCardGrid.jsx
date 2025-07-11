@@ -1,7 +1,5 @@
-import React from "react";
 import { Container, Row, Col, Card, Button } from "react-bootstrap";
 import "./ServiceCardGrid.css";
-import SectionTitle2 from "../Common/SectionTitle2";
 import SectionTitle from "../Common/SectionTitle";
 import { Link } from "react-router-dom";
 
@@ -39,21 +37,21 @@ const services = [
     description:
       "Give your research greater visibility with Citation Booster. This service is designed to reach a wider audience, increase readership, and improve your chances of being cited—ensuring your research makes a stronger impact in your field.",
     img: "assets/img/corner-img.png",
-    btnurl: "/",
+    btnurl: "/citation-booster",
   },
   {
     title: "Research Outreach",
     description:
       "We help promote and increasing visibility of your published research within the academic community and across relevant media platforms.",
     img: "assets/img/corner-img.png",
-    btnurl: "/",
+    btnurl: "/research-outreach",
   },
   {
     title: "Translation Services",
     description:
       "We ensure effective communication by overcoming language barriers through document translation, interpretation, and other language support services.",
     img: "assets/img/corner-img.png",
-    btnurl: "/",
+    btnurl: "/translation-services",
   },
 ];
 
@@ -94,7 +92,11 @@ const ServiceCardGrid = ({ btnurl }) => {
                   >
                     <Card.Title className="fw-bold">{service.title}</Card.Title>
                     <Card.Text>{service.description}</Card.Text>
-                    <Link to={btnurl} className=" cs_btn cs_style_1">
+                    <Link
+                      to={service.btnurl}
+                      onClick={() => scrollTo({ top: 0, behavior: "smooth" })}
+                      className=" cs_btn cs_style_1"
+                    >
                       View Details <span className="arrow">→</span>
                     </Link>
                   </div>

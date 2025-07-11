@@ -67,6 +67,7 @@ const CoreEditing = () => {
       {/* <EditingFeatures /> */}
 
       <EditingFeatures />
+
       <SampleTabs isbutton={true} />
       <ContactHelpSection />
     </div>

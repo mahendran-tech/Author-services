@@ -65,18 +65,21 @@ const services = [
     title: "Journal Publication Support",
     description:
       "Navigating the research publication process can be challenging, but with our Journal Publication support services, you’ll receive expert guidance every step of the way.",
+    btnurl: "/publication-support",
   },
   {
     image: "assets/img/img0.png",
     title: "Full Assist Publication Pack",
     description:
       "Our Full Assist Publication Pack offers comprehensive support for every stage of your manuscript’s journey. From first round of edits to final submission, we take care of every step in the publication process—so you’re free to focus entirely on your research.",
+    btnurl: "/full-assist-publication",
   },
   {
     image: "assets/img/img2.png",
     title: "Flexi Saver Support Plan",
     description:
       "The Flexi Saver Support Plan lets you choose only the services you need—whether it’s journal selection, peer review, or final submission. This budget-friendly option ensures you get expert assistance where it’s needed most.",
+    btnurl: "/flexi-saver-publication",
   },
 
   {
@@ -84,6 +87,7 @@ const services = [
     title: "Journal Selection",
     description:
       "Our PhD expert can help boost your chances by analyzing your research and recommending 3-5 journals that match your publication goals, reducing the risk of rejection due to scope mismatch. We help you select the ideal journal based on your research topic, target readership, and indexing, ensuring a successful publication process.",
+    btnurl: "/journal-selection",
   },
 
   {
@@ -91,18 +95,21 @@ const services = [
     title: "Pre-submission Peer Review",
     description:
       "We will get your finalized manuscript peer-reviewed by an experienced reviewer from your field, offering constructive feedback and giving you the opportunity to address any gaps before final submission.",
+    btnurl: "/pre-submission-peer-review",
   },
   {
     image: "assets/img/img12.png",
     title: "Plagiarism Check",
     description:
       "We provide you with a plagiarism report, helping you identify potential plagiarism issues in your manuscript. Our detailed report highlights problematic sections and offers expert commentary to support your manuscript's evaluation.",
+    btnurl: "/plagiarism-check",
   },
   {
     image: "assets/img/img14.png",
     title: "Journal Submission",
     description:
       "Our team will help you manage the whole submission process, from setting up your account to completing the final submission.",
+    btnurl: "/journal-submission",
   },
 
   {
@@ -110,6 +117,7 @@ const services = [
     title: "Research Outreach",
     description:
       "We help promote and increase the visibility of your published research within the academic community and across relevant media platforms",
+    btnurl: "/research-outreach",
   },
 
   {
@@ -117,6 +125,7 @@ const services = [
     title: "Citation Booster",
     description:
       "Give your research greater visibility with Citation Booster. This service is designed to reach a wider audience, increase readership, and improve your chances of being cited—ensuring your research makes a stronger impact in your field.",
+    btnurl: "/citation-booster",
   },
 ];
 
@@ -134,7 +143,7 @@ const TranslationServices = () => {
         }
         btnname="Get a Quote"
         img1="assets/img/ts.png"
-        btnurl="/"
+        btnurl="/translation-services"
         edit={true}
         editingsection={true}
       ></SectionBanner>
@@ -142,6 +151,7 @@ const TranslationServices = () => {
       <SingleColumn
         Title="Translation"
         SubTitle="Services"
+        btnurl="/translation-services"
         content="Language shouldn’t get in the way of sharing your important work with the world. With IFERP’s translation services, whether you’re preparing your manuscript for publication or hoping to reach a broader audience, our translators make sure your research is communicated clearly and effectively."
       />
       <WhatYouGet />
@@ -155,6 +165,7 @@ const TranslationServices = () => {
         textLeft={true}
         Content="Our Language Translation service is dedicated to providing precise and reliable translations of your research, ensuring that the integrity and original meaning of your work are preserved across multiple languages. Whether your goal is to reach the audience of an international academic journal or to communicate your findings to a global, diverse audience, we specialize in helping you effectively convey your ideas and discoveries. With our expertise, we ensure that your research transcends language barriers, enabling you to share your work with a wider community while maintaining its core message and significance."
         ImagePath="assets/img/translate.png"
+        btnurl="/translation-services"
         reverse={false}
       />
 
@@ -163,6 +174,7 @@ const TranslationServices = () => {
 
       <ExpertEditors
         expertData={expertData}
+        btnurl={"/get-quote"}
         isImage={false}
         Title={"How Our "}
         SubTitle={"Translation Service Works?"}
@@ -170,6 +182,7 @@ const TranslationServices = () => {
       <SingleColumn
         Title="Choose Our"
         SubTitle="Translation Service"
+        btnurl="/translation-services"
         content="Want to reach more readers around the world? Translating your book into multiple languages is an effective way to expand your global audience. Our Book Translation service ensures your work remains true to its original message and tone while adapting it to fit different cultures. We’re here to help you connect with a broader audience, without losing the heart of your story."
       />
       <DoubleColumn
@@ -253,7 +266,7 @@ const TranslationServices = () => {
           </div>
           <div className="text-left mt-2">
             <Link
-              to="/customize-editing-services"
+              to="/get-quote"
               onClick={() => screenTop({ top: 0, behavior: "smooth" })}
               className="cs_btn cs_style_1 wow fadeInLeft"
             >

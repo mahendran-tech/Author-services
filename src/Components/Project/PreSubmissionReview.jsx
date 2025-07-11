@@ -1,6 +1,7 @@
 import { Container, Row, Col, Button } from "react-bootstrap";
 import { BsCheckCircleFill } from "react-icons/bs";
 import { FaArrowRight } from "react-icons/fa6";
+import { Link } from "react-router-dom";
 
 const serviceList = [
   "Identify and resolve technical issues at an early stage.",
@@ -16,7 +17,7 @@ const featuresList = [
   "Specialized expertise in your research domain.",
 ];
 
-const PreSubmissionReview = () => {
+const PreSubmissionReview = ({ btnurl }) => {
   return (
     <Container className="py-5">
       <h3 className="text-center fw-bold mb-5">
@@ -42,9 +43,14 @@ const PreSubmissionReview = () => {
               </li>
             ))}
           </ul>
-          <button type="button" className="cs_btn cs_style_1 btn btn-primary">
+
+          <Link
+            to={btnurl}
+            onClick={() => scrollTo({ top: 0, behavior: "smooth" })}
+            className="cs_btn cs_style_1 "
+          >
             Get a Quote <FaArrowRight />
-          </button>
+          </Link>
         </Col>
 
         <Col md={6} className="mt-5 mt-md-0 position-relative z-2">
@@ -64,9 +70,13 @@ const PreSubmissionReview = () => {
               </li>
             ))}
           </ul>
-          <button type="button" className="cs_btn cs_style_1 btn btn-primary">
+          <Link
+            to={btnurl}
+            onClick={() => scrollTo({ top: 0, behavior: "smooth" })}
+            className="cs_btn cs_style_1 btn "
+          >
             Get a Quote <FaArrowRight />
-          </button>
+          </Link>
         </Col>
       </Row>
     </Container>

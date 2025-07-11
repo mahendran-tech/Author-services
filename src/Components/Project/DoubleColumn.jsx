@@ -1,9 +1,11 @@
 import { Col, Container, Row } from "react-bootstrap";
 import { FaArrowRight } from "react-icons/fa6";
 import parse from "html-react-parser";
+import { Link } from "react-router-dom";
 const DoubleColumn = ({
   Title,
   SubTitle,
+  btnurl,
   Content,
   Content1,
   marginTop = true, // default is true
@@ -81,12 +83,27 @@ const DoubleColumn = ({
                   )}
 
                   <div className="text-start mt-3">
-                    <button
-                      type="button"
-                      className="cs_btn cs_style_1 btn btn-primary"
-                    >
-                      Get a Quote <FaArrowRight />
-                    </button>
+                    {btnurl ? (
+                      <Link
+                        to={btnurl}
+                        onClick={() =>
+                          window.scrollTo({ top: 0, behavior: "smooth" })
+                        }
+                        className="cs_btn cs_style_1 btn btn-primary"
+                      >
+                        Get a Quote <FaArrowRight />
+                      </Link>
+                    ) : (
+                      <Link
+                        to={"/get-quote"}
+                        onClick={() =>
+                          window.scrollTo({ top: 0, behavior: "smooth" })
+                        }
+                        className="cs_btn cs_style_1 btn btn-primary"
+                      >
+                        Get a Quote <FaArrowRight />
+                      </Link>
+                    )}
                   </div>
                 </div>
               </Col>
@@ -121,13 +138,27 @@ const DoubleColumn = ({
                   )}
 
                   <div className="text-start mt-3">
-                    <button
-                      type="button"
-                      className="cs_btn cs_style_1 btn btn-primary"
-                    >
-                      Get a Quote
-                      <FaArrowRight />
-                    </button>
+                    {btnurl ? (
+                      <Link
+                        to={btnurl}
+                        onClick={() =>
+                          window.scrollTo({ top: 0, behavior: "smooth" })
+                        }
+                        className="cs_btn cs_style_1 btn btn-primary"
+                      >
+                        Get a Quote <FaArrowRight />
+                      </Link>
+                    ) : (
+                      <Link
+                        to={"/get-quote"}
+                        onClick={() =>
+                          window.scrollTo({ top: 0, behavior: "smooth" })
+                        }
+                        className="cs_btn cs_style_1 btn btn-primary"
+                      >
+                        Get a Quote <FaArrowRight />
+                      </Link>
+                    )}
                   </div>
                 </div>
               </Col>

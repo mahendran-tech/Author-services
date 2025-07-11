@@ -1,7 +1,8 @@
 import React from "react";
 import SectionTitle from "./SectionTitle";
+import { Link } from "react-router-dom";
 
-const SingleColumn = ({ Title, SubTitle, content }) => {
+const SingleColumn = ({ Title, SubTitle, content, btnurl }) => {
   return (
     <section>
       <div className="cs_height_48 cs_height_lg_48"></div>
@@ -12,7 +13,11 @@ const SingleColumn = ({ Title, SubTitle, content }) => {
             <p className="text-center">{content}</p>
           </div>
           <div className="text-center col-12">
-            <a className="cs_btn cs_style_1 mt-3" href="/get-quote">
+            <Link
+              to={btnurl}
+              onClick={() => scrollTo({ top: 0, behavior: "smooth" })}
+              className="cs_btn cs_style_1 mt-3"
+            >
               View Details{" "}
               <span className="arrow">
                 <svg
@@ -32,7 +37,7 @@ const SingleColumn = ({ Title, SubTitle, content }) => {
                   ></path>
                 </svg>
               </span>
-            </a>
+            </Link>
           </div>
         </div>
       </div>

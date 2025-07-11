@@ -227,12 +227,24 @@ export default function Nav({ setMobileToggle }) {
       </li>
 
       <li>
-        <Link to="/research-outreach" onClick={() => setMobileToggle(false)}>
+        <Link
+          to="/research-outreach"
+          onClick={() => {
+            setMobileToggle(false);
+            window.scrollTo({ top: 0, behavior: "smooth" }); // smooth scroll to top
+          }}
+        >
           Research Outreach
         </Link>
       </li>
       <li>
-        <Link to="/translation-services" onClick={() => setMobileToggle(false)}>
+        <Link
+          to="/translation-services"
+          onClick={() => {
+            setMobileToggle(false);
+            window.scrollTo({ top: 0, behavior: "smooth" }); // smooth scroll to top
+          }}
+        >
           Translation Services
         </Link>
       </li>
@@ -274,7 +286,13 @@ export default function Nav({ setMobileToggle }) {
               </Link>
             </li>
             <li>
-              <Link to="/" onClick={() => setMobileToggle(false)}>
+              <Link
+                to="/contact-us"
+                onClick={() => {
+                  setMobileToggle(false);
+                  window.scrollTo({ top: 0, behavior: "smooth" }); // smooth scroll to top
+                }}
+              >
                 Contact Us
               </Link>
             </li>

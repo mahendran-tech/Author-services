@@ -83,6 +83,7 @@ const serviceData2 = [
     headcolor: "#0C0A31",
     radius: "br-right",
     left: true,
+    btnurl: "/journal-submission",
   },
 ];
 
@@ -141,6 +142,7 @@ const feature = [
     reverse: false,
     margintop: "-30%",
     left: true,
+    btnurl: "/translation-services",
   },
   {
     title: "Research Outreach",
@@ -151,6 +153,7 @@ const feature = [
     margintop: "-40%",
     reverse: true,
     right: true,
+    btnurl: "/research-outreach",
   },
   {
     title: "Citation Booster",
@@ -161,6 +164,7 @@ const feature = [
     reverse: false,
     margintop: "-30%",
     left: true,
+    btnurl: "/citation-booster",
   },
 ];
 

@@ -10,7 +10,7 @@ const services = [
     title: "End-to-end support",
     description:
       "We will guide you through each stage, from choosing the right journal to preparing and submitting your manuscript.",
-    btnurl: "/get-quote",
+    btnurl: "/publication-support",
   },
   {
     icon: "assets/img/icon/sa-7.svg",
@@ -24,7 +24,7 @@ const services = [
     title: "Illustration rework",
     description:
       "We will rework your graphics to meet journal standards, improve existing visuals, or create new illustrations from scratch.",
-    btnurl: "/get-quote",
+    btnurl: "/editing-proofreading",
   },
 ];
 

@@ -14,6 +14,7 @@ export const tabData = [
       intro:
         "One of the most effective ways to share your research with a broader audience and increase citations is through a video presentation.",
       description: `Just publishing your paper isn't enough anymore. To make your research stand out, it needs to be clear and engaging. Our Video Abstract Service helps you do just that—creating short, 1–3 minute videos with high-quality animations and visuals that make your work easy to understand, share, and remember. <br/>These videos feature expert visuals, subtitles, and voiceovers, making them ideal for platforms such as IFERP Academy, YouTube, LinkedIn, Facebook, and the IFERP Digital Library.`,
+      btnurl: "/get-quote",
       points: {
         features: [
           "HD animations and subtitles",
@@ -41,6 +42,7 @@ export const tabData = [
       title: "Graphical Abstract",
       intro:
         "Presenting your research through visually appealing visuals increases its impact by providing a quick and compelling overview.",
+      btnurl: "/get-quote",
       description:
         "Leading journals often request a graphical abstract. IFERP’s Graphical Abstract service helps you transform your data into clear visual summaries. Our team strictly follows journal guidelines and ensures your research is accurately represented in crisp, high-resolution graphics. <br/>We design custom 2D graphical abstracts tailored to your research topic. Using a variety of professional software tools, our experts work closely with you to meet your specific needs and ensure compliance with journal requirements.",
       points: {
@@ -69,6 +71,7 @@ export const tabData = [
       title: "Infographics",
       intro:
         "Infographics visually convey research findings using charts, tables, graphs, and figures in a way that is easy for the audience to understand.",
+      btnurl: "/get-quote",
       description: `Infographics effectively communicate research findings through charts, tables, graphs, and visuals, making complex information easy to grasp. <br/> Our team of experts creates engaging infographics by blending expertly curated research with eye-catching designs crafted by professional graphic designers. Each infographic is customized to match your journal, website, or presentation style. You’ll receive a comprehensive report detailing the development and specifications of the infographic. These visuals are perfect for posters, social media, and other channels to boost research visibility.`,
       points: {
         title1: "What we do?",
@@ -90,6 +93,7 @@ export const tabData = [
       title: "Research Presentation",
       intro:
         "Present your research at conferences and events to engage your audience, raise awareness, and spark meaningful discussions.",
+      btnurl: "/get-quote",
       description: `Present your research at conferences and events to capture attention, establish your reputation, and spark meaningful conversations. <br/> IFERP pairs you with an expert who will review and understand your work. Together, we craft a clear and compelling presentation tailored to conference standards. You can also opt for an optional 60-minute practice session to refine your delivery skills.`,
       points: {
         title1: "What we deliver?",
@@ -107,12 +111,14 @@ export const tabData = [
     id: "poster",
     label: "Poster <br/> Presentation",
     isRow: true,
+
     icon: "assets/img/icon/tap-5.svg",
     icon_active: "assets/img/icon/tap-act-5.svg",
     content: {
       title: "Poster Presentation",
       intro:
         "You can showcase your research findings clearly and attractively through posters that effectively communicate your research goals.",
+      btnurl: "/get-quote",
       description: `IFERP’s Poster Presentation service helps you share your research at conferences or exhibitions by turning your information and visuals into an explicit, accurate, and eye-catching poster that sums up your work and meets event requirements. <br/>Our expert reviewers work with you to create engaging posters that include tables, charts, images, and graphic abstracts.`,
       points: {
         title: "A well-designed poster will:",
@@ -141,6 +147,7 @@ export const tabData = [
       title: "Research Press Release",
       intro:
         "The right kind of media attention can significantly boost your research. It’s one of the most effective ways to gain more citations and connect with a broader audience.",
+      btnurl: "/get-quote",
       description: `We turn your manuscript into a polished, media-ready press release to enhance visibility and increase citations.<br/>Once your research is published, it’s essential to share it with the right audience to get the recognition it deserves. Use media coverage through IFERP’s Research Press Release service to engage a broader readership.<br/>Our team crafts your research into an 800-word Research Press Release. Sharing it across media and social channels elevates your paper’s reach and citation potential.`,
       points: {
         title: "Who should consider a Research Press Release?",
@@ -166,6 +173,7 @@ export const tabData = [
     content: {
       title: "Simplified Abstract",
       intro: "We’ll summarize your research for optimal reader engagement",
+      btnurl: "/get-quote",
       description: `We will transform your research into a clear and concise summary to help you reach a broader audience. We’ll convert your technical document into a 200-word abstract that’s easy for both general readers and subject experts to understand. This simplified version will highlight all the essential findings in plain English. Perfect for researchers who want to broaden their audience, new authors eager to showcase their work, and publishers who aim for higher citation rates.`,
       points: {
         deliverables: [

@@ -82,7 +82,11 @@ const AdditionalBenefits = ({
           </div>
 
           <div className="mt-5">
-            <Link to={btnurl} className="cs_btn cs_style_1">
+            <Link
+              to={btnurl}
+              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+              className="cs_btn cs_style_1"
+            >
               Get a Quote <span>&rarr;</span>
             </Link>
           </div>

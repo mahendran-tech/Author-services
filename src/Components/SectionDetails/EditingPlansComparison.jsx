@@ -10,12 +10,18 @@ const EditingPlansComparison = ({ features, plans, isTitleChange = false }) => {
 
   const navigate = useNavigate();
 
-  const handleProceed = (amount, planName) => {
+  const handleProceed = (amount, planName, wordCount) => {
     window.scrollTo({ top: 0, behavior: "smooth" });
+    console.log(amount, planName, wordCount);
     navigate("/customize-editing-services", {
       state: {
-        selectedAmount: amount,
-        selectedPlan: planName,
+        wordCount: wordCount,
+        selectedOption: {
+          name: planName,
+          // delivery: selected.date || "Tomorrow",
+          price: `${amount} `,
+          unit: `${amount} USD`, // ⬅️ this is important
+        },
       },
     });
   };
@@ -175,7 +181,9 @@ const EditingPlansComparison = ({ features, plans, isTitleChange = false }) => {
                       Get Started →
                     </button> */}
                     <button
-                      onClick={() => handleProceed(prices[idx], plan.name)}
+                      onClick={() =>
+                        handleProceed(prices[idx], plan.name, wordCount)
+                      }
                       className="cs_btn cs_style_2 text-center epc-button w-75"
                     >
                       Get Started →

@@ -52,7 +52,7 @@ const serviceData1 = [
     headcolor: "#0C0A31",
     radius: "br-left",
     left: false,
-    btnurl: "/exclusive-editing",
+    btnurl: "/publication-support",
   },
   {
     title: "Translation Services",
@@ -63,6 +63,7 @@ const serviceData1 = [
     headcolor: "#011530",
     radius: "br-right",
     left: true,
+    btnurl: "/translation-services",
   },
 ];
 
@@ -90,7 +91,7 @@ const feature = [
     rightcard: true,
     margintop: "-55%",
     right: true,
-    btnurl: "/exclusive-editing",
+    btnurl: "/research-outreach",
   },
 ];
 const feature1 = [
@@ -104,6 +105,7 @@ const feature1 = [
     rightcard: true,
     margintop: "-35%",
     right: true,
+    btnurl: "/citation-booster",
   },
 ];
 

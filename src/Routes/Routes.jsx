@@ -29,6 +29,7 @@ import CitationBooster from "../Pages/CitationBooster";
 import PlansComparison from "../Pages/PlansComparison";
 import ResearchOutreach from "../Pages/ResearchOutreach";
 import TranslationServices from "../Pages/TranslationServices";
+import ContactUs from "../Pages/ContactUs";
 
 export const router = createBrowserRouter([
   {
@@ -122,8 +123,8 @@ export const router = createBrowserRouter([
       },
 
       {
-        path: "/contact",
-        element: <ContactPage></ContactPage>,
+        path: "/contact-us",
+        element: <ContactUs />,
       },
     ],
   },

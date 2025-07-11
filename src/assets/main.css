@@ -9332,6 +9332,29 @@ Service Card
   cursor: pointer;
 }
 
+.error-border {
+  border: 1px solid red !important ;
+}
+
+
+/* conteact form */
+
+.contact-form-design .bg-light-blue {
+  background-color: #e8f6f9;
+}
+
+.contact-form-design .bg-light-cyan {
+  background-color: #e5f0fd;
+}
+
+.contact-form-design .bg-light-pink {
+  background-color: #f7edf8;
+}
+
+.contact-form-design .fw-semibold {
+  font-weight: 600;
+}
+
 
 
 

@@ -1,34 +1,20 @@
-import React, { useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { toast } from "react-toastify";
-// import { Container, Row, Col, Form, Button, Card } from "react-bootstrap";
-import {
-  Container,
-  Row,
-  Col,
-  Form,
-  Button,
-  Card,
-  InputGroup,
-} from "react-bootstrap";
-import WordCountInput from "./WordCountInput";
+import { useLocation } from "react-router-dom";
+import { Container, Row, Col, Form, Button, Card } from "react-bootstrap";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 import Select from "react-select";
 import countryList from "react-select-country-list";
 
 const StickyOrderSummary = ({ servicesList }) => {
-  // const options = countryList().getData();
-  const [isSubmitting, setIsSubmitting] = useState(false);
+  const { state } = useLocation();
 
-  const options = useMemo(() => countryList().getData(), []);
+  const [wordCount, setWordCount] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [selectedServices, setSelectedServices] = useState([]);
-  // const [form, setForm] = useState({
-  //   firstName: "",
-  //   lastName: "",
-  //   email: "",
-  //   phone: "",
-  // });
-  // const [formTouched, setFormTouched] = useState(false);
+  const [isActiveState, setIsActiveState] = useState(false);
+  const options = useMemo(() => countryList().getData(), []);
 
   const [formData, setFormData] = useState({
     firstName: "",
@@ -45,11 +31,24 @@ const StickyOrderSummary = ({ servicesList }) => {
     referenceFile: null,
   });
 
+  const [errors, setErrors] = useState({});
+
   const [documentOptions, setDocumentOptions] = useState({
     editFull: false,
     excludeSections: false,
     editSpecific: false,
   });
+
+  useEffect(() => {
+    if (state?.selectedOption && state?.wordCount) {
+      const { name, price, delivery } = state.selectedOption;
+      const combinedName = delivery ? `${name} (${delivery})` : name;
+      const wordcount = state.wordCount;
+      setWordCount(wordcount);
+      setSelectedServices([{ name: combinedName, price }]);
+      setIsActiveState(true);
+    }
+  }, [state]);
 
   const handleInputChange = (e) => {
     const { name, value, type, checked, files } = e.target;
@@ -64,6 +63,7 @@ const StickyOrderSummary = ({ servicesList }) => {
     } else {
       setFormData({ ...formData, [name]: value });
     }
+    setErrors((prev) => ({ ...prev, [name]: false }));
   };
 
   const handleCheckboxChange = (service) => {
@@ -76,76 +76,100 @@ const StickyOrderSummary = ({ servicesList }) => {
     });
   };
 
-  // const handleChange = (e) => {
-  //   const { name, value } = e.target;
-  //   setForm({ ...form, [name]: value });
-  //   setFormTouched(true);
-  // };
+  const handleProceed = () => {
+    const count = parseInt(wordCount);
+    if (!count || isNaN(count) || count <= 0) {
+      toast.warning("Please enter a valid word count.");
+      return;
+    }
+    const coreEditingService = {
+      name: "Core Editing",
+      price: (count * 0.06).toFixed(2),
+    };
+
+    setSelectedServices([coreEditingService]);
+    // setIsActiveState(true);
+    toast.success("Core Editing added to summary!");
+  };
+
+  const handleProceedReset = () => {
+    setWordCount("");
+    setSelectedServices([]);
+    setIsActiveState(false);
+  };
 
   const total = selectedServices
-    .reduce((sum, s) => sum + s.price, 0)
+    .reduce((sum, s) => sum + parseFloat(s.price), 0)
     .toFixed(2);
 
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   // if (!isFormValid) return;
-  //   alert(`Order submitted!\nTotal: ${total} USD`);
-  // };
-
   const validateForm = () => {
-    const errors = [];
+    const newErrors = {};
+    let hasError = false;
 
-    // Basic personal info
-    if (!formData.firstName.trim()) errors.push("First Name is required.");
-    if (!formData.lastName.trim()) errors.push("Last Name is required.");
-    if (!formData.email.trim()) errors.push("Email is required.");
-    if (!formData.country.trim()) errors.push("Phone Number is required.");
+    const requiredFields = [
+      "firstName",
+      "lastName",
+      "email",
+      "phone",
+      "country",
+      "knowAbout",
+      "documentType",
+      "subjectArea",
+      "comments",
+      "uploadFile",
+    ];
 
-    // Country dropdown
-    if (!formData.country || formData.country === "")
-      errors.push("Country is required.");
+    requiredFields.forEach((field) => {
+      if (!formData[field] || formData[field].toString().trim() === "") {
+        newErrors[field] = true;
+        hasError = true;
+      }
+    });
 
-    // How did you know about us
-    if (!formData.knowAbout)
-      errors.push("Please select how you got to know about us.");
+    if (!Object.values(documentOptions).some(Boolean)) {
+      newErrors.docOptions = true;
+      hasError = true;
+    }
 
-    // Document options (require at least one)
-    const docOptionsSelected = Object.values(documentOptions).some(
-      (val) => val === true
-    );
-    if (!docOptionsSelected)
-      errors.push("Select at least one document edit option.");
+    if (!formData.agreeTerms) {
+      newErrors.agreeTerms = true;
+      hasError = true;
+    }
 
-    // Document type
-    if (!formData.documentType) errors.push("Please select the document type.");
+    setErrors(newErrors);
+    return hasError;
+  };
 
-    // Subject area
-    if (!formData.subjectArea) errors.push("Please select the subject area.");
-
-    // Comments
-    if (!formData.comments.trim())
-      errors.push("Additional comments are required.");
-
-    // File uploads
-    if (!formData.uploadFile)
-      errors.push("Please upload the document to be edited.");
-
-    // Terms and conditions
-    if (!formData.agreeTerms)
-      errors.push("You must agree to the terms and conditions.");
-
-    return errors;
+  const resetForm = () => {
+    setWordCount("");
+    setSelectedServices([]);
+    setFormData({
+      firstName: "",
+      lastName: "",
+      email: "",
+      phone: "",
+      country: "",
+      knowAbout: "",
+      documentType: "",
+      subjectArea: "",
+      comments: "",
+      agreeTerms: false,
+      uploadFile: null,
+      referenceFile: null,
+    });
+    setDocumentOptions({
+      editFull: false,
+      excludeSections: false,
+      editSpecific: false,
+    });
+    setErrors({});
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const validationErrors = validateForm();
-    if (validationErrors.length > 0) {
-      // Show first error as toast, or loop through all
-      validationErrors.forEach((err) => {
-        toast.warning(err);
-      });
+    if (validateForm()) {
+      toast.warning("Please correct the highlighted fields.");
       return;
     }
 
@@ -154,50 +178,25 @@ const StickyOrderSummary = ({ servicesList }) => {
       return;
     }
 
-    if (!formData.agreeTerms) {
-      toast.warning("You must agree to the terms and conditions.");
-      return;
-    }
-
     setIsSubmitting(true);
 
     try {
-      // ✅ Log All Details to Console
       console.log("===== ORDER SUBMISSION DATA =====");
-      console.log("👉 Selected Services:");
-      selectedServices.forEach((s, i) => {
-        console.log(`${i + 1}. ${s.name} - ${s.price} USD`);
-      });
-
+      console.log("👉 Selected Services:", selectedServices);
       console.log(`👉 Total Amount: ${total} USD`);
-
-      console.log("👉 Form Data:");
-      console.log({
-        firstName: formData.firstName,
-        lastName: formData.lastName,
-        email: formData.email,
-        phone: formData.country,
-        country: formData.country,
-        knowAbout: formData.knowAbout,
-        documentType: formData.documentType,
-        subjectArea: formData.subjectArea,
-        comments: formData.comments,
-        agreeTerms: formData.agreeTerms,
+      console.log("👉 Form Data:", {
+        ...formData,
         uploadFile: formData.uploadFile?.name || null,
         referenceFile: formData.referenceFile?.name || null,
       });
+      console.log("👉 Document Options:", documentOptions);
 
-      console.log("👉 Document Options:");
-      console.log(documentOptions);
-
-      // Simulate API call
       await new Promise((resolve) => setTimeout(resolve, 2000));
 
       toast.success("Order submitted successfully!", {
         position: "top-center",
       });
-
-      // You can reset form here if needed
+      resetForm();
     } catch (error) {
       toast.error("Failed to submit the order.");
       console.error(error);
@@ -206,10 +205,50 @@ const StickyOrderSummary = ({ servicesList }) => {
     }
   };
 
+  // The rest of your JSX (form and UI) remains unchanged
+
   return (
     <Container className="py-4">
+      {/* Apply conditional className using errors.<fieldName> */}
+      {/* Add error class styling in your CSS like: .error-border { border: 1px solid red; } */}
+      {/* Example: className={`form-control ${errors.firstName ? 'error-border' : ''}`} */}
       <Row className="mb-3 position-relative z-1" style={{ marginTop: "-5%" }}>
-        <WordCountInput />
+        <Card className="p-4  word-container  rounded-3">
+          <Row className="align-items-center justify-content-between">
+            <Col lg={7} className="mb-2 mb-lg-0">
+              <h6 className="mb-2 fw-bold">
+                Enter number of words in your manuscript
+              </h6>
+              <small className="text-muted">
+                A word count helps us in give you accurate pricing and delivery
+                options
+              </small>
+            </Col>
+            <Col className="mb-2 d-flex gap-1 mb-lg-0">
+              <Form.Control
+                type="number"
+                placeholder="e.g. 2345"
+                value={wordCount}
+                onChange={(e) => setWordCount(e.target.value)}
+                className="rounded-sm w-75 px-3"
+                readOnly={isActiveState}
+              />
+              {isActiveState ? (
+                <Button
+                  className="cs_btn cs_style_1 "
+                  onClick={handleProceedReset}
+                >
+                  Reset
+                </Button>
+              ) : (
+                <Button className="cs_btn cs_style_1 " onClick={handleProceed}>
+                  Proceed
+                </Button>
+              )}
+            </Col>
+          </Row>
+        </Card>
+        {/* <WordCountInput /> */}
       </Row>
       <Row>
         <Col lg={8}>
@@ -277,6 +316,7 @@ const StickyOrderSummary = ({ servicesList }) => {
                     placeholder="Enter First Name"
                     value={formData.firstName}
                     onChange={handleInputChange}
+                    className={errors.firstName ? "error-border" : ""}
                   />
                 </Col>
 
@@ -302,25 +342,36 @@ const StickyOrderSummary = ({ servicesList }) => {
                   />
                 </Col>
                 <Col>
-                  <Form.Label htmlFor="phonenumber">Phone Number</Form.Label>
+                  {/* <Form.Label htmlFor="phonenumber">Phone Number</Form.Label>
                   <PhoneInput
                     country={"in"} // default country
                     value={formData.country}
                     onChange={(e) => setFormData({ ...formData, country: e })}
                     enableSearch={true}
                     placeholder="Enter phone number" // ✅ this should work
-                  />
+                  /> */}
+                  <Form.Label htmlFor="phonenumber">Phone Number</Form.Label>
+                  <div
+                    className={errors.phone ? "error-border p-1 rounded" : ""}
+                  >
+                    <PhoneInput
+                      country={"in"}
+                      value={formData.phone}
+                      onChange={(value) => {
+                        setFormData({ ...formData, phone: value });
+                        setErrors((prev) => ({ ...prev, phone: false }));
+                      }}
+                      enableSearch={true}
+                      placeholder="Enter phone number"
+                    />
+                  </div>
                 </Col>
               </Row>
 
               <Row className="mb-3">
                 <Col>
                   <Form.Label htmlFor="Country">Select Country</Form.Label>
-                  {/* <Form.Select className="custom-select" name="country" value={formData.country} onChange={handleInputChange}>
-                    <option value="">Select Country</option>
-                    <option value="India">India</option>
-                    <option value="USA">USA</option>
-                  </Form.Select> */}
+                  {/* 
                   <div style={{ maxWidth: "100%" }}>
                     <Select
                       options={options}
@@ -330,6 +381,20 @@ const StickyOrderSummary = ({ servicesList }) => {
                       onChange={(e) =>
                         setFormData({ ...formData, country: e.label })
                       }
+                      placeholder="Select a country"
+                      isSearchable
+                    />
+                  </div> */}
+                  <div className={errors.country ? "error-border rounded" : ""}>
+                    <Select
+                      options={options}
+                      value={options.find(
+                        (opt) => opt.label === formData.country
+                      )}
+                      onChange={(e) => {
+                        setFormData({ ...formData, country: e.label });
+                        setErrors((prev) => ({ ...prev, country: false }));
+                      }}
                       placeholder="Select a country"
                       isSearchable
                     />
@@ -569,16 +634,30 @@ const StickyOrderSummary = ({ servicesList }) => {
                   </div>
                 </>
               )}
-              {/* <Button
-                type="submit"
-                className="btn btn-light-white  w-100 mt-3"
-                style={{ backgroundColor: "#fff", color: "rgb(7, 90, 179)" }}
-                // disabled={!isFormValid || selectedServices.length === 0}
-                onClick={handleSubmit}
-              >
-                Submit Order
-              </Button> */}
 
+              {/* {isSubmitting ? (
+                <Button
+                  className="btn btn-light-white w-100 mt-3 d-flex justify-content-center align-items-center"
+                  style={{ backgroundColor: "#fff", color: "rgb(7, 90, 179)" }}
+                  disabled
+                >
+                  <span
+                    className="spinner-border spinner-border-sm me-2"
+                    role="status"
+                    aria-hidden="true"
+                  ></span>
+                  Submitting...
+                </Button>
+              ) : (
+                <Button
+                  type="submit"
+                  className="btn btn-light-white w-100 mt-3"
+                  style={{ backgroundColor: "#fff", color: "rgb(7, 90, 179)" }}
+                  onClick={handleSubmit}
+                >
+                  Submit Order
+                </Button>
+              )} */}
               {isSubmitting ? (
                 <Button
                   className="btn btn-light-white w-100 mt-3 d-flex justify-content-center align-items-center"

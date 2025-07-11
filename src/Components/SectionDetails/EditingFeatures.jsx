@@ -1,4 +1,4 @@
-
+import { Link } from "react-router-dom";
 
 const features = [
   {
@@ -9,6 +9,7 @@ const features = [
     bgClass: "bg-light-pink",
     imageClass: "feature-img-left",
     reverse: false,
+    btnurl: "/exclusive-editing",
   },
   {
     title: "Research Editing",
@@ -18,6 +19,7 @@ const features = [
     bgClass: "bg-light-bluegreen",
     imageClass: "feature-img-right",
     reverse: true,
+    btnurl: "/research-editing",
   },
   {
     title: "Thesis Editing",
@@ -27,6 +29,7 @@ const features = [
     bgClass: "bg-light-blue",
     imageClass: "feature-img-left",
     reverse: false,
+    btnurl: "/thesis-editing",
   },
 ];
 
@@ -42,7 +45,8 @@ const EditingFeatures = () => {
           key={idx}
           className={`row align-items-center mb-5 position-relative rounded-4 p-4 overflow-hidden ${
             feature.bgClass
-          } ${feature.reverse ? "flex-md-row-reverse" : ""}`}>
+          } ${feature.reverse ? "flex-md-row-reverse" : ""}`}
+        >
           <div className="col-md-6">
             <img
               src={feature.image}
@@ -53,7 +57,13 @@ const EditingFeatures = () => {
           <div className="col-md-6">
             <h3 className="fw-bold">{feature.title}</h3>
             <p>{feature.description}</p>
-            <button className="btn btn-pink">View Details ➜</button>
+            <Link
+              to={feature.btnurl}
+              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+              className="btn btn-pink"
+            >
+              View Details ➜
+            </Link>
           </div>
         </div>
       ))}

@@ -5,7 +5,6 @@ import TestimonialsCarousel from "../Components/Testimonial/TestimonialsCarousel
 import OtherServicesSection from "../Components/SectionDetails/OtherServicesSection";
 import FeaturesSection from "../Components/SectionDetails/FeaturesSection";
 import ContactHelpSection from "../Components/SectionDetails/ContactHelpSection";
-import { useLocation } from "react-router-dom";
 
 const serviceData2 = [
   {
@@ -110,10 +109,6 @@ const servicesList = [
 ];
 
 const CustomizeEditingServices = () => {
-  const { state } = useLocation();
-
-  console.log(state);
-
   return (
     <>
       <TextBanner

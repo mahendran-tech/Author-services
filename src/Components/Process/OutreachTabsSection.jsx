@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Button, Row, Col } from "react-bootstrap";
 import parse from "html-react-parser";
+import { Link } from "react-router-dom";
 
 const OutreachTabsSection = ({ tabData }) => {
   const [activeTab, setActiveTab] = useState("video");
@@ -41,7 +42,13 @@ const OutreachTabsSection = ({ tabData }) => {
         >
           <div className="info-box d-flex justify-content-between align-items-center flex-wrap gap-2 mb-4 p-3">
             <p className="mb-0">{currentTab.content.intro}</p>
-            <Button className="cs_btn cs_style_1 ">Get a Quote →</Button>
+            <Link
+              to={currentTab.content.btnurl}
+              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+              className="cs_btn cs_style_1 "
+            >
+              Get a Quote →
+            </Link>
           </div>
 
           <div>

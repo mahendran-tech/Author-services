@@ -31,30 +31,35 @@ const services = [
     title: "Core Editing",
     description:
       "Our Core Editing service focuses on sentence-level editing for both pre-and post-journal submissions at an affordable rate.",
+    btnurl: "/core-editing",
   },
   {
     image: "assets/img/img3.png",
     title: "Research Outreach",
     description:
       "We help promote and increase the visibility of your published research within the academic community and across relevant media platforms",
+    btnurl: "/research-outreach",
   },
   {
     image: "assets/img/img6.png",
     title: "Exclusive Editing",
     description:
       "Our Exclusive Editing service is designed to maximize your manuscript’s impact and readiness for submission to high-impact journals.",
+    btnurl: "/exclusive-editing",
   },
   {
     image: "assets/img/img8.png",
     title: "Research Editing",
     description:
       "Our Research Editing service provides expert pre-submission peer review, offering in-depth feedback on content, structure, and gaps to strengthen your manuscript before journal submission.",
+    btnurl: "/research-editing",
   },
   {
     image: "assets/img/img1.png",
     title: "Journal Publication Support",
     description:
       "Navigating the research publication process can be challenging, but with our Journal Publication support services, you’ll receive expert guidance every step of the way.",
+    btnurl: "/publication-support",
   },
 
   {
@@ -62,6 +67,7 @@ const services = [
     title: "Translation Services",
     description:
       "We ensure effective communication by overcoming language barriers through document translation, interpretation, and other language support services.",
+    btnurl: "/translation-services",
   },
 
   {
@@ -70,6 +76,7 @@ const services = [
     title: "Citation Booster",
     description:
       "Give your research greater visibility with Citation Booster. This service is designed to reach a wider audience, increase readership, and improve your chances of being cited—ensuring your research makes a stronger impact in your field.",
+    btnurl: "/citation-booster",
   },
 ];
 
@@ -84,7 +91,7 @@ const JournalSubmission = () => {
         conetnt="Submitting to journals can be stressful—we make it easier. IFERP handles the submission on your behalf, ensuring everything is done correctly and in compliance with Author Guidelines, ensuring a smooth, hassle-free path to publication."
         btnname="Get a Quote"
         img1="assets/img/journal-sub.png"
-        btnurl="/"
+        btnurl="/get-quote"
         edit={true}
         editingsection={true}
       ></SectionBanner>
@@ -95,6 +102,7 @@ const JournalSubmission = () => {
         Content="IFERP’s specialized Journal Submission Service simplifies the often complex and time-consuming process of submitting your manuscript. We take care of every step—from preparing submission materials to corresponding with journal editors— giving you peace of mind during the submission journey."
         Content1={"As part of our <b>Journal Submission Service </b> , we:"}
         ImagePath="assets/img/j-sub-1.png"
+        btnurl={"/get-quote"}
         reverse={false}
         listItems={[
           "Format your manuscript according to the target journal’s Author Guidelines.",
@@ -113,6 +121,7 @@ const JournalSubmission = () => {
           </>
         }
         ImagePath="assets/img/j-sub-2.png"
+        btnurl={"/get-quote"}
         reverse={true}
         listItems={[
           "Professionally structure your manuscript for submission",
@@ -128,11 +137,13 @@ const JournalSubmission = () => {
         subtitle="Journal Submission Service"
         benefits={benefitsData}
         isBsColumn={false}
+        btnurl={"/get-quote"}
       />
       <SupportGrid
         services={services}
         Title={"Other Services"}
         SubTitle={"We Provide"}
+        btnurl={"/get-quote"}
       />
       <section className="expert-section">
         <div className="cs_height_60 cs_height_lg_60"></div>

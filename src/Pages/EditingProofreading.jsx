@@ -51,6 +51,7 @@ const EditingProofreading = () => {
         editingsection={true}
       ></SectionBanner>
       <EditingServices />
+
       {/* <EditingPlansComparison  /> */}
       <EditingPlansComparison features={features} plans={plans} />
       <Services />

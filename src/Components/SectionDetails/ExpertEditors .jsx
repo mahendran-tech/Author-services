@@ -10,6 +10,7 @@ const ExpertEditors = ({
   Title,
   SubTitle,
   isBooster = false,
+  btnurl,
 }) => {
   const isLastSingle = expertData.length % 3 === 1;
 
@@ -79,13 +80,23 @@ const ExpertEditors = ({
         </Row>
       </Container>
       <div className="text-center mt-5">
-        <Link
-          to="/customize-editing-services"
-          onClick={() => screenTop({ top: 0, behavior: "smooth" })}
-          className="cs_btn cs_style_1 wow fadeInLeft"
-        >
-          Get a Quote <i className="bi bi-arrow-right"></i>
-        </Link>
+        {btnurl ? (
+          <Link
+            to={btnurl}
+            onClick={() => screenTop({ top: 0, behavior: "smooth" })}
+            className="cs_btn cs_style_1 wow fadeInLeft"
+          >
+            Get a Quote <i className="bi bi-arrow-right"></i>
+          </Link>
+        ) : (
+          <Link
+            to="/customize-editing-services"
+            onClick={() => screenTop({ top: 0, behavior: "smooth" })}
+            className="cs_btn cs_style_1 wow fadeInLeft"
+          >
+            Get a Quote <i className="bi bi-arrow-right"></i>
+          </Link>
+        )}
       </div>
       <div className="cs_height_40 cs_height_lg_40"></div>
     </section>

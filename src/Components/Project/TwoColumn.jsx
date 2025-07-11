@@ -1,8 +1,9 @@
 import React from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import { FaArrowRight } from "react-icons/fa6";
+import { Link } from "react-router-dom";
 
-const TwoColumn = () => {
+const TwoColumn = ({ btnurl }) => {
   return (
     <div>
       <section className="section-bg-color">
@@ -37,13 +38,29 @@ const TwoColumn = () => {
                 </li>
               </ul>
               <div className="text-start mt-3">
-                <button
-                  type="button"
-                  className="cs_btn cs_style_1 btn btn-primary"
-                >
-                  Get a Quote
-                  <FaArrowRight />
-                </button>
+                {btnurl ? (
+                  <Link
+                    to={btnurl}
+                    onClick={() => {
+                      window.scrollTo({ top: 0, behavior: "smooth" });
+                    }}
+                    className="cs_btn cs_style_1 btn btn-primary"
+                  >
+                    Get a Quote
+                    <FaArrowRight />
+                  </Link>
+                ) : (
+                  <Link
+                    to={"/get-quote"}
+                    onClick={() => {
+                      window.scrollTo({ top: 0, behavior: "smooth" });
+                    }}
+                    className="cs_btn cs_style_1 btn btn-primary"
+                  >
+                    Get a Quote
+                    <FaArrowRight />
+                  </Link>
+                )}
               </div>
             </Col>
           </Row>

@@ -1,9 +1,7 @@
-import React from "react";
 import SectionBanner from "../Components/HeroBanner/SectionBanner";
 import YourPublicationJourny from "../Components/Project/YourPublicationJourny";
 import AdditionalBenefits2 from "../Components/Project/AdditionalBenefits2";
 import AdditionalBenefits from "../Components/Common/AdditionalBenefits";
-import TestimonialSlider from "../Components/Testimonial/TestimonialSlider";
 import PublishedPapersSlider from "../Components/Testimonial/PublishedPapersSlider";
 import SupportGrid from "../Components/Process/SupportGrid";
 
@@ -40,7 +38,7 @@ const services = [
     title: "Research Outreach",
     description:
       "We help promote and increase the visibility of your published research within the academic community and across relevant media platforms",
-    btnurl: "/",
+    btnurl: "/research-outreach",
   },
   {
     image: "assets/img/img6.png",
@@ -69,6 +67,7 @@ const services = [
     title: "Translation Services",
     description:
       "We ensure effective communication by overcoming language barriers through document translation, interpretation, and other language support services.",
+    btnurl: "/translation-services",
   },
 
   {
@@ -77,6 +76,7 @@ const services = [
     title: "Citation Booster",
     description:
       "Give your research greater visibility with Citation Booster. This service is designed to reach a wider audience, increase readership, and improve your chances of being cited—ensuring your research makes a stronger impact in your field.",
+    btnurl: "/citation-booster",
   },
 ];
 
