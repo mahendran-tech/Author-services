@@ -33,7 +33,7 @@ import { toast } from "react-toastify";
 //   },
 // ];
 
-export default function EstimateSelector() {
+export default function EstimateSelector({ isResearch = false }) {
   const [pricingOptions, setPricingOptions] = useState([]);
   const [selected, setSelected] = useState(0);
   // const [selectedOption, setSelectedOption] = useState(0);
@@ -141,9 +141,12 @@ export default function EstimateSelector() {
     navigate("/customize-editing-services", {
       state: {
         wordCount: count,
-        deliveryDate: selectedOption.date || "Tomorrow",
-        finalPrice: selectedOption.finalPrice,
-        totalPrice: `${total} USD`,
+        selectedOption: {
+          name: isResearch ? "Research Editing" : "Exclusive Editing",
+          delivery: selected.date || "Tomorrow",
+          price: `${total} `,
+          unit: `${total} USD`, // ⬅️ this is important
+        },
       },
     });
   };
@@ -250,8 +253,12 @@ export default function EstimateSelector() {
       </Row>
 
       <div className="text-center mt-4">
-        <Button onClick={handlePlaceOrder} className="cs_btn cs_style_1">
-          Place Order →
+        <Button
+          onClick={handlePlaceOrder}
+          disabled={!proceedClicked}
+          className="cs_btn cs_style_1"
+        >
+          {!proceedClicked ? "Proceed then Click" : "Place Order → "}
         </Button>
       </div>
       <div className="cs_height_80 cs_height_lg_80"></div>

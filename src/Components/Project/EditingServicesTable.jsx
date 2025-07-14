@@ -24,7 +24,10 @@ const EditingServicesTable = ({ headers, rows }) => {
               <p className="description">{col.description}</p>
               {col.button && (
                 <Button
-                  onClick={() => handleClick(col.btnurl)}
+                  onClick={() => {
+                    handleClick(col.btnurl),
+                      window.scrollTo({ top: 0, behavior: "smooth" });
+                  }}
                   className="btn-light btn btn-primary btn-sm"
                 >
                   {col.button}

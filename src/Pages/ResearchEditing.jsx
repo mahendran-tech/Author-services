@@ -134,7 +134,7 @@ const ResearchEditing = () => {
       />
       <div>
         <div className="cs_height_80 cs_height_lg_80"></div>
-        <EstimateSelector />
+        <EstimateSelector isResearch={true} />
       </div>
 
       <div className="bg-light">

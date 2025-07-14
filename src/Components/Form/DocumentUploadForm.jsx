@@ -1,8 +1,17 @@
 import React, { useState } from "react";
 import { Container, Row, Col, Form, Button, Card } from "react-bootstrap";
 import SectionTitle from "../Common/SectionTitle";
+import PhoneInput from "react-phone-input-2";
+import "react-phone-input-2/lib/style.css";
+import Select from "react-select";
+import countryList from "react-select-country-list";
+import { toast } from "react-toastify";
+import axios from "axios";
+import Swal from "sweetalert2";
 
 const DocumentUploadForm = () => {
+  const countryOptions = countryList().getData();
+
   const [formData, setFormData] = useState({
     documentFile: null,
     referenceFile: null,
@@ -15,55 +24,212 @@ const DocumentUploadForm = () => {
     invoiceName: "",
     sourceLanguage: "",
     targetLanguage: "",
+    firstName: "",
+    lastName: "",
+    email: "",
+    phone: "",
+    country: "",
+    knowAbout: "",
   });
+
+  const [errors, setErrors] = useState({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleChange = (e) => {
     const { name, value, type, files } = e.target;
-    if (type === "file") {
-      setFormData({ ...formData, [name]: files[0] });
-    } else {
-      setFormData({ ...formData, [name]: value });
+
+    const nameFields = ["firstName", "lastName"];
+    const isNameField = nameFields.includes(name);
+    const nameRegex = /^[A-Za-z\s]*$/;
+
+    // Block invalid name input
+    if (isNameField && !nameRegex.test(value)) {
+      return;
     }
+
+    if (type === "file") {
+      const file = files[0];
+      const maxSizeMB = 2;
+
+      if (file && file.size > maxSizeMB * 1024 * 1024) {
+        toast.error("File size should not exceed 2MB");
+        return;
+      }
+
+      setFormData((prev) => ({ ...prev, [name]: file }));
+    } else {
+      setFormData((prev) => ({ ...prev, [name]: value }));
+    }
+
+    setErrors((prev) => ({ ...prev, [name]: "" }));
   };
 
-  const handleSubmit = (e) => {
+  const validate = () => {
+    const newErrors = {};
+    const nameRegex = /^[A-Za-z\s]+$/;
+
+    if (!formData.firstName || !nameRegex.test(formData.firstName)) {
+      newErrors.firstName = "Please enter a valid first name (letters only)";
+    }
+
+    if (!formData.lastName || !nameRegex.test(formData.lastName)) {
+      newErrors.lastName = "Please enter a valid last name (letters only)";
+    }
+
+    if (!formData.email) {
+      newErrors.email = "Email is required";
+    }
+
+    if (!formData.phone) {
+      newErrors.phone = "Phone number is required";
+    }
+
+    if (!formData.sourceLanguage) {
+      newErrors.sourceLanguage = "Source language is required";
+    }
+
+    if (!formData.targetLanguage) {
+      newErrors.targetLanguage = "Target language is required";
+    }
+
+    if (!formData.subjectArea) {
+      newErrors.subjectArea = "Subject area is required";
+    }
+
+    if (!formData.country) {
+      newErrors.country = "Country is required";
+    }
+
+    // ✅ Allow either file to be present
+    if (!formData.documentFile && !formData.referenceFile) {
+      newErrors.documentFile = "Please upload at least one file";
+    }
+
+    return newErrors;
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Submitted Data:", formData);
+    const validationErrors = validate();
+
+    if (Object.keys(validationErrors).length > 0) {
+      setErrors(validationErrors);
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    const payload = new FormData();
+    for (const [key, value] of Object.entries(formData)) {
+      if (value !== null && value !== "") {
+        payload.append(key, value);
+      }
+    }
+
+    try {
+      const response = await axios.post(
+        "https://authorservices.iferp.in/api/translate.php",
+        payload,
+        {
+          headers: { "Content-Type": "multipart/form-data" },
+        }
+      );
+
+      if (response.data.status === true) {
+        // toast.success("Form submitted successfully!", {
+        //   position: "top-center",
+        // });
+
+        Swal.fire(
+          "Thank You!",
+          "Thanks for submitting your details.",
+          "success"
+        );
+
+        setFormData({
+          documentFile: null,
+          referenceFile: null,
+          comments: "",
+          typeOfDocument: "",
+          subjectArea: "",
+          languageStyle: "American English",
+          startImmediately: "Yes",
+          journalFormatting: "Yes",
+          invoiceName: "",
+          sourceLanguage: "",
+          targetLanguage: "",
+          firstName: "",
+          lastName: "",
+          email: "",
+          phone: "",
+          country: "",
+          knowAbout: "",
+        });
+
+        setErrors({});
+      } else {
+        if (Array.isArray(response.data.data)) {
+          response.data.data.forEach((errMsg) => toast.error(errMsg));
+        } else {
+          toast.error(response.data.message || "Something went wrong.");
+        }
+      }
+    } catch (error) {
+      if (error.response && error.response.data) {
+        const { data } = error.response;
+
+        if (Array.isArray(data.data)) {
+          data.data.forEach((errMsg) => toast.error(errMsg));
+        } else {
+          toast.error(data.message || "Form submission failed.");
+        }
+      } else {
+        toast.error("Network error. Please try again.");
+      }
+      console.error("Submission Error:", error);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
     <section>
       <div className="cs_height_48 cs_height_lg_48"></div>
-      <Container className="">
+      <Container>
         <Row>
           <Col>
             <SectionTitle Title={"Select "} SubTitle={"Translation Service"} />
           </Col>
         </Row>
-        <Form className="my-form-section" onSubmit={handleSubmit}>
-          {/* Language Pair for Translation Section */}
+        <Form onSubmit={handleSubmit}>
+          {/* Language Pair */}
           <Card className="mb-4 selected-items">
-            <h5 className="mb-4 fw-bold p-3  border-1 border-bottom ">
+            <h5 className="mb-4 fw-bold p-3 border-bottom">
               Select language pair for translation
             </h5>
             <div className="p-3">
               <Row className="mb-3">
-                <Col md={6}>
+                <Col md={6} sm={12}>
                   <Form.Group>
                     <Form.Label>
                       My document is in <span className="text-danger">*</span>
                     </Form.Label>
                     <Form.Control
                       type="text"
-                      placeholder="Select/Type Your Language"
                       name="sourceLanguage"
                       value={formData.sourceLanguage}
                       onChange={handleChange}
-                      required
+                      placeholder="Enter Source Language"
+                      className={errors.sourceLanguage ? "error-border" : ""}
                     />
+                    {errors.sourceLanguage && (
+                      <div className="text-danger small">
+                        {errors.sourceLanguage}
+                      </div>
+                    )}
                   </Form.Group>
                 </Col>
-                <Col md={6}>
+                <Col md={6} sm={12}>
                   <Form.Group>
                     <Form.Label>
                       I need it translated to{" "}
@@ -71,27 +237,26 @@ const DocumentUploadForm = () => {
                     </Form.Label>
                     <Form.Control
                       type="text"
-                      placeholder="Enter Target Language"
                       name="targetLanguage"
                       value={formData.targetLanguage}
                       onChange={handleChange}
-                      required
+                      placeholder="Enter Target Language"
+                      className={errors.targetLanguage ? "error-border" : ""}
                     />
+                    {errors.targetLanguage && (
+                      <div className="text-danger small">
+                        {errors.targetLanguage}
+                      </div>
+                    )}
                   </Form.Group>
                 </Col>
               </Row>
-              <div className="d-flex justify-content-start">
-                <Button className="cs_btn cs_style_1" type="submit">
-                  Proceed
-                </Button>
-              </div>
             </div>
           </Card>
-          {/* Document Upload Section */}
+
+          {/* Upload Section */}
           <Card className="mb-4 selected-items">
-            <h5 className="mb-3 fw-bold p-3 border-1 border-bottom">
-              Document Upload
-            </h5>
+            <h5 className="mb-3 fw-bold p-3 border-bottom">Document Upload</h5>
             <div className="p-3">
               <Row className="mb-3">
                 <Col>
@@ -102,25 +267,22 @@ const DocumentUploadForm = () => {
                           className="mb-2"
                           src="assets/img/upload-icon.svg"
                           alt=""
-                        />{" "}
+                        />
                         <br />
                         <strong className="text-gray">
                           Upload Files to be Edited
                         </strong>
-                        <br />
-                        <span className="fade-text small">
-                          (Document should be minimum 2MB in word, pdf)
-                        </span>
                       </Form.Label>
                       <Form.Control
                         type="file"
                         name="documentFile"
                         onChange={handleChange}
+                        accept=".pdf,.doc,.docx"
                         hidden
                       />
-                      {formData.uploadFile && (
-                        <div className="mt-2 text-muted small">
-                          Selected: {formData.uploadFile.name}
+                      {formData.documentFile && (
+                        <div className="mt-2 small text-muted">
+                          Selected: {formData.documentFile.name}
                         </div>
                       )}
                     </div>
@@ -134,24 +296,21 @@ const DocumentUploadForm = () => {
                           className="mb-2"
                           src="assets/img/upload-icon.svg"
                           alt=""
-                        />{" "}
+                        />
                         <br />
-                        <strong style={{ color: "#616D80" }}>
+                        <strong className="text-gray">
                           Upload Reference Files (Optional)
                         </strong>
-                        <br />
-                        <span className="fade-text small">
-                          (Document should be minimum 2MB in word, pdf)
-                        </span>
                       </Form.Label>
                       <Form.Control
                         type="file"
                         name="referenceFile"
                         onChange={handleChange}
+                        accept=".pdf,.doc,.docx"
                         hidden
                       />
                       {formData.referenceFile && (
-                        <div className="mt-2 text-muted small">
+                        <div className="mt-2 small text-muted">
                           Selected: {formData.referenceFile.name}
                         </div>
                       )}
@@ -159,224 +318,210 @@ const DocumentUploadForm = () => {
                   </Form.Group>
                 </Col>
               </Row>
-              {/* <Row className="mb-3 ">
-              <Col md={6}>
-                <div className="border border-dashed p-4 text-center">
-                  <Form.Label className="w-100">
-                    <div className="mb-2">📁 Upload Files to be Worked on</div>
-                    <div
-                      className="text-muted"
-                      style={{ fontSize: "0.875rem" }}
-                    >
-                      (Document should be minimum 2MB in word, pdf)
-                    </div>
-                    <Form.Control
-                      type="file"
-                      name="documentFile"
-                      onChange={handleChange}
-                      className="d-none"
-                    />
-                  </Form.Label>
-                </div>
-              </Col>
-              <Col md={6}>
-                <div className="border border-dashed p-4 text-center">
-                  <Form.Label className="w-100">
-                    <div className="mb-2">
-                      📁 Upload Reference Files (Optional)
-                    </div>
-                    <div
-                      className="text-muted"
-                      style={{ fontSize: "0.875rem" }}
-                    >
-                      (Document should be minimum 2MB in word, pdf)
-                    </div>
-                    <Form.Control
-                      type="file"
-                      name="referenceFile"
-                      onChange={handleChange}
-                      className="d-none"
-                    />
-                  </Form.Label>
-                </div>
-              </Col>
-            </Row> */}
               <Form.Control
                 as="textarea"
                 name="comments"
-                placeholder="Any other instructions for your editor"
                 rows={3}
+                placeholder="Any other instructions for your editor"
                 value={formData.comments}
                 onChange={handleChange}
               />
             </div>
           </Card>
 
-          {/* Document Details Section */}
+          {/* Personal & Document Details */}
           <Card className="mb-4 selected-items">
-            <h5 className="mb-4 fw-bold p-3 border-1 border-bottom">
-              Document Details
+            <h5 className="mb-4 fw-bold p-3 border-bottom">
+              Personal & Document Details
             </h5>
             <div className="p-3">
               <Row className="mb-3">
-                <Col md={6}>
-                  <Form.Group>
-                    <Form.Label>Type of Document?</Form.Label>
-                    <Form.Select
-                      name="typeOfDocument"
-                      value={formData.typeOfDocument}
-                      onChange={handleChange}
-                    >
-                      <option value="">Select Type of Document?</option>
-                      <option>Research Paper</option>
-                      <option>Thesis</option>
-                      <option>Review Article</option>
-                    </Form.Select>
-                  </Form.Group>
+                <Col md={6} sm={12}>
+                  <Form.Label>First Name</Form.Label>
+                  <Form.Control
+                    name="firstName"
+                    value={formData.firstName}
+                    onChange={handleChange}
+                    placeholder="Enter First Name"
+                    className={errors.firstName ? "error-border" : ""}
+                  />
+                  {errors.firstName && (
+                    <div className="text-danger small">{errors.firstName}</div>
+                  )}
                 </Col>
-                <Col md={6}>
-                  <Form.Group>
-                    <Form.Label>
-                      Subject Area Category{" "}
-                      <span className="text-danger">*</span>
-                    </Form.Label>
-                    <Form.Select
-                      name="subjectArea"
-                      value={formData.subjectArea}
-                      onChange={handleChange}
-                      required
-                    >
-                      <option value="">Select Subject Area</option>
-                      <option>Life Sciences</option>
-                      <option>Engineering</option>
-                      <option>Medical</option>
-                    </Form.Select>
-                  </Form.Group>
+                <Col md={6} sm={12}>
+                  <Form.Label>Last Name</Form.Label>
+                  <Form.Control
+                    name="lastName"
+                    value={formData.lastName}
+                    onChange={handleChange}
+                    placeholder="Enter Last Name"
+                    className={errors.lastName ? "error-border" : ""}
+                  />
+                  {errors.lastName && (
+                    <div className="text-danger small">{errors.lastName}</div>
+                  )}
+                </Col>
+              </Row>
+              <Row className="mb-3">
+                <Col md={6} sm={12}>
+                  <Form.Label>Email</Form.Label>
+                  <Form.Control
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    placeholder="Enter Email"
+                    className={errors.email ? "error-border" : ""}
+                  />
+                  {errors.email && (
+                    <div className="text-danger small">{errors.email}</div>
+                  )}
+                </Col>
+                <Col md={6} sm={12}>
+                  <Form.Label>Phone</Form.Label>
+                  <div
+                    className={errors.phone ? "error-border p-1 rounded" : ""}
+                  >
+                    <PhoneInput
+                      country="in"
+                      value={formData.phone}
+                      onChange={(value) =>
+                        setFormData({ ...formData, phone: value })
+                      }
+                      enableSearch
+                    />
+                    {errors.phone && (
+                      <div className="text-danger small">{errors.phone}</div>
+                    )}
+                  </div>
                 </Col>
               </Row>
 
               <Row className="mb-3">
-                <Col md={6}>
-                  <Form.Label>Language Style</Form.Label>
-                  <div className="d-flex gap-4">
-                    <Form.Check
-                      type="radio"
-                      id="lang-american"
-                      name="languageStyle"
-                      value="American English"
-                      checked={formData.languageStyle === "American English"}
-                      onChange={handleChange}
-                      label={
-                        <label htmlFor="lang-american" className="mb-0">
-                          American English
-                        </label>
+                <Col md={6} sm={12}>
+                  <Form.Label>Country</Form.Label>
+                  <div className={errors.country ? "error-border rounded" : ""}>
+                    <Select
+                      options={countryOptions}
+                      value={countryOptions.find(
+                        (opt) => opt.label === formData.country
+                      )}
+                      onChange={(e) =>
+                        setFormData({ ...formData, country: e.label })
                       }
+                      placeholder="Select Country"
+                      isSearchable
                     />
-
-                    <Form.Check
-                      type="radio"
-                      id="lang-british"
-                      name="languageStyle"
-                      value="British English"
-                      checked={formData.languageStyle === "British English"}
-                      onChange={handleChange}
-                      label={
-                        <label htmlFor="lang-british" className="mb-0">
-                          British English
-                        </label>
-                      }
-                    />
+                    {errors.country && (
+                      <div className="text-danger small">{errors.country}</div>
+                    )}
                   </div>
                 </Col>
-                <Col md={6}>
+                <Col md={6} sm={12}>
+                  <Form.Label>How did you know about us?</Form.Label>
+                  <Form.Select
+                    name="knowAbout"
+                    value={formData.knowAbout}
+                    onChange={handleChange}
+                  >
+                    <option value="">Select</option>
+                    <option value="Google">Google</option>
+                    <option value="Referral">Referral</option>
+                  </Form.Select>
+                </Col>
+              </Row>
+
+              {/* Type of Document & Subject Area */}
+              <Row className="mb-3">
+                <Col md={6} sm={12}>
+                  <Form.Label>Type of Document</Form.Label>
+                  <Form.Select
+                    name="typeOfDocument"
+                    value={formData.typeOfDocument}
+                    onChange={handleChange}
+                  >
+                    <option value="">Select Type</option>
+                    <option>Research Paper</option>
+                    <option>Thesis</option>
+                    <option>Review Article</option>
+                  </Form.Select>
+                </Col>
+                <Col md={6} sm={12}>
                   <Form.Label>
-                    Do you want free journal formatting for your document?
+                    Subject Area <span className="text-danger">*</span>
                   </Form.Label>
-                  <div className="d-flex gap-4 ">
+                  <Form.Select
+                    name="subjectArea"
+                    value={formData.subjectArea}
+                    onChange={handleChange}
+                    className={errors.subjectArea ? "error-border" : ""}
+                  >
+                    <option value="">Select Subject</option>
+                    <option>Life Sciences</option>
+                    <option>Engineering</option>
+                    <option>Medical</option>
+                  </Form.Select>
+                  {errors.subjectArea && (
+                    <div className="text-danger small">
+                      {errors.subjectArea}
+                    </div>
+                  )}
+                </Col>
+              </Row>
+
+              {/* Radio Buttons */}
+              <Row className="mb-3">
+                <Col md={6} sm={12}>
+                  <Form.Label>Journal Formatting</Form.Label>
+                  <div className="d-flex gap-3">
                     <Form.Check
                       type="radio"
-                      id="journalFormattingYes"
+                      label="Yes"
                       name="journalFormatting"
                       value="Yes"
                       checked={formData.journalFormatting === "Yes"}
                       onChange={handleChange}
-                      label={
-                        <label htmlFor="journalFormattingYes" className="mb-0">
-                          Yes
-                        </label>
-                      }
                     />
-
                     <Form.Check
                       type="radio"
-                      id="journalFormattingNo"
+                      label="No"
                       name="journalFormatting"
                       value="No"
                       checked={formData.journalFormatting === "No"}
                       onChange={handleChange}
-                      label={
-                        <label htmlFor="journalFormattingNo" className="mb-0">
-                          No
-                        </label>
-                      }
                     />
                   </div>
                 </Col>
-              </Row>
-
-              <Row className="mb-3">
-                <Col md={6}>
-                  <Form.Label>
-                    Can we start work on your request immediately?
-                  </Form.Label>
-                  <div className="d-flex  gap-4">
+                <Col md={6} sm={12}>
+                  <Form.Label>Start Immediately?</Form.Label>
+                  <div className="d-flex gap-3">
                     <Form.Check
                       type="radio"
-                      id="startImmediatelyYes"
+                      label="Yes"
                       name="startImmediately"
                       value="Yes"
                       checked={formData.startImmediately === "Yes"}
                       onChange={handleChange}
-                      label={
-                        <label htmlFor="startImmediatelyYes" className="mb-0">
-                          Yes
-                        </label>
-                      }
                     />
-
                     <Form.Check
                       type="radio"
-                      id="startImmediatelyNo"
+                      label="No, send a quote first"
                       name="startImmediately"
                       value="No"
                       checked={formData.startImmediately === "No"}
                       onChange={handleChange}
-                      label={
-                        <label htmlFor="startImmediatelyNo" className="mb-0">
-                          No, send a quote first for confirmation
-                        </label>
-                      }
                     />
                   </div>
                 </Col>
-                <Col md={6}>
-                  <Form.Group>
-                    <Form.Label>Invoice Name</Form.Label>
-                    <Form.Control
-                      type="text"
-                      placeholder="Name of Invoice"
-                      name="invoiceName"
-                      value={formData.invoiceName}
-                      onChange={handleChange}
-                    />
-                  </Form.Group>
-                </Col>
               </Row>
-              <div className="d-flex justify-content-start">
-                <Button className="cs_btn cs_style_1" type="submit">
-                  Request Quotation
-                </Button>
-              </div>
+
+              <Button
+                className="cs_btn cs_style_1"
+                type="submit"
+                disabled={isSubmitting}
+              >
+                {isSubmitting ? "Submitting..." : "Request Quotation"}
+              </Button>
             </div>
           </Card>
         </Form>

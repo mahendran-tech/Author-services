@@ -4,6 +4,7 @@ import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 import axios from "axios";
 import { toast } from "react-toastify";
+import Swal from "sweetalert2";
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -19,6 +20,7 @@ const ContactForm = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
+
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
@@ -29,9 +31,10 @@ const ContactForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Simple validation
-    const { name, email, phone, queryType, message } = formData;
-    if (!name || !email || !phone || !queryType || !message) {
+    const { name, email, phone, queryType } = formData;
+
+    // Basic Validation
+    if (!name || !email || !phone || !queryType) {
       toast.warning("Please fill in all required fields.");
       return;
     }
@@ -39,18 +42,30 @@ const ContactForm = () => {
     try {
       setIsSubmitting(true);
 
-      // Replace the URL with your real API endpoint
-      await axios.post("https://your-api-endpoint.com/contact", formData);
+      // API Call
+      const response = await axios.post(
+        "https://authorservices.iferp.in/api/contactus.php",
+        formData
+      );
 
-      toast.success("Your message has been sent successfully!");
-      setFormData({
-        name: "",
-        email: "",
-        phone: "",
-        social: "",
-        queryType: "",
-        message: "",
-      });
+      if (response.status === 200 || response.status === 201) {
+        // toast.success("Your message has been sent successfully!");
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          social: "",
+          queryType: "",
+          message: "",
+        });
+        Swal.fire(
+          "Thank You!",
+          "Thanks for submitting your details.",
+          "success"
+        );
+      } else {
+        toast.error("Something went wrong. Please try again.");
+      }
     } catch (error) {
       toast.error("Failed to send message. Please try again.");
       console.error("API Error:", error);
@@ -58,6 +73,7 @@ const ContactForm = () => {
       setIsSubmitting(false);
     }
   };
+
   const style = {
     border: "1px solid #616D8033",
     padding: "1rem",
@@ -80,7 +96,12 @@ const ContactForm = () => {
                       name="name"
                       placeholder="Enter Name"
                       value={formData.name}
-                      onChange={handleChange}
+                      onChange={(e) => {
+                        const regex = /^[a-zA-Z\s]*$/;
+                        if (regex.test(e.target.value)) {
+                          handleChange(e);
+                        }
+                      }}
                     />
                   </Col>
                   <Col md={6}>

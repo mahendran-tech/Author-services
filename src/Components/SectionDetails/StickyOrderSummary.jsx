@@ -6,8 +6,10 @@ import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 import Select from "react-select";
 import countryList from "react-select-country-list";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
-const StickyOrderSummary = ({ servicesList }) => {
+const StickyOrderSummary = ({ servicesList, isGetQuote = false }) => {
   const { state } = useLocation();
 
   const [wordCount, setWordCount] = useState("");
@@ -15,6 +17,8 @@ const StickyOrderSummary = ({ servicesList }) => {
   const [selectedServices, setSelectedServices] = useState([]);
   const [isActiveState, setIsActiveState] = useState(false);
   const options = useMemo(() => countryList().getData(), []);
+
+  const navigation = useNavigate();
 
   const [formData, setFormData] = useState({
     firstName: "",
@@ -50,8 +54,27 @@ const StickyOrderSummary = ({ servicesList }) => {
     }
   }, [state]);
 
+  // const handleInputChange = (e) => {
+  //   const { name, value, type, checked, files } = e.target;
+  //   if (type === "checkbox") {
+  //     if (name in documentOptions) {
+  //       setDocumentOptions({ ...documentOptions, [name]: checked });
+  //     } else {
+  //       setFormData({ ...formData, [name]: checked });
+  //     }
+  //   } else if (type === "file") {
+  //     setFormData({ ...formData, [name]: files[0] });
+  //   } else {
+  //     setFormData({ ...formData, [name]: value });
+  //   }
+  //   setErrors((prev) => ({ ...prev, [name]: false }));
+  // };
+
+  const MAX_FILE_SIZE = 2 * 1024 * 1024; // 2MB in bytes
+
   const handleInputChange = (e) => {
     const { name, value, type, checked, files } = e.target;
+
     if (type === "checkbox") {
       if (name in documentOptions) {
         setDocumentOptions({ ...documentOptions, [name]: checked });
@@ -59,11 +82,19 @@ const StickyOrderSummary = ({ servicesList }) => {
         setFormData({ ...formData, [name]: checked });
       }
     } else if (type === "file") {
-      setFormData({ ...formData, [name]: files[0] });
+      const file = files[0];
+      if (file && file.size > MAX_FILE_SIZE) {
+        toast.error("File must be less than or equal to 2MB");
+        setFormData({ ...formData, [name]: null });
+        setErrors((prev) => ({ ...prev, [name]: true }));
+        return;
+      }
+      setFormData({ ...formData, [name]: file });
+      setErrors((prev) => ({ ...prev, [name]: false }));
     } else {
       setFormData({ ...formData, [name]: value });
+      setErrors((prev) => ({ ...prev, [name]: false }));
     }
-    setErrors((prev) => ({ ...prev, [name]: false }));
   };
 
   const handleCheckboxChange = (service) => {
@@ -96,11 +127,49 @@ const StickyOrderSummary = ({ servicesList }) => {
     setWordCount("");
     setSelectedServices([]);
     setIsActiveState(false);
+    // navigation("/customize-editing-services");
   };
 
   const total = selectedServices
     .reduce((sum, s) => sum + parseFloat(s.price), 0)
     .toFixed(2);
+
+  // const validateForm = () => {
+  //   const newErrors = {};
+  //   let hasError = false;
+
+  //   const requiredFields = [
+  //     "firstName",
+  //     "lastName",
+  //     "email",
+  //     "phone",
+  //     "country",
+  //     "knowAbout",
+  //     "documentType",
+  //     "subjectArea",
+  //     "uploadFile",
+  //   ];
+
+  //   requiredFields.forEach((field) => {
+  //     if (!formData[field] || formData[field].toString().trim() === "") {
+  //       newErrors[field] = true;
+  //       hasError = true;
+  //     }
+  //   });
+
+  //   if (!Object.values(documentOptions).some(Boolean)) {
+  //     newErrors.docOptions = true;
+  //     hasError = true;
+  //   }
+
+  //   if (!formData.agreeTerms) {
+  //     newErrors.agreeTerms = true;
+  //     hasError = true;
+  //   }
+
+  //   setErrors(newErrors);
+  //   return hasError;
+  // };
 
   const validateForm = () => {
     const newErrors = {};
@@ -115,8 +184,6 @@ const StickyOrderSummary = ({ servicesList }) => {
       "knowAbout",
       "documentType",
       "subjectArea",
-      "comments",
-      "uploadFile",
     ];
 
     requiredFields.forEach((field) => {
@@ -125,6 +192,13 @@ const StickyOrderSummary = ({ servicesList }) => {
         hasError = true;
       }
     });
+
+    // Require at least one attachment
+    if (!formData.uploadFile && !formData.referenceFile) {
+      newErrors.uploadFile = true;
+      newErrors.referenceFile = true;
+      hasError = true;
+    }
 
     if (!Object.values(documentOptions).some(Boolean)) {
       newErrors.docOptions = true;
@@ -173,6 +247,10 @@ const StickyOrderSummary = ({ servicesList }) => {
       return;
     }
 
+    if (wordCount.length === 0) {
+      toast.warning("Please enter a valid word count");
+      return;
+    }
     if (selectedServices.length === 0) {
       toast.warning("Please select at least one service.");
       return;
@@ -181,25 +259,190 @@ const StickyOrderSummary = ({ servicesList }) => {
     setIsSubmitting(true);
 
     try {
-      console.log("===== ORDER SUBMISSION DATA =====");
-      console.log("👉 Selected Services:", selectedServices);
-      console.log(`👉 Total Amount: ${total} USD`);
-      console.log("👉 Form Data:", {
-        ...formData,
-        uploadFile: formData.uploadFile?.name || null,
-        referenceFile: formData.referenceFile?.name || null,
-      });
-      console.log("👉 Document Options:", documentOptions);
+      // Prepare form data
+      const data = new FormData();
+      data.append("firstName", formData.firstName);
+      data.append("lastName", formData.lastName);
+      data.append("email", formData.email);
+      data.append("phone", formData.phone);
+      data.append("country", formData.country);
+      data.append("knowAbout", formData.knowAbout);
+      data.append("documentType", formData.documentType);
+      data.append("subjectArea", formData.subjectArea);
+      data.append("comments", formData.comments);
+      data.append("agreeTerms", formData.agreeTerms);
+      data.append("wordCount", wordCount);
+      data.append("services", JSON.stringify(selectedServices));
+      // data.append("documentOptions", JSON.stringify(selectedDocOptions));
+      // data.append("documentOptions", JSON.stringify(documentOptions));
+      data.append("totalAmount", total);
 
-      await new Promise((resolve) => setTimeout(resolve, 2000));
+      const selectedDocOptions = Object.entries(documentOptions)
+        .filter(([_, value]) => value === true)
+        .reduce((acc, [key]) => ({ ...acc, [key]: true }), {});
 
-      toast.success("Order submitted successfully!", {
-        position: "top-center",
-      });
-      resetForm();
+      data.append("documentOptions", JSON.stringify(selectedDocOptions));
+
+      if (formData.uploadFile) {
+        data.append("uploadFile", formData.uploadFile);
+      }
+
+      if (formData.referenceFile) {
+        data.append("referenceFile", formData.referenceFile);
+      }
+      for (let pair of data.entries()) {
+        console.log(`${pair[0]}:`, pair[1]);
+      }
+
+      const response = await axios.post(
+        "https://authorservices.iferp.in/api/custom.php",
+        data,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      );
+
+      if (response.status === 200 && response.data.status) {
+        toast.success("Order submitted successfully!", {
+          position: "top-center",
+        });
+
+        resetForm();
+
+        // Redirect to payment URL
+        const redirectURL = response.data.data?.redirect_url;
+        if (redirectURL) {
+          window.location.href = redirectURL; //
+          navigation("/customize-editing-services");
+        }
+      } else {
+        // ❗ Validation or custom server-side error
+        toast.error(response.data.message || "Submission failed.");
+        if (response.data.data && Array.isArray(response.data.data)) {
+          response.data.data.forEach((msg) => toast.warning(msg));
+        }
+      }
     } catch (error) {
-      toast.error("Failed to submit the order.");
-      console.error(error);
+      if (error.response) {
+        const { data } = error.response;
+
+        // Show main error message
+        toast.error(data.message || "Submission failed.");
+
+        // If array of errors exists
+        if (data.data && Array.isArray(data.data)) {
+          data.data.forEach((msg) => toast.warning(msg));
+        }
+
+        console.log("API validation errors:", data);
+      } else {
+        toast.error("Something went wrong. Please try again.");
+        console.error("Unexpected error:", error);
+      }
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  const handleGetQuoteSubmit = async (e) => {
+    e.preventDefault();
+
+    if (validateForm()) {
+      toast.warning("Please correct the highlighted fields.");
+      return;
+    }
+
+    if (wordCount.length === 0) {
+      toast.warning("Please enter a valid word count");
+      return;
+    }
+    if (selectedServices.length === 0) {
+      toast.warning("Please select at least one service.");
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    try {
+      // Prepare form data
+      const data = new FormData();
+      data.append("firstName", formData.firstName);
+      data.append("lastName", formData.lastName);
+      data.append("email", formData.email);
+      data.append("phone", formData.phone);
+      data.append("country", formData.country);
+      data.append("knowAbout", formData.knowAbout);
+      data.append("documentType", formData.documentType);
+      data.append("subjectArea", formData.subjectArea);
+      data.append("comments", formData.comments);
+      data.append("agreeTerms", formData.agreeTerms);
+      data.append("wordCount", wordCount);
+      data.append("services", JSON.stringify(selectedServices));
+      // data.append("documentOptions", JSON.stringify(selectedDocOptions));
+      // data.append("documentOptions", JSON.stringify(documentOptions));
+      data.append("totalAmount", total);
+
+      const selectedDocOptions = Object.entries(documentOptions)
+        .filter(([_, value]) => value === true)
+        .reduce((acc, [key]) => ({ ...acc, [key]: true }), {});
+
+      data.append("documentOptions", JSON.stringify(selectedDocOptions));
+
+      if (formData.uploadFile) {
+        data.append("uploadFile", formData.uploadFile);
+      }
+
+      if (formData.referenceFile) {
+        data.append("referenceFile", formData.referenceFile);
+      }
+      for (let pair of data.entries()) {
+        console.log(`${pair[0]}:`, pair[1]);
+      }
+
+      const response = await axios.post(
+        "https://authorservices.iferp.in/api/quote.php",
+        data,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      );
+
+      if (response.status === 200 && response.data.status) {
+        toast.success("Order submitted successfully!", {
+          position: "top-center",
+        });
+
+        resetForm();
+
+        // Redirect to payment URL
+        const redirectURL = response.data.data?.redirect_url;
+        if (redirectURL) {
+          window.location.href = redirectURL; //
+          navigation("/customize-editing-services");
+        }
+      } else {
+        toast.error(response.data.message || "Submission failed.");
+        if (response.data.data && Array.isArray(response.data.data)) {
+          response.data.data.forEach((msg) => toast.warning(msg));
+        }
+      }
+    } catch (error) {
+      if (error.response) {
+        const { data } = error.response;
+        toast.error(data.message || "Submission failed.");
+        if (data.data && Array.isArray(data.data)) {
+          data.data.forEach((msg) => toast.warning(msg));
+        }
+
+        console.log("API validation errors:", data);
+      } else {
+        toast.error("Something went wrong. Please try again.");
+        console.error("Unexpected error:", error);
+      }
     } finally {
       setIsSubmitting(false);
     }
@@ -226,10 +469,16 @@ const StickyOrderSummary = ({ servicesList }) => {
             </Col>
             <Col className="mb-2 d-flex gap-1 mb-lg-0">
               <Form.Control
-                type="number"
+                type="text"
                 placeholder="e.g. 2345"
                 value={wordCount}
-                onChange={(e) => setWordCount(e.target.value)}
+                // onChange={(e) => setWordCount(e.target.value)}
+                onChange={(e) => {
+                  const value = e.target.value;
+                  if (/^\d*$/.test(value)) {
+                    setWordCount(value);
+                  }
+                }}
                 className="rounded-sm w-75 px-3"
                 readOnly={isActiveState}
               />
@@ -309,7 +558,7 @@ const StickyOrderSummary = ({ servicesList }) => {
 
             <Form className="my-form-section p-4 mb-4">
               <Row className="mb-3">
-                <Col>
+                <Col lg={6} sm={12}>
                   <Form.Label htmlFor="firstName">First Name</Form.Label>
                   <Form.Control
                     name="firstName"
@@ -320,36 +569,30 @@ const StickyOrderSummary = ({ servicesList }) => {
                   />
                 </Col>
 
-                <Col>
+                <Col lg={6} sm={12}>
                   <Form.Label htmlFor="lastName">Last Name</Form.Label>
                   <Form.Control
                     name="lastName"
                     placeholder="Enter Last Name"
                     value={formData.lastName}
                     onChange={handleInputChange}
+                    className={errors.firstName ? "error-border" : ""}
                   />
                 </Col>
               </Row>
 
               <Row className="mb-3">
-                <Col>
+                <Col lg={6} sm={12}>
                   <Form.Label htmlFor="email">Email ID</Form.Label>
                   <Form.Control
                     name="email"
                     placeholder="Enter Email ID"
                     value={formData.email}
                     onChange={handleInputChange}
+                    className={errors.firstName ? "error-border" : ""}
                   />
                 </Col>
-                <Col>
-                  {/* <Form.Label htmlFor="phonenumber">Phone Number</Form.Label>
-                  <PhoneInput
-                    country={"in"} // default country
-                    value={formData.country}
-                    onChange={(e) => setFormData({ ...formData, country: e })}
-                    enableSearch={true}
-                    placeholder="Enter phone number" // ✅ this should work
-                  /> */}
+                <Col lg={6} sm={12}>
                   <Form.Label htmlFor="phonenumber">Phone Number</Form.Label>
                   <div
                     className={errors.phone ? "error-border p-1 rounded" : ""}
@@ -369,22 +612,9 @@ const StickyOrderSummary = ({ servicesList }) => {
               </Row>
 
               <Row className="mb-3">
-                <Col>
+                <Col lg={6} sm={12}>
                   <Form.Label htmlFor="Country">Select Country</Form.Label>
-                  {/* 
-                  <div style={{ maxWidth: "100%" }}>
-                    <Select
-                      options={options}
-                      value={options.find(
-                        (opt) => opt.label === formData.country
-                      )}
-                      onChange={(e) =>
-                        setFormData({ ...formData, country: e.label })
-                      }
-                      placeholder="Select a country"
-                      isSearchable
-                    />
-                  </div> */}
+
                   <div className={errors.country ? "error-border rounded" : ""}>
                     <Select
                       options={options}
@@ -400,22 +630,24 @@ const StickyOrderSummary = ({ servicesList }) => {
                     />
                   </div>
                 </Col>
-                <Col>
+                <Col lg={6} sm={12}>
                   <Form.Label htmlFor="KnowAbout">
                     How Did You Get to Know About Us?
                   </Form.Label>
-                  <Form.Select
-                    className="custom-select"
-                    name="knowAbout"
-                    value={formData.knowAbout}
-                    onChange={handleInputChange}
-                  >
-                    <option value="">
-                      Select How Did You Get to Know About Us?
-                    </option>
-                    <option value="Google">Google</option>
-                    <option value="Referral">Referral</option>
-                  </Form.Select>
+                  <div className={errors.firstName ? "error-border" : ""}>
+                    <Form.Select
+                      className="custom-select"
+                      name="knowAbout"
+                      value={formData.knowAbout}
+                      onChange={handleInputChange}
+                    >
+                      <option value="">
+                        Select How Did You Get to Know About Us?
+                      </option>
+                      <option value="Google">Google</option>
+                      <option value="Referral">Referral</option>
+                    </Form.Select>
+                  </div>
                 </Col>
               </Row>
 
@@ -450,47 +682,51 @@ const StickyOrderSummary = ({ servicesList }) => {
               </Row>
 
               <Row className="mb-3">
-                <Col>
+                <Col lg={6} sm={12}>
                   <Form.Label htmlFor="TypeofDocument">
                     Type of Document?
                   </Form.Label>
-                  <Form.Select
-                    className="custom-select"
-                    name="documentType"
-                    value={formData.documentType}
-                    onChange={handleInputChange}
-                  >
-                    <option value="">Select Type of Document?</option>
-                    <option value="Word">Word</option>
-                    <option value="PDF">PDF</option>
-                  </Form.Select>
+                  <div className={errors.firstName ? "error-border" : ""}>
+                    <Form.Select
+                      className="custom-select"
+                      name="documentType"
+                      value={formData.documentType}
+                      onChange={handleInputChange}
+                    >
+                      <option value="">Select Type of Document?</option>
+                      <option value="Word">Word</option>
+                      <option value="PDF">PDF</option>
+                    </Form.Select>
+                  </div>
                 </Col>
-                <Col>
+                <Col lg={6} sm={12}>
                   <Form.Label htmlFor="Subject Area">Subject Area</Form.Label>
-                  <Form.Select
-                    className="custom-select"
-                    name="subjectArea"
-                    value={formData.subjectArea}
-                    onChange={handleInputChange}
-                  >
-                    <option value="">Select Subject Area</option>
-                    <option value="Life Sciences">Life Sciences</option>
-                    <option value="Medicine and Health Sciences">
-                      Medicine and Health Sciences
-                    </option>
-                    <option value="Physical Sciences and Engineering">
-                      Physical Sciences and Engineering
-                    </option>
-                    <option value="Arts and Humanities">
-                      Arts and Humanities
-                    </option>
-                    <option value="Linguistics and Education">
-                      Linguistics and Education
-                    </option>
-                    <option value="Business and Economics">
-                      Business and Economics
-                    </option>
-                  </Form.Select>
+                  <div className={errors.firstName ? "error-border" : ""}>
+                    <Form.Select
+                      className="custom-select"
+                      name="subjectArea"
+                      value={formData.subjectArea}
+                      onChange={handleInputChange}
+                    >
+                      <option value="">Select Subject Area</option>
+                      <option value="Life Sciences">Life Sciences</option>
+                      <option value="Medicine and Health Sciences">
+                        Medicine and Health Sciences
+                      </option>
+                      <option value="Physical Sciences and Engineering">
+                        Physical Sciences and Engineering
+                      </option>
+                      <option value="Arts and Humanities">
+                        Arts and Humanities
+                      </option>
+                      <option value="Linguistics and Education">
+                        Linguistics and Education
+                      </option>
+                      <option value="Business and Economics">
+                        Business and Economics
+                      </option>
+                    </Form.Select>
+                  </div>
                 </Col>
               </Row>
 
@@ -512,7 +748,11 @@ const StickyOrderSummary = ({ servicesList }) => {
               <Row className="mb-3">
                 <Col>
                   <Form.Group controlId="uploadFile">
-                    <div className="border-dash-light p-4 text-center">
+                    <div
+                      className={`border-dash-light p-4 text-center ${
+                        errors.referenceFile ? "error-border" : ""
+                      }`}
+                    >
                       <Form.Label style={{ cursor: "pointer" }}>
                         <img
                           className="mb-2"
@@ -544,7 +784,11 @@ const StickyOrderSummary = ({ servicesList }) => {
                 </Col>
                 <Col>
                   <Form.Group controlId="referenceFile">
-                    <div className="border-dash-light p-4 text-center">
+                    <div
+                      className={`border-dash-light p-4 text-center ${
+                        errors.uploadFile ? "error-border" : ""
+                      }`}
+                    >
                       <Form.Label style={{ cursor: "pointer" }}>
                         <img
                           className="mb-2"
@@ -635,29 +879,6 @@ const StickyOrderSummary = ({ servicesList }) => {
                 </>
               )}
 
-              {/* {isSubmitting ? (
-                <Button
-                  className="btn btn-light-white w-100 mt-3 d-flex justify-content-center align-items-center"
-                  style={{ backgroundColor: "#fff", color: "rgb(7, 90, 179)" }}
-                  disabled
-                >
-                  <span
-                    className="spinner-border spinner-border-sm me-2"
-                    role="status"
-                    aria-hidden="true"
-                  ></span>
-                  Submitting...
-                </Button>
-              ) : (
-                <Button
-                  type="submit"
-                  className="btn btn-light-white w-100 mt-3"
-                  style={{ backgroundColor: "#fff", color: "rgb(7, 90, 179)" }}
-                  onClick={handleSubmit}
-                >
-                  Submit Order
-                </Button>
-              )} */}
               {isSubmitting ? (
                 <Button
                   className="btn btn-light-white w-100 mt-3 d-flex justify-content-center align-items-center"
@@ -676,7 +897,7 @@ const StickyOrderSummary = ({ servicesList }) => {
                   type="submit"
                   className="btn btn-light-white w-100 mt-3"
                   style={{ backgroundColor: "#fff", color: "rgb(7, 90, 179)" }}
-                  onClick={handleSubmit}
+                  onClick={isGetQuote ? handleGetQuoteSubmit : handleSubmit}
                 >
                   Submit Order
                 </Button>

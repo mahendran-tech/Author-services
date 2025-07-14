@@ -9,6 +9,7 @@ const EstimateCalculator = () => {
   const [selectedOption, setSelectedOption] = useState(0);
   const [wordCount, setWordCount] = useState("");
   const [proceedClicked, setProceedClicked] = useState(false); // NEW
+
   const navigate = useNavigate();
   useEffect(() => {
     const generatePricingOptions = () => {
@@ -65,6 +66,20 @@ const EstimateCalculator = () => {
   //   const total = (ratePerWord * count).toFixed(2);
   //   return `${total} USD`;
   // };
+
+  const calculateOriginalPrice = (option) => {
+    if (!proceedClicked) {
+      // 👈 Show default price until Proceed is clicked
+      return option.originalPrice;
+    }
+
+    const count = parseInt(wordCount);
+    if (!count || isNaN(count)) return option.originalPrice;
+
+    const ratePerWord = parseFloat(option.originalPrice);
+    const total = (ratePerWord * count).toFixed(2);
+    return `${total} USD`;
+  };
 
   const calculateTotalPrice = (option) => {
     if (!proceedClicked) {
@@ -238,7 +253,10 @@ const EstimateCalculator = () => {
 
             <div className="text-end">
               <div>
-                <del className="text-muted me-2">{option.originalPrice}</del>
+                <del className="text-muted me-2">
+                  {/* {option.originalPrice}  */}
+                  {calculateOriginalPrice(option)}
+                </del>
                 <span className="fw-bold">{calculateTotalPrice(option)}</span>
               </div>
             </div>
@@ -247,8 +265,12 @@ const EstimateCalculator = () => {
       </div>
 
       <div className="text-center mt-4">
-        <Button onClick={handlePlaceOrder} className="cs_btn cs_style_1">
-          Place Order →
+        <Button
+          onClick={handlePlaceOrder}
+          disabled={!proceedClicked}
+          className="cs_btn cs_style_1"
+        >
+          {!proceedClicked ? "Proceed then Click" : "Place Order → "}
         </Button>
       </div>
       <div className="cs_height_30 cs_height_lg_40"></div>
