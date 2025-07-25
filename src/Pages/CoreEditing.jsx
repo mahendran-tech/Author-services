@@ -63,12 +63,13 @@ const CoreEditing = () => {
       <CoreEditingPage />
       {/* <WordCountEstimator /> */}
       <EstimateCalculator />
-      <FeaturesSection features={features} />
+
       {/* <EditingFeatures /> */}
 
-      <EditingFeatures />
-
       <SampleTabs isbutton={true} />
+      <FeaturesSection features={features} />
+      <EditingFeatures />
+      <div className="cs_height_48"></div>
       <ContactHelpSection />
     </div>
   );

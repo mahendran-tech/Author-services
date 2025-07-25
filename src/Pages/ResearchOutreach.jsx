@@ -4,6 +4,7 @@ import DoubleColumn from "../Components/Project/DoubleColumn";
 import OutreachTabs from "../Components/SectionDetails/OutreachTabs";
 import SupportGrid from "../Components/Process/SupportGrid";
 import ContactHelpSection from "../Components/SectionDetails/ContactHelpSection";
+import ResearchOutreachForm from "../Components/Form/ResearchOutreachForm";
 
 const services = [
   {
@@ -105,6 +106,8 @@ const ResearchOutreach = () => {
       />
       {/* <ResearchTabs /> */}
       <OutreachTabs />
+
+      <ResearchOutreachForm />
 
       <SupportGrid
         services={services}

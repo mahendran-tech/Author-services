@@ -138,7 +138,13 @@ const ResearchEditing = () => {
       </div>
 
       <div className="bg-light">
-        <div className="cs_height_50 cs_height_lg_50"></div>
+        <SampleTabs
+          isTitle={true}
+          title={"Research Editing"}
+          isbutton={true}
+          subtitle={"Samples"}
+        />
+        <div className="cs_height_40 cs_height_lg_40"></div>
         <OtherServicesSection
           isTitle={true}
           title={"Other Services"}
@@ -153,12 +159,7 @@ const ResearchEditing = () => {
           serviceData={serviceData1}
         />
         <FeaturesSection features={feature1} isTitle={false} />
-        <SampleTabs
-          isTitle={true}
-          title={"Research Editing"}
-          isbutton={true}
-          subtitle={"Samples"}
-        />
+        <div className="cs_height_40 cs_height_lg_40"></div>
         <ContactHelpSection />
         <div className="cs_height_50 cs_height_lg_50"></div>
       </div>

@@ -138,6 +138,13 @@ const ExclusiveEditing = () => {
       <WhyChoose />
       {/* <DeliveryOptions /> */}
       <EstimateSelector />
+
+      <SampleTabs
+        isTitle={true}
+        title={"Exclusive Editing"}
+        isbutton={true}
+        subtitle={"Samples"}
+      />
       <OtherServicesSection
         isTitle={true}
         title={"Other Services"}
@@ -151,12 +158,7 @@ const ExclusiveEditing = () => {
         subtitle={"Features for Researchers"}
         serviceData={serviceData3}
       />
-      <SampleTabs
-        isTitle={true}
-        title={"Exclusive Editing"}
-        isbutton={true}
-        subtitle={"Samples"}
-      />
+      <div className="cs_height_40 cs_height_lg_40"></div>
       <ContactHelpSection />
     </div>
   );

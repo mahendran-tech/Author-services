@@ -1,13 +1,14 @@
-import {Link} from "react-router-dom";
-import {FiPhoneCall} from "react-icons/fi";
-import {MdOutlineAttachEmail} from "react-icons/md";
+import { Link } from "react-router-dom";
+import { FiPhoneCall } from "react-icons/fi";
+import { MdOutlineAttachEmail } from "react-icons/md";
 import { comman } from "../../assets/assets";
 
 const Footer1 = () => {
   return (
     <footer
       className="cs_footer cs_style_1 cs_bg_filed cs_heading_bg"
-      data-src="assets/img/footer_bg.jpg">
+      data-src="assets/img/footer_bg.jpg"
+    >
       <div className="cs_main_footer cs_white_color">
         <div className="container">
           <div className="cs_footer_row">
@@ -25,7 +26,7 @@ const Footer1 = () => {
                     }}
                   />
                   <p className="mt-3">
-                    technoarete Research & Development Association
+                    Technoarete Research & Development Association
                   </p>
                   <div className="mt-3">
                     <Link className="cs_btn style_4 cs_fs_12 ">
@@ -43,19 +44,44 @@ const Footer1 = () => {
 
                 <ul className="cs_footer_menu">
                   <li>
-                    <Link to="#">Editing & Proofreading</Link>
+                    <Link
+                      to="/editing-proofreading"
+                      onClick={() => scrollTo({ top: 0, behavior: "smooth" })}
+                    >
+                      Editing & Proofreading
+                    </Link>
                   </li>
                   <li>
-                    <Link to="#">Publication Support</Link>
+                    <Link
+                      to="/publication-support"
+                      onClick={() => scrollTo({ top: 0, behavior: "smooth" })}
+                    >
+                      Publication Support
+                    </Link>
                   </li>
                   <li>
-                    <Link to="#">Citation Booster</Link>
+                    <Link
+                      to="/citation-booster"
+                      onClick={() => scrollTo({ top: 0, behavior: "smooth" })}
+                    >
+                      Citation Booster
+                    </Link>
                   </li>
                   <li>
-                    <Link to="#">Translation Services</Link>
+                    <Link
+                      to="/translation-services"
+                      onClick={() => scrollTo({ top: 0, behavior: "smooth" })}
+                    >
+                      Translation Services
+                    </Link>
                   </li>
                   <li>
-                    <Link to="#">FAQs</Link>
+                    <Link
+                      to="#faq"
+                      onClick={() => scrollTo({ top: 0, behavior: "smooth" })}
+                    >
+                      FAQs
+                    </Link>
                   </li>
                 </ul>
               </div>
@@ -135,7 +161,8 @@ const Footer1 = () => {
                       style={{
                         backgroundColor: "#ff4c00",
                         borderColor: "#ff4c00",
-                      }}>
+                      }}
+                    >
                       Sign up for our newsletter
                     </Link>
                   </div>

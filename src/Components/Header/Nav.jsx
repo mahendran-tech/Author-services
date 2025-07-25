@@ -1,3 +1,5 @@
+import GoogleTranslate from "../Common/GoogleTranslateDropdown";
+
 import DropDown from "./DropDown";
 import { Link } from "react-router-dom";
 
@@ -300,8 +302,8 @@ export default function Nav({ setMobileToggle }) {
         </DropDown>
       </li>
       {/* <li>
-        <Link to="/contact" onClick={() => setMobileToggle(false)}>
-          Contact
+        <Link to="#" onClick={() => setMobileToggle(false)}>
+          <GoogleTranslate />
         </Link>
       </li> */}
     </ul>

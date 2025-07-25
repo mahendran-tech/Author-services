@@ -1,12 +1,26 @@
-import {useEffect, useState} from "react";
-import {Link} from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import Nav from "./Nav";
 import { comman } from "../../assets/assets.js";
+import { FaPhoneSquareAlt } from "react-icons/fa";
 
-export default function Header2({variant}) {
+export default function Header2({ variant }) {
   const [mobileToggle, setMobileToggle] = useState(false);
   const [isSticky, setIsSticky] = useState();
   const [prevScrollPos, setPrevScrollPos] = useState(0);
+
+  const style1 = {
+    fontSize: "12px",
+    border: "1px dashed #333",
+    borderRadius: "50%",
+    width: "25px",
+    textAlign: "center",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    height: "25px",
+    padding: "2px",
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -35,7 +49,8 @@ export default function Header2({variant}) {
           variant ? variant : ""
         } cs_sticky_header cs_site_header_full_width ${
           mobileToggle ? "cs_mobile_toggle_active" : ""
-        } ${isSticky ? isSticky : ""}`}>
+        } ${isSticky ? isSticky : ""}`}
+      >
         {/* <div className="cs_top_header">
           <div className="container-fluid">
             <div className="cs_top_header_in">
@@ -96,26 +111,38 @@ export default function Header2({variant}) {
                         ? "cs-munu_toggle cs_teggle_active"
                         : "cs-munu_toggle"
                     }
-                    onClick={() => setMobileToggle(!mobileToggle)}>
+                    onClick={() => setMobileToggle(!mobileToggle)}
+                  >
                     <span></span>
                   </span>
                   <Nav setMobileToggle={setMobileToggle} />
                 </div>
               </div>
               <div className="cs_main_header_right">
-                <div className="d-flex gap-2 align-items-center">
-                  <div className="pe-2">
-                    <span>
-                      {" "}
-                      <i
-                        className="bi bi-search"
-                        style={{fontSize: "20px"}}></i>{" "}
-                    </span>
+                <div className="d-flex gap-1 align-items-center">
+                  <div className="pe-xl-4 pe-0 pe-lg-1 ">
+                    <ul className="cs_header_contact_list d-flex flex-lg-column  cs_mp_0">
+                      <li>
+                        <i className="bi bi-telephone-fill" style={style1}></i>
+                        <a href="tel:+919342924782" className="cs_fs_14">
+                          +91 93429 24782
+                        </a>
+                      </li>
+                      <li>
+                        <i className="bi bi-envelope-fill" style={style1}></i>
+                        <a
+                          href="mailto:author.support@iferp.in"
+                          className="cs_fs_14"
+                        >
+                          author.support@iferp.in
+                        </a>
+                      </li>
+                    </ul>
                   </div>
-                  <Link className="cs_btn style_3 ">Login</Link>
+                  {/* <Link className="cs_btn style_3 ">Login</Link>
                   <Link to="/contact" className="cs_btn style_4">
                     <span>Sign</span>
-                  </Link>
+                  </Link> */}
                 </div>
               </div>
             </div>

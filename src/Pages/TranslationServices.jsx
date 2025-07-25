@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import SectionBanner from "../Components/HeroBanner/SectionBanner";
 import SingleColumn from "../Components/Common/SingleColumn";
 import WhatYouGet from "../Components/Process/WhatYouGet";
@@ -11,6 +11,8 @@ import { Container } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import SupportGrid from "../Components/Process/SupportGrid.jsx";
 import ContactHelpSection from "../Components/SectionDetails/ContactHelpSection.jsx";
+import { useLocation } from "react-router-dom";
+import ResearchOutreachForm from "../Components/Form/ResearchOutreachForm.jsx";
 
 const expertData = [
   {
@@ -130,6 +132,18 @@ const services = [
 ];
 
 const TranslationServices = () => {
+  const location = useLocation();
+
+  useEffect(() => {
+    const hash = location.hash;
+    if (hash) {
+      const el = document.getElementById(hash.substring(1));
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  }, [location]);
+
   return (
     <>
       <SectionBanner
@@ -143,7 +157,7 @@ const TranslationServices = () => {
         }
         btnname="Get a Quote"
         img1="assets/img/ts.png"
-        btnurl="/translation-services"
+        btnurl="#ts_getquote"
         edit={true}
         editingsection={true}
       ></SectionBanner>
@@ -151,7 +165,7 @@ const TranslationServices = () => {
       <SingleColumn
         Title="Translation"
         SubTitle="Services"
-        btnurl="/translation-services"
+        btnurl="#ts_getquote"
         content="Language shouldn’t get in the way of sharing your important work with the world. With IFERP’s translation services, whether you’re preparing your manuscript for publication or hoping to reach a broader audience, our translators make sure your research is communicated clearly and effectively."
       />
       <WhatYouGet />
@@ -165,16 +179,18 @@ const TranslationServices = () => {
         textLeft={true}
         Content="Our Language Translation service is dedicated to providing precise and reliable translations of your research, ensuring that the integrity and original meaning of your work are preserved across multiple languages. Whether your goal is to reach the audience of an international academic journal or to communicate your findings to a global, diverse audience, we specialize in helping you effectively convey your ideas and discoveries. With our expertise, we ensure that your research transcends language barriers, enabling you to share your work with a wider community while maintaining its core message and significance."
         ImagePath="assets/img/translate.png"
-        btnurl="/translation-services"
+        btnurl="#ts_getquote"
         reverse={false}
       />
 
       <LanguageTranslationTabs />
-      <DocumentUploadForm />
+      <div id="ts_getquote">
+        <DocumentUploadForm />
+      </div>
 
       <ExpertEditors
         expertData={expertData}
-        btnurl={"/get-quote"}
+        btnurl={"#ts_getquote"}
         isImage={false}
         Title={"How Our "}
         SubTitle={"Translation Service Works?"}
@@ -182,7 +198,7 @@ const TranslationServices = () => {
       <SingleColumn
         Title="Choose Our"
         SubTitle="Translation Service"
-        btnurl="/translation-services"
+        btnurl="#ts_getquote"
         content="Want to reach more readers around the world? Translating your book into multiple languages is an effective way to expand your global audience. Our Book Translation service ensures your work remains true to its original message and tone while adapting it to fit different cultures. We’re here to help you connect with a broader audience, without losing the heart of your story."
       />
       <DoubleColumn

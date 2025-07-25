@@ -576,7 +576,7 @@ const StickyOrderSummary = ({ servicesList, isGetQuote = false }) => {
                     placeholder="Enter Last Name"
                     value={formData.lastName}
                     onChange={handleInputChange}
-                    className={errors.firstName ? "error-border" : ""}
+                    className={errors.lastName ? "error-border" : ""}
                   />
                 </Col>
               </Row>
@@ -589,7 +589,7 @@ const StickyOrderSummary = ({ servicesList, isGetQuote = false }) => {
                     placeholder="Enter Email ID"
                     value={formData.email}
                     onChange={handleInputChange}
-                    className={errors.firstName ? "error-border" : ""}
+                    className={errors.email ? "error-border" : ""}
                   />
                 </Col>
                 <Col lg={6} sm={12}>
@@ -634,7 +634,7 @@ const StickyOrderSummary = ({ servicesList, isGetQuote = false }) => {
                   <Form.Label htmlFor="KnowAbout">
                     How Did You Get to Know About Us?
                   </Form.Label>
-                  <div className={errors.firstName ? "error-border" : ""}>
+                  <div className={errors.knowAbout ? "error-border" : ""}>
                     <Form.Select
                       className="custom-select"
                       name="knowAbout"
@@ -686,7 +686,7 @@ const StickyOrderSummary = ({ servicesList, isGetQuote = false }) => {
                   <Form.Label htmlFor="TypeofDocument">
                     Type of Document?
                   </Form.Label>
-                  <div className={errors.firstName ? "error-border" : ""}>
+                  <div className={errors.documentType ? "error-border" : ""}>
                     <Form.Select
                       className="custom-select"
                       name="documentType"
@@ -701,7 +701,7 @@ const StickyOrderSummary = ({ servicesList, isGetQuote = false }) => {
                 </Col>
                 <Col lg={6} sm={12}>
                   <Form.Label htmlFor="Subject Area">Subject Area</Form.Label>
-                  <div className={errors.firstName ? "error-border" : ""}>
+                  <div className={errors.subjectArea ? "error-border" : ""}>
                     <Form.Select
                       className="custom-select"
                       name="subjectArea"

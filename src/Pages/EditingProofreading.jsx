@@ -51,13 +51,13 @@ const EditingProofreading = () => {
         editingsection={true}
       ></SectionBanner>
       <EditingServices />
-
-      {/* <EditingPlansComparison  /> */}
       <EditingPlansComparison features={features} plans={plans} />
-      <Services />
       <SampleEditing />
+      {/* <EditingPlansComparison  /> */}
+
       <BenefitsSection />
       <ProcessEditing Sectionimg={true} />
+      <Services />
       <div className="cs_height_40 cs_height_lg_59"></div>
     </div>
   );

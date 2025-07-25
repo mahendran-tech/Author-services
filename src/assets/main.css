@@ -6855,7 +6855,7 @@ label {
     position: relative;
   }
   .cs_nav .cs_nav_list > li {
-    margin-right: 20px;
+    margin-right:15px;
     height: inherit;
   }
   .cs_nav .cs_nav_list > li:last-child {
@@ -6971,7 +6971,7 @@ label {
     margin-left: 25px;
   }
   .cs_nav .cs_nav_list > li {
-    margin-right: 35px;
+    margin-right:10px;
   }
 }
 @media screen and (max-width: 1199px) {
@@ -7431,7 +7431,7 @@ label {
 }
 
 .cs_site_header.cs_style_1.cs_type_1 .cs_logo_wrap {
-  width: 316px;
+  width:270px;
   -webkit-box-align: end;
   -ms-flex-align: end;
   align-items: flex-end;
@@ -7487,7 +7487,7 @@ label {
 }
 @media (max-width: 1280px) {
   .cs_site_header.cs_style_1.cs_type_1 .cs_logo_wrap {
-    width: 270px;
+    width: 190px;
   }
 }
 @media (max-width: 1199px) {
@@ -7857,7 +7857,7 @@ Border style
   background-color: #f8f9fa;
 } */
 .icon-box {
-    padding: 20px;
+    padding: 10px 5px 10px 5px;
     border-radius: 12px;
     /* border: 1px dashed #0268ff8f; */
     transition: transform 0.3s ease;
@@ -9356,10 +9356,114 @@ Service Card
 }
 
 
+.form-label {
+    margin-bottom: 0.1rem;
+    margin-left: 2px;
+    font-size: 14px;
+    font-weight: 500;
+}
 
 
 
 
+/* trans */
+
+/* src/LanguageSelector.css */
+.VIpgJd-ZVi9od-ORHb-OEVmcd {
+    display: none;
+}
+
+.goog-te-gadget-simple .VIpgJd-ZVi9od-xl07Ob-lTBxed {
+    color: #fff;
+}
+
+.goog-te-gadget-simple .VIpgJd-ZVi9od-xl07Ob-lTBxed:hover {
+    color: #fff !important;
+}
+
+.goog-te-banner-frame {
+    display: none !important;
+}
+
+.goog-te-menu-value:hover {
+    text-decoration: none !important;
+}
+
+body {
+    top: 0 !important;
+}
+
+#google_translate_element2 {
+    display: none !important;
+}
+
+
+.goog-te-menu2 {
+    max-width: 100%;
+}
+
+.goog-te-menu-value {
+    color: #fff !important;
+
+    &:before {
+        font-family: 'Material Icons';
+        content: "\E927";
+        margin-right: 16px;
+        font-size: 2rem;
+        vertical-align: -10px;
+    }
+}
+
+.goog-te-menu-value span:nth-child(5) {
+    display: none;
+}
+
+.goog-te-menu-value span:nth-child(3) {
+    border: none !important;
+    font-family: 'Material Icons';
+
+    &:after {
+        font-family: 'Material Icons';
+        content: "\E5C5";
+        font-size: 1.5rem;
+        vertical-align: -6px;
+    }
+}
+
+.goog-te-gadget-icon {
+    background-image: url(https://placehold.it/32) !important;
+    background-position: 0px 0px;
+    height: 32px !important;
+    width: 32px !important;
+    margin-right: 8px !important;
+    display: none;
+}
+
+#google_translate_element {
+  display: inline-block;
+  margin: 10px;
+}
+.goog-te-gadget .goog-te-combo {
+  background-color: #fff !important;
+  color: #000 !important;
+  border: 1px solid #ccc;
+  padding: 6px;
+}
+
+.goog-te-gadget-simple {
+    background-color: #f3f3f3 !important;
+    border: 1px solid rgb(225, 122, 36) !important;
+    color: #fff !important;
+    padding: 6px;
+    border-radius: 4px !important;
+    font-size: 14px !important;
+    line-height: 2rem !important;
+    display: inline-block;
+    cursor: pointer;
+    zoom: 1;
+    font-size: 12px !important;
+    /* width: 130px; */
+}
 
 
 
